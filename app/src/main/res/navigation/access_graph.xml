@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/access_graph"
+    app:startDestination="@id/accessStart">
+    <fragment
+        android:id="@+id/accessStart"
+        android:name="com.example.taysir.UserAccess.StartFragment"
+        android:label="Start"
+        tools:layout="@layout/fragment_start">
+    </fragment>
+</navigation>
