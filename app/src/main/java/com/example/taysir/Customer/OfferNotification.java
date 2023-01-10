@@ -1,4 +1,4 @@
-package com.example.taysir.UserAccess;
+package com.example.taysir.Customer;
 
 import android.os.Bundle;
 
@@ -9,9 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taysir.R;
+public class OfferNotification extends Fragment {
 
-
-public class SelectLoginType extends Fragment {
 
 
     @Override
@@ -24,6 +23,6 @@ public class SelectLoginType extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_select_login_type, container, false);
+        return inflater.inflate(R.layout.fragment_offer_notification, container, false);
     }
 }

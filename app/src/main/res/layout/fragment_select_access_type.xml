@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".UserAccess.SelectLoginType"
+    tools:context=".UserAccess.SelectAccessType"
     android:background="@color/Wild_Sand">
     <ImageView
         android:layout_width="70dp"
@@ -93,9 +93,33 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
     <ImageView
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/half_circle_bottom_right"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+    <ImageView
+        android:id="@+id/topLine"
+        android:layout_width="260dp"
+        android:layout_height="320dp"
+        android:src="@drawable/line_bottom_right"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:id="@+id/lineTop"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/Wild_Sand"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/lineTop2"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:background="@color/Wild_Sand"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

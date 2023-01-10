@@ -11,13 +11,41 @@
         android:layout_height="match_parent"
         android:background="@color/Wild_Sand">
         <ImageView
-            android:layout_width="280dp"
+            android:id="@+id/topCurve"
+            android:layout_width="300dp"
             android:layout_height="280dp"
             android:src="@drawable/half_circle_right"
            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
         </ImageView>
         <ImageView
+            android:id="@+id/topLine"
+            android:layout_width="315dp"
+            android:layout_height="260dp"
+            android:src="@drawable/line_top_right"
+            app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/lineTop"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/Wild_Sand"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:id="@+id/lineTop2"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/Wild_Sand"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/topCurve"
+            app:layout_constraintTop_toTopOf="@id/topCurve"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/bottomCurve"
             android:layout_width="300dp"
             android:layout_height="280dp"
             android:src="@drawable/half_circle_left"
@@ -25,35 +53,55 @@
             app:layout_constraintStart_toStartOf="parent">
         </ImageView>
 
-       <!-- <ImageView
+        <ImageView
+            android:id="@+id/bottomLine"
             android:layout_width="315dp"
             android:layout_height="260dp"
-            android:src="@drawable/line_shape"
+            android:src="@drawable/line_bottom_left"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"></ImageView>
--->
+            app:layout_constraintStart_toStartOf="parent"/>
+        <View
+            android:id="@+id/lineBottom1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/Wild_Sand"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/bottomLine"
+            app:layout_constraintStart_toStartOf="@id/bottomCurve"/>
+
+        <View
+            android:id="@+id/lineBottom2"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@color/Wild_Sand"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bottomCurve"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/half_circle_left"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/logo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.411"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.366"></ImageView>
+            app:layout_constraintVertical_bias="0.409"></ImageView>
+
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/start"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_shape"
+            android:background="@drawable/button_shape1"
             android:text="أبدأ"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintTop_toBottomOf="@id/logo"
             app:layout_constraintStart_toStartOf="@id/logo"
             app:layout_constraintEnd_toEndOf="@id/logo"
-            android:layout_margin="20sp"/>
+            android:layout_margin="30sp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

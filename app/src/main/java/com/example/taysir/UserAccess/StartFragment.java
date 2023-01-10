@@ -3,6 +3,7 @@ package com.example.taysir.UserAccess;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +25,17 @@ public class StartFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding=FragmentStartBinding.inflate(inflater,container,false);
-
+        funStart();
         return mBinding.getRoot();
+    }
+    private void funStart()
+    {
+        mBinding.start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(StartFragment.this)
+                        .navigate(R.id.start);
+            }
+        });
     }
 }

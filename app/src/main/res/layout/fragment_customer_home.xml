@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Customer.CustomerHome"
+    android:background="@color/Wild_Sand">
+
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+
+   <!-- <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/include"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:background="@color/Wild_Sand"
+        app:layout_constraintStart_toEndOf="@id/displayNotificationOffers"
+        app:layout_constraintTop_toBottomOf="@id/displayNotificationOffers" >
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="الإشعارات"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:drawableStart="@drawable/ic_baseline_keyboard_arrow_up_24"
+            android:gravity="end"
+            android:padding="10dp"
+            android:drawablePadding="10dp"
+            android:textStyle="bold"
+            android:background="Wild_Sand"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+        </TextView>
+        <View
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/Gray"
+            app:layout_constraintStart_toStartOf="@id/text1"
+            app:layout_constraintTop_toBottomOf="@id/text1" />
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/line1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/Wild_Sand">
+            <TextView
+                android:id="@+id/text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="منذ دقيقتين"
+                android:layout_weight="1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:drawableStart="@drawable/ic_baseline_keyboard_arrow_left_24"
+                android:gravity="end"
+                android:padding="10dp"
+                android:drawablePadding="10dp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="عرض جديد"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:drawablePadding="10dp"
+                android:textStyle="bold">
+            </TextView>
+        </LinearLayout>
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/Gray"
+            app:layout_constraintEnd_toEndOf="@id/linear"
+            app:layout_constraintStart_toStartOf="@id/linear"
+            app:layout_constraintTop_toBottomOf="@id/linear" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+-->
+
+    <ImageView
+        android:id="@+id/displayProfile"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button_shape2"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_perm_identity_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/displayNotificationOffers"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/button_shape2"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_notifications_none_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/displayOffers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_shape1"
+        android:text="العروض"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/displayNotificationOffers" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createNewOrder"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_shape4"
+        android:text="إنشاء طلب جديد"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/displayOffers" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/currentlyOrders"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_shape4"
+        android:text="الطلبات الحالية"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createNewOrder" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/oldOrders"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/button_shape4"
+        android:text="الطلبات القديمة"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/currentlyOrders" />
+    <ImageView
+        android:id="@+id/callCenter"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/button_shape2"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_headset_mic_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+ </androidx.constraintlayout.widget.ConstraintLayout>
+ <FrameLayout
+     android:id="@+id/framlayout"
+     android:layout_height="wrap_content"
+     android:layout_width="wrap_content"
+     android:background="@color/Wild_Sand"
+     android:layout_marginTop="60dp"
+     android:layout_marginStart="20sp"
+     android:layout_marginEnd="10dp"
+     app:layout_constraintTop_toTopOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     />
+</androidx.constraintlayout.widget.ConstraintLayout>

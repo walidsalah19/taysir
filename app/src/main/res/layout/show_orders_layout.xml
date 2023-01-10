@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Wild_Sand"
+    >
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="الإشعارات"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_baseline_keyboard_arrow_up_24"
+        android:gravity="end"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+    </TextView>
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/Gray"
+        app:layout_constraintEnd_toEndOf="@id/text1"
+        app:layout_constraintStart_toStartOf="@id/text1"
+        app:layout_constraintTop_toBottomOf="@id/text1" />
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/text1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="منذ دقيقتين"
+        android:layout_weight="1"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:drawableStart="@drawable/ic_baseline_keyboard_arrow_left_24"
+        android:gravity="end"
+        android:padding="10dp"
+        android:drawablePadding="10dp"
+        android:textStyle="bold">
+    </TextView>
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="عرض جديد"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:drawablePadding="10dp"
+            android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="3dp"
+        android:background="@color/Gray"
+        app:layout_constraintEnd_toEndOf="@id/linear"
+        app:layout_constraintStart_toStartOf="@id/linear"
+        app:layout_constraintTop_toBottomOf="@id/linear" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

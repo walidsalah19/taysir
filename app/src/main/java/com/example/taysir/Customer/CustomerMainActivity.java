@@ -1,4 +1,4 @@
-package com.example.taysir.UserAccess;
+package com.example.taysir.Customer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -10,29 +10,30 @@ import android.os.Bundle;
 
 import com.example.taysir.R;
 import com.example.taysir.databinding.ActivityAccessMainBinding;
+import com.example.taysir.databinding.ActivityCustomerMainBinding;
 
-public class AccessMainActivity extends AppCompatActivity {
-     private ActivityAccessMainBinding mBinding;
+public class CustomerMainActivity extends AppCompatActivity {
+    private ActivityCustomerMainBinding mBinding;
     private AppBarConfiguration appBarConfiguration;
     private NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding=ActivityAccessMainBinding.inflate(getLayoutInflater());
+        mBinding= ActivityCustomerMainBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
         funNavController();
 
     }
     private void funNavController()
     {
-        navController = Navigation.findNavController(this, R.id.access_nav_host_fragment);
+        navController = Navigation.findNavController(this, R.id.customer_nav_host_fragment);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
     }
 
 
     @Override
     public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.access_nav_host_fragment);
+        NavController navController = Navigation.findNavController(this, R.id.customer_nav_host_fragment);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }

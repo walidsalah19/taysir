@@ -1,21 +1,18 @@
-package com.example.taysir.UserAccess;
+package com.example.taysir.Customer;
 
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taysir.R;
-import com.example.taysir.databinding.FragmentLoginBinding;
+import com.example.taysir.databinding.FragmentCustomerHomeBinding;
 
-public class LoginFragment extends Fragment {
-
-
-    private FragmentLoginBinding mBinding;
+public class CustomerHome extends Fragment {
+    private FragmentCustomerHomeBinding mBinding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,17 +23,16 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentLoginBinding.inflate(inflater,container,false);
-        forgotPassword();
+        mBinding=FragmentCustomerHomeBinding.inflate(inflater,container,false);
+        showNotificationOffers();
         return mBinding.getRoot();
     }
-    private void forgotPassword()
+    private void showNotificationOffers()
     {
-        mBinding.createAccount.setOnClickListener(new View.OnClickListener() {
+        mBinding.displayNotificationOffers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(LoginFragment.this)
-                        .navigate(R.id.forgetPasswordAction);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.framlayout,new OfferNotification()).addToBackStack(null).commit();
             }
         });
     }

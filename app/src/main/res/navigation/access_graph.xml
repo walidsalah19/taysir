@@ -9,5 +9,53 @@
         android:name="com.example.taysir.UserAccess.StartFragment"
         android:label="Start"
         tools:layout="@layout/fragment_start">
+        <action android:id="@+id/start"
+            app:destination="@id/selectUserType"/>
+    </fragment>
+    <fragment
+        android:id="@+id/selectUserType"
+        android:name="com.example.taysir.UserAccess.SelectUserType"
+        android:label="Start"
+        tools:layout="@layout/fragment_select_user_type">
+   <action android:id="@+id/accessTypeAction"
+       app:destination="@id/selectAccessType"/>
+    </fragment>
+    <fragment
+        android:id="@+id/selectAccessType"
+        android:name="com.example.taysir.UserAccess.SelectAccessType"
+        android:label="Start"
+        tools:layout="@layout/fragment_select_access_type">
+        <action android:id="@+id/loginAction"
+            app:destination="@id/Login"/>
+        <action android:id="@+id/customerProfileAction"
+            app:destination="@id/customerProfile"/>
+        <action android:id="@+id/brokerProfileAction"
+            app:destination="@id/brokerProfile"/>
+    </fragment>
+    <fragment
+        android:id="@+id/Login"
+        android:name="com.example.taysir.UserAccess.LoginFragment"
+        android:label="Start"
+        tools:layout="@layout/fragment_login">
+        <action android:id="@+id/forgetPasswordAction"
+            app:destination="@id/forgetPassword"/>
+    </fragment>
+    <fragment
+        android:id="@+id/customerProfile"
+        android:name="com.example.taysir.UserAccess.CustomerProfile"
+        android:label="Start"
+        tools:layout="@layout/fragment_customer_profile">
+    </fragment>
+    <fragment
+        android:id="@+id/brokerProfile"
+        android:name="com.example.taysir.UserAccess.BrokerProfile"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_profile">
+    </fragment>
+    <fragment
+        android:id="@+id/forgetPassword"
+        android:name="com.example.taysir.UserAccess.ForgotPassword"
+        android:label="Start"
+        tools:layout="@layout/fragment_forgot_password">
     </fragment>
 </navigation>
