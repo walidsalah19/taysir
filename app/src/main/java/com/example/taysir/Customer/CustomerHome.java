@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Customer.Offers.OfferNotification;
 import com.example.taysir.R;
 import com.example.taysir.databinding.FragmentCustomerHomeBinding;
 

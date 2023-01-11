@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Customer.OffersFragment"
+    tools:context=".Customer.Offers.OffersFragment"
     android:background="@color/Wild_Sand">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:gravity="center"
-        android:text="إنشاء طلب جديد"
+        android:text="العروض"
         android:textColor="@color/Gray"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -51,7 +51,7 @@
             android:id="@+id/text2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="المنتج رقم 1"
+            android:text="الوسيط1"
             android:textColor="@color/black"
             android:textSize="18sp"
             android:layout_weight="1"
@@ -103,20 +103,39 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/linear3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linear2">
             <TextView
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:textColor="@color/Gray"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                android:background="@drawable/ic_coin"/>
+            <TextView
                 android:id="@+id/text3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="إنشاء طلب جديد"
+                android:layout_weight="1"
+                android:text="20.رس"
                 android:textColor="@color/Gray"
+                android:textSize="20sp"
+                android:textStyle="bold">
+            </TextView>
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="مزيد من المعلومات"
+                android:layout_weight="1"
+                android:textColor="@color/Cornflower_Blue"
                 android:textSize="18sp"
                 android:textStyle="normal" />
         </LinearLayout>

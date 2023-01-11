@@ -1,4 +1,4 @@
-package com.example.taysir.Customer;
+package com.example.taysir.Customer.Offers;
 
 import android.os.Bundle;
 
@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 
 import com.example.taysir.R;
 
+public class OffersFragment extends Fragment {
 
-public class CreateNewOffer extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +22,6 @@ public class CreateNewOffer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_new_offer, container, false);
+        return inflater.inflate(R.layout.fragment_offers, container, false);
     }
 }

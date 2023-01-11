@@ -6,8 +6,8 @@
     app:startDestination="@id/CustomerHome">
     <fragment
         android:id="@+id/CustomerHome"
-        android:name="com.example.taysir.Customer.CustomerHome"
+        android:name="com.example.taysir.Customer.CurrentOrders"
         android:label="Start"
-        tools:layout="@layout/fragment_customer_home">
+        tools:layout="@layout/fragment_current_orders">
     </fragment>
 </navigation>
