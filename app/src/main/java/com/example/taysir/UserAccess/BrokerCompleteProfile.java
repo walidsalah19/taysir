@@ -10,13 +10,14 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
 import com.example.taysir.R;
+import com.example.taysir.databinding.FragmentBrokerCompleteProfileBinding;
 import com.example.taysir.databinding.FragmentBrokerProfileBinding;
 
 import java.util.ArrayList;
 
-public class BrokerProfile extends Fragment {
+public class BrokerCompleteProfile extends Fragment {
 
-   private FragmentBrokerProfileBinding mBinding;
+   private FragmentBrokerCompleteProfileBinding mBinding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,7 @@ public class BrokerProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentBrokerProfileBinding.inflate(inflater,container,false);
+        mBinding=FragmentBrokerCompleteProfileBinding.inflate(inflater,container,false);
         funGenderSpinner();
 
         return mBinding.getRoot();

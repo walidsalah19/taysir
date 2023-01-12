@@ -3,6 +3,7 @@ package com.example.taysir.Customer;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,12 +24,31 @@ public class CurrentOrders extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentCurrentOrdersBinding.inflate(inflater,container,false);
-        steps();
+        mBinding= FragmentCurrentOrdersBinding.inflate(inflater,container,false);
+        back();
+        showOrderDetails();
         return mBinding.getRoot();
     }
-    private void steps()
+    private void showOrderDetails()
     {
-
+        mBinding.showOrderDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle b=new Bundle();
+                b.putString("orderType","current");
+                NavHostFragment.findNavController(CurrentOrders.this)
+                        .navigate(R.id.goTopreviousOrdersDetails,b);
+            }
+        });
+    }
+    private void back()
+    {
+        mBinding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(CurrentOrders.this)
+                        .navigate(R.id.goToHome);
+            }
+        });
     }
 }

@@ -12,14 +12,15 @@ import android.widget.ArrayAdapter;
 
 import com.example.taysir.Customer.CustomerMainActivity;
 import com.example.taysir.R;
+import com.example.taysir.databinding.FragmentCustomerCompleteProfileBinding;
 import com.example.taysir.databinding.FragmentCustomerProfileBinding;
 
 import java.util.ArrayList;
 
-public class CustomerProfile extends Fragment {
+public class CustomerCompleteProfile extends Fragment {
 
 
-    private FragmentCustomerProfileBinding mBinding;
+    private FragmentCustomerCompleteProfileBinding mBinding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,7 @@ public class CustomerProfile extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentCustomerProfileBinding.inflate(inflater,container,false);
+        mBinding=FragmentCustomerCompleteProfileBinding.inflate(inflater,container,false);
 
         funGenderSpinner();
         funCities();

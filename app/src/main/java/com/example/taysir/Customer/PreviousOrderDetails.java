@@ -3,64 +3,51 @@ package com.example.taysir.Customer;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taysir.R;
+import com.example.taysir.databinding.FragmentPreviousOrderDetailsBinding;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PreviousOrderDetails#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class PreviousOrderDetails extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public PreviousOrderDetails() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment PreviousOrderDetails.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PreviousOrderDetails newInstance(String param1, String param2) {
-        PreviousOrderDetails fragment = new PreviousOrderDetails();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    private FragmentPreviousOrderDetailsBinding mBinding;
+    private String orderType;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_previous_order_details, container, false);
+        mBinding=FragmentPreviousOrderDetailsBinding.inflate(inflater,container,false);
+        orderType=getArguments().getString("orderType");
+        if (orderType.equals("current")) {
+            mBinding.text.setText("الطلبات الحالية");
+        }
+        back();
+        return mBinding.getRoot();
+    }
+    private void back()
+    {
+        mBinding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (orderType.equals("current")) {
+                    NavHostFragment.findNavController(PreviousOrderDetails.this)
+                            .navigate(R.id.goTocurrentlyOrders);
+                }
+                else
+                {
+                    NavHostFragment.findNavController(PreviousOrderDetails.this)
+                            .navigate(R.id.goToPreviousOrders);
+                }
+            }
+        });
     }
 }

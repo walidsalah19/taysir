@@ -21,7 +21,7 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/arrow"
+        android:id="@+id/back"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -36,12 +36,12 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/arrow"
+        android:layout_below="@id/back"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/arrow">
+        app:layout_constraintTop_toBottomOf="@id/back">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

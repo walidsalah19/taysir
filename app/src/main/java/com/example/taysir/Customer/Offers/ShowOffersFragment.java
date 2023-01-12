@@ -1,4 +1,4 @@
-package com.example.taysir.Customer;
+package com.example.taysir.Customer.Offers;
 
 import android.os.Bundle;
 
@@ -9,12 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Customer.CreateNewOffer;
 import com.example.taysir.R;
-import com.example.taysir.databinding.FragmentPreviousOrdersBinding;
+import com.example.taysir.databinding.FragmentCreateNewOfferBinding;
+import com.example.taysir.databinding.FragmentShowOffersBinding;
 
-
-public class PreviousOrders extends Fragment {
-  private FragmentPreviousOrdersBinding mBinding;
+public class ShowOffersFragment extends Fragment {
+   private FragmentShowOffersBinding mBinding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +26,10 @@ public class PreviousOrders extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentPreviousOrdersBinding.inflate(inflater,container,false);
-        showRating();
+        mBinding= FragmentShowOffersBinding.inflate(inflater,container,false);
         back();
-        showOrderDetails();
+        showBrokerInfo();
+        accept();
         return mBinding.getRoot();
     }
     private void back()
@@ -36,32 +37,30 @@ public class PreviousOrders extends Fragment {
         mBinding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                NavHostFragment.findNavController(PreviousOrders.this)
+                NavHostFragment.findNavController(ShowOffersFragment.this)
                         .navigate(R.id.goToHome);
             }
         });
     }
-    private void showOrderDetails()
+    private void showBrokerInfo()
     {
-        mBinding.showOrderDetails.setOnClickListener(new View.OnClickListener() {
+        mBinding.showBrokerInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle b=new Bundle();
-                b.putString("orderType","old");
-                NavHostFragment.findNavController(PreviousOrders.this)
-                        .navigate(R.id.goTopreviousOrdersDetails,b);
+                NavHostFragment.findNavController(ShowOffersFragment.this)
+                        .navigate(R.id.barkerRank);
             }
         });
     }
-    private void showRating()
+    private void accept()
     {
-        mBinding.rating.setOnClickListener(new View.OnClickListener() {
+        mBinding.btnAccept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout,new CustomerRankBroker()).addToBackStack(null).commit();
+                NavHostFragment.findNavController(ShowOffersFragment.this)
+                        .navigate(R.id.goToacceptOffer);
             }
         });
     }
+
 }

@@ -6,8 +6,169 @@
     app:startDestination="@id/CustomerHome">
     <fragment
         android:id="@+id/CustomerHome"
+        android:name="com.example.taysir.Customer.CustomerHome"
+        android:label="Start"
+        tools:layout="@layout/fragment_customer_home">
+        <action android:id="@+id/goTocreateNewOrder"
+            app:destination="@id/createNewOrder"/>
+        <action android:id="@+id/goToCustomerProfile"
+            app:destination="@id/customerProfile"/>
+        <action android:id="@+id/goTocurrentlyOrders"
+            app:destination="@id/currentlyOrders"/>
+        <action android:id="@+id/goTopreviousOrders"
+            app:destination="@id/previousOrders"/>
+        <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/supportTechnical"/>
+        <action android:id="@+id/goToshowOffers"
+            app:destination="@id/showOffers"/>
+    </fragment>
+    <fragment
+        android:id="@+id/customerProfile"
+        android:name="com.example.taysir.Customer.CustomerProfile"
+        android:label="Start"
+        tools:layout="@layout/fragment_customer_profile">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/CustomerHome"/>
+    </fragment>
+    <fragment
+        android:id="@+id/offerNotification"
+        android:name="com.example.taysir.Customer.Offers.OfferNotification"
+        android:label="Start"
+        tools:layout="@layout/fragment_offer_notification">
+        <action android:id="@+id/goToshowOffers"
+            app:destination="@id/showOffers"/>
+    </fragment>
+    <fragment
+        android:id="@+id/showOffers"
+        android:name="com.example.taysir.Customer.Offers.ShowOffersFragment"
+        android:label="Start"
+        tools:layout="@layout/fragment_show_offers">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/CustomerHome"/>
+        <action android:id="@+id/goTobarkerRank"
+            app:destination="@id/barkerRank"/>
+        <action android:id="@+id/goToacceptOffer"
+            app:destination="@id/acceptOffer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/barkerRank"
+        android:name="com.example.taysir.Customer.Offers.BrokerRanks"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_ranks">
+        <action android:id="@+id/goToshowOffers"
+            app:destination="@id/showOffers"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/acceptOffer"
+        android:name="com.example.taysir.Customer.Offers.AcceptOffers"
+        android:label="Start"
+        tools:layout="@layout/fragment_accept_offers">
+        <action android:id="@+id/goToselectPayment"
+            app:destination="@id/selectPayment"/>
+        <action android:id="@+id/goToshowOffers"
+            app:destination="@id/showOffers"/>
+    </fragment>
+    <fragment
+        android:id="@+id/selectPayment"
+        android:name="com.example.taysir.Customer.Offers.SelectPaymentType"
+        android:label="Start"
+        tools:layout="@layout/fragment_select_payment_type">
+        <action android:id="@+id/goToacceptOffer"
+            app:destination="@id/acceptOffer"/>
+        <action android:id="@+id/goToPayment"
+            app:destination="@id/Payment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/Payment"
+        android:name="com.example.taysir.Customer.Offers.PaymentFragment"
+        android:label="Start"
+        tools:layout="@layout/fragment_payment">
+        <action android:id="@+id/goToselectPayment"
+            app:destination="@id/selectPayment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/supportTechnical"
+        android:name="com.example.taysir.Support.TechnicalSupport"
+        android:label="Start"
+        tools:layout="@layout/fragment_technical_support">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/CustomerHome"/>
+        <action android:id="@+id/goTosendComplaint"
+            app:destination="@id/sendComplaint"/>
+        <action android:id="@+id/goTowaitComplaint"
+        app:destination="@id/waitComplaint"/>
+        <action android:id="@+id/goTocomplaintAnswer"
+            app:destination="@id/complaintAnswer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/sendComplaint"
+        android:name="com.example.taysir.Support.SendComplaint"
+        android:label="Start"
+        tools:layout="@layout/fragment_send_complaint">
+        <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/supportTechnical"/>
+    </fragment>
+    <fragment
+        android:id="@+id/waitComplaint"
+        android:name="com.example.taysir.Support.ComplaintWaiting"
+        android:label="Start"
+        tools:layout="@layout/fragment_complaint_waiting">
+        <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/supportTechnical"/>
+    </fragment>
+    <fragment
+        android:id="@+id/complaintAnswer"
+        android:name="com.example.taysir.Support.ComplaintAnswered"
+        android:label="Start"
+        tools:layout="@layout/fragment_complaint_answered">
+        <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/supportTechnical"/>
+    </fragment>
+    <fragment
+        android:id="@+id/createNewOrder"
+        android:name="com.example.taysir.Customer.CreateNewOffer"
+        android:label="Start"
+        tools:layout="@layout/fragment_create_new_offer">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/CustomerHome"/>
+    </fragment>
+    <fragment
+        android:id="@+id/currentlyOrders"
+        android:name="com.example.taysir.Customer.CurrentOrders"
+        android:label="Start"
+        tools:layout="@layout/fragment_current_orders">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/CustomerHome"/>
+        <action android:id="@+id/goTopreviousOrdersDetails"
+            app:destination="@id/previousOrdersDetails"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/previousOrders"
         android:name="com.example.taysir.Customer.PreviousOrders"
         android:label="Start"
         tools:layout="@layout/fragment_previous_orders">
+        <action android:id="@+id/goTopreviousOrdersDetails"
+            app:destination="@id/previousOrdersDetails"/>
+        <action android:id="@+id/goToHome"
+            app:destination="@id/CustomerHome"/>
+    </fragment>
+    <fragment
+        android:id="@+id/previousOrdersDetails"
+        android:name="com.example.taysir.Customer.PreviousOrderDetails"
+        android:label="Start"
+        tools:layout="@layout/fragment_previous_order_details">
+
+    <action android:id="@+id/goToPreviousOrders"
+            app:destination="@id/previousOrders"/>
+        <action android:id="@+id/goTocurrentlyOrders"
+            app:destination="@id/currentlyOrders"/>
+    </fragment>
+    <fragment
+        android:id="@+id/customerRankBroker"
+        android:name="com.example.taysir.Customer.CustomerRankBroker"
+        android:label="Start"
+        tools:layout="@layout/fragment_customer_rank_broker">
     </fragment>
 </navigation>

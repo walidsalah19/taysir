@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Customer.Support.TechnicalSupport"
+    tools:context=".Support.TechnicalSupport"
     android:background="@color/Wild_Sand">
 
     <TextView
@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
-        android:id="@+id/arrow"
+        android:id="@+id/back"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -60,7 +60,7 @@
             app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
-        android:id="@+id/createNewOrder"
+        android:id="@+id/createComplaint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"

@@ -1,4 +1,4 @@
-package com.example.taysir.Customer.Offers;
+package com.example.taysir.Customer;
 
 import android.os.Bundle;
 
@@ -10,13 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taysir.R;
-import com.example.taysir.databinding.FragmentAcceptOffersBinding;
-import com.example.taysir.databinding.FragmentOfferNotificationBinding;
+import com.example.taysir.databinding.FragmentCustomerProfileBinding;
+import com.example.taysir.databinding.FragmentPreviousOrderDetailsBinding;
 
-public class OfferNotification extends Fragment {
+public class CustomerProfile extends Fragment {
 
-
-   private FragmentOfferNotificationBinding mBinding;
+   private FragmentCustomerProfileBinding mBinding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,17 +26,17 @@ public class OfferNotification extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding= FragmentOfferNotificationBinding.inflate(inflater,container,false);
-        showOffers();
+        mBinding= FragmentCustomerProfileBinding.inflate(inflater,container,false);
+        back();
         return mBinding.getRoot();
     }
-    private void showOffers()
+    private void back()
     {
-        mBinding.linear.setOnClickListener(new View.OnClickListener() {
+        mBinding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(OfferNotification.this)
-                        .navigate(R.id.goToshowOffers);
+                NavHostFragment.findNavController(CustomerProfile.this)
+                        .navigate(R.id.goToHome);
             }
         });
     }

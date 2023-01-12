@@ -1,4 +1,4 @@
-package com.example.taysir.Customer;
+package com.example.taysir.Broker;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,15 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Customer.CustomerHome;
 import com.example.taysir.Customer.Offers.OfferNotification;
 import com.example.taysir.R;
 import com.example.taysir.UserAccess.AccessMainActivity;
-import com.example.taysir.UserAccess.LoginFragment;
-import com.example.taysir.UserAccess.SelectAccessType;
+import com.example.taysir.databinding.FragmentBrokerHomeBinding;
 import com.example.taysir.databinding.FragmentCustomerHomeBinding;
 
-public class CustomerHome extends Fragment {
-    private FragmentCustomerHomeBinding mBinding;
+public class BrokerHome extends Fragment {
+
+     private FragmentBrokerHomeBinding mBinding;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,19 +30,18 @@ public class CustomerHome extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        mBinding=FragmentCustomerHomeBinding.inflate(inflater,container,false);
-        showNotificationOffers();
+        mBinding= FragmentBrokerHomeBinding.inflate(inflater,container,false);
+        /*showNotificationOffers();
         displayOffers();
         oldOrders();
         createNewOrder();
         currentlyOrders();
         logout();
         showProfile();
-        supportTechnical();
+        supportTechnical();*/
         return mBinding.getRoot();
     }
-    private void displayOffers()
+   /* private void displayOffers()
     {
         mBinding.displayOffers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,7 +106,7 @@ public class CustomerHome extends Fragment {
         mBinding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               startActivity(new Intent(getActivity(), AccessMainActivity.class));
+                startActivity(new Intent(getActivity(), AccessMainActivity.class));
             }
         });
     }
@@ -117,5 +118,5 @@ public class CustomerHome extends Fragment {
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout,new OfferNotification()).addToBackStack(null).commit();
             }
         });
-    }
+    }*/
 }

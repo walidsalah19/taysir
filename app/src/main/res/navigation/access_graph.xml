@@ -42,15 +42,15 @@
     </fragment>
     <fragment
         android:id="@+id/customerProfile"
-        android:name="com.example.taysir.UserAccess.CustomerProfile"
+        android:name="com.example.taysir.UserAccess.CustomerCompleteProfile"
         android:label="Start"
-        tools:layout="@layout/fragment_customer_profile">
+        tools:layout="@layout/fragment_customer_complete_profile">
     </fragment>
     <fragment
         android:id="@+id/brokerProfile"
-        android:name="com.example.taysir.UserAccess.BrokerProfile"
+        android:name="com.example.taysir.UserAccess.BrokerCompleteProfile"
         android:label="Start"
-        tools:layout="@layout/fragment_broker_profile">
+        tools:layout="@layout/fragment_broker_complete_profile">
     </fragment>
     <fragment
         android:id="@+id/forgetPassword"

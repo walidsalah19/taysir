@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Customer.Offers.OffersFragment"
+    tools:context=".Customer.Offers.ShowOffersFragment"
     android:background="@color/Wild_Sand">
 
     <TextView
@@ -20,7 +20,7 @@
         android:textStyle="bold" />
 
     <ImageView
-        android:id="@+id/arrow"
+        android:id="@+id/back"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/cardview_shape"
         android:padding="10dp"
-        android:layout_below="@id/arrow"
+        android:layout_below="@id/back"
         android:layout_margin="20dp">
         <LinearLayout
             android:id="@+id/linear1"
@@ -90,7 +90,7 @@
                 android:textStyle="normal" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnCreateAccount"
+                android:id="@+id/btnAccept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -129,7 +129,7 @@
                 android:textStyle="bold">
             </TextView>
             <TextView
-                android:id="@+id/text4"
+                android:id="@+id/showBrokerInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

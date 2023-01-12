@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Broker.BrokerProfile"
+    tools:context=".UserAccess.BrokerCompleteProfile"
     android:background="@color/Wild_Sand">
 
     <ImageView
-        android:id="@+id/back"
+        android:id="@+id/arrow"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -19,59 +20,36 @@
         android:src="@drawable/ic_baseline_arrow_forward_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
-        android:src="@drawable/profile"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/back"
-        />
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/profile_image"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:text="broker"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/name"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:text="use@gmail.com"
-        android:textColor="@color/Gray"
-        android:textSize="16sp" />
-
-    <ImageView
-        android:id="@+id/edit"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_alignBottom="@id/text"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="30dp"
-        android:padding="5dp"
-        android:src="@drawable/ic_edit" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit"
-        android:layout_marginBottom="20dp">
+        android:layout_below="@id/arrow"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/arrow">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/Wild_Sand">
+
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="30dp"
+                android:text="انشئ حسابك"
+                android:textColor="@color/black"
+                android:textSize="29sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <EditText
                 android:id="@+id/edittextUserName"
                 android:layout_width="match_parent"
@@ -89,7 +67,7 @@
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/text1" />
 
             <EditText
                 android:id="@+id/edittextEmail"
@@ -136,7 +114,6 @@
                     android:drawableEnd="@drawable/ic_baseline_lock_24"
                     android:drawablePadding="10dp"
                     android:hint="أدخل الرقم السري"
-                    android:gravity="end"
                     android:inputType="textPassword"
                     android:padding="20dp"
                     android:textColor="@color/Red_Orange"
@@ -261,38 +238,63 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/linear4"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/registration"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_height="match_parent"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_shape1"
+                android:text="تسجيل"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linear3">
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="@color/white"
-                    android:background="@drawable/button_shape1"
-                    android:text="إلغاء"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:layout_weight="1"
-                    android:layout_marginEnd="10dp"/>
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnCreateAccount"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColor="@color/white"
-                    android:background="@drawable/button_shape3"
-                    android:text="حفظ"
-                    android:layout_marginStart="10dp"
-                    android:textStyle="bold"
-                    android:textSize="20sp"
-                    android:layout_weight="1"/>
+                app:layout_constraintTop_toBottomOf="@id/linear3" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1.3dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/Gray"
+                app:layout_constraintEnd_toEndOf="@id/registration"
+                app:layout_constraintStart_toStartOf="@id/registration"
+                app:layout_constraintTop_toBottomOf="@id/registration" />
+
+            <LinearLayout
+                android:id="@+id/linear2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/line1">
+
+                <TextView
+                    android:id="@+id/createAccount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="تسجيل الدخول"
+                    android:textColor="@color/Red_Orange"
+                    android:textSize="18sp"></TextView>
+
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="هل لديك حساب؟"
+                    android:textColor="@color/Gray"
+                    android:textSize="18sp"></TextView>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
