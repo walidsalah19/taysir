@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Support.ComplaintAnswered;
 import com.example.taysir.UserType;
 import com.example.taysir.R;
 import com.example.taysir.databinding.FragmentSelectUserTypeBinding;
@@ -29,7 +30,18 @@ public class SelectUserType extends Fragment {
         mBinding=FragmentSelectUserTypeBinding.inflate(inflater,container,false);
         customerType();
         brokerType();
+        back();
         return mBinding.getRoot();
+    }
+    private void back()
+    {
+        mBinding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(SelectUserType.this)
+                        .navigate(R.id.goToSelectAccessType);
+            }
+        });
     }
     private void customerType()
     {
@@ -38,7 +50,7 @@ public class SelectUserType extends Fragment {
             public void onClick(View v) {
                 UserType.type="customer";
                 NavHostFragment.findNavController(SelectUserType.this)
-                        .navigate(R.id.accessTypeAction);
+                        .navigate(R.id.customerProfileAction);
             }
         });
     }
@@ -49,7 +61,7 @@ public class SelectUserType extends Fragment {
             public void onClick(View v) {
                 UserType.type="broker";
                 NavHostFragment.findNavController(SelectUserType.this)
-                        .navigate(R.id.accessTypeAction);
+                        .navigate(R.id.brokerProfileAction);
             }
         });
     }

@@ -37,7 +37,5 @@ public class CustomerRankBroker extends Fragment {
             }
         });
     }
-    private void end()
-    {
-    }
+
 }

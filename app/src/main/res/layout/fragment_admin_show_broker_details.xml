@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Admin.AdminShowBrokerDetails"
+    android:background="@color/Wild_Sand">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button_shape2"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_arrow_forward_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/profile"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/back"
+        />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/profile_image"
+        android:layout_marginBottom="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/Wild_Sand">
+            <TextView
+                android:id="@+id/edittextUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:drawablePadding="10dp"
+                android:text=" اسم الوسيط"
+                android:textSize="20sp"
+                android:padding="20dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/Gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/edittextEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:text=" البريد الإلكتروني"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/Gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edittextUserName" />
+
+
+            <TextView
+                android:id="@+id/edittextId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:gravity="start"
+                android:text="  رقم الهوية"
+                android:padding="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/Gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edittextEmail" />
+
+            <TextView
+                android:id="@+id/edittextAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+               android:text=" الرقم المعروف"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/Gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edittextId" />
+
+            <TextView
+                android:id="@+id/edittextAddress1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="20sp"
+                android:text=" رقم وثيقة العمل الحر"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/Gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edittextAddress" />
+
+            <TextView
+                android:id="@+id/edittextType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="20sp"
+                android:text=" الجنس"
+                android:padding="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/Gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edittextAddress1" />
+
+
+            <LinearLayout
+                android:id="@+id/linear4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edittextType">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_shape1"
+                    android:text="رفض"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="10dp"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnCreateAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_shape3"
+                    android:text="قبول"
+                    android:layout_marginStart="10dp"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+
+        />
+</RelativeLayout>

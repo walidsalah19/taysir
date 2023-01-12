@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Customer.CustomerMainActivity">
     <include android:id="@+id/include"
-        layout="@layout/customer_content"
+        layout="@layout/content_customer"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -84,7 +84,7 @@
    </LinearLayout>
     <TextView
         android:id="@+id/forgotPassword"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="هل نسيت كلمة المرور؟"
@@ -93,8 +93,7 @@
         android:textSize="18sp"
         android:textColor="@color/Gray"
         app:layout_constraintTop_toBottomOf="@id/linear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintEnd_toEndOf="parent">
     </TextView>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login"

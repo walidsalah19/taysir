@@ -14,7 +14,10 @@
         android:theme="@style/Theme.Taysir"
         tools:targetApi="31">
         <activity
-            android:name=".BrokerMainActivity"
+            android:name=".AdminMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Broker.BrokerMainActivity"
             android:exported="false" />
         <activity
             android:name=".Customer.CustomerMainActivity"

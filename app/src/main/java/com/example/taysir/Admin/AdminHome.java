@@ -1,4 +1,4 @@
-package com.example.taysir.Broker;
+package com.example.taysir.Admin;
 
 import android.os.Bundle;
 
@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taysir.R;
+import com.example.taysir.databinding.FragmentAdminHomeBinding;
 
-public class BorkerProfilePersonly extends Fragment {
 
+public class AdminHome extends Fragment {
+
+    private FragmentAdminHomeBinding mBinding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,9 @@ public class BorkerProfilePersonly extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_borker_profile_personly, container, false);
+        mBinding=FragmentAdminHomeBinding.inflate(inflater,container,false);
+
+
+        return mBinding.getRoot();
     }
 }

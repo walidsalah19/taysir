@@ -9,7 +9,7 @@
     android:background="@color/Wild_Sand">
 
     <ImageView
-        android:id="@+id/arrow"
+        android:id="@+id/back"
         android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -24,12 +24,12 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/arrow"
+        android:layout_below="@id/back"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/arrow">
+       >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -239,7 +239,7 @@
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/registration"
+                android:id="@+id/btnCreateAccount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="20dp"
@@ -265,7 +265,7 @@
                 android:background="@color/Gray"
                 app:layout_constraintEnd_toEndOf="@id/registration"
                 app:layout_constraintStart_toStartOf="@id/registration"
-                app:layout_constraintTop_toBottomOf="@id/registration" />
+                app:layout_constraintTop_toBottomOf="@id/btnCreateAccount" />
 
             <LinearLayout
                 android:id="@+id/linear2"

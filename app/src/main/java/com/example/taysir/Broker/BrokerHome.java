@@ -31,43 +31,32 @@ public class BrokerHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mBinding= FragmentBrokerHomeBinding.inflate(inflater,container,false);
-        /*showNotificationOffers();
-        displayOffers();
+        showNotificationOffers();
         oldOrders();
-        createNewOrder();
+        showNewOrder();
         currentlyOrders();
         logout();
         showProfile();
-        supportTechnical();*/
+        supportTechnical();
         return mBinding.getRoot();
-    }
-   /* private void displayOffers()
-    {
-        mBinding.displayOffers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavHostFragment.findNavController(CustomerHome.this)
-                        .navigate(R.id.goToshowOffers);
-            }
-        });
     }
     private void showProfile()
     {
         mBinding.displayProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(CustomerHome.this)
-                        .navigate(R.id.goToCustomerProfile);
+                NavHostFragment.findNavController(BrokerHome.this)
+                        .navigate(R.id.goToBrokerPersonly);
             }
         });
     }
-    private void createNewOrder()
+    private void showNewOrder()
     {
-        mBinding.createNewOrder.setOnClickListener(new View.OnClickListener() {
+        mBinding.showNewOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(CustomerHome.this)
-                        .navigate(R.id.goTocreateNewOrder);
+                NavHostFragment.findNavController(BrokerHome.this)
+                        .navigate(R.id.goToNewOrders);
             }
         });
     }
@@ -76,8 +65,8 @@ public class BrokerHome extends Fragment {
         mBinding.currentlyOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(CustomerHome.this)
-                        .navigate(R.id.goTocurrentlyOrders);
+                NavHostFragment.findNavController(BrokerHome.this)
+                        .navigate(R.id.goToCurrentOrders);
             }
         });
     }
@@ -86,8 +75,8 @@ public class BrokerHome extends Fragment {
         mBinding.oldOrders.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(CustomerHome.this)
-                        .navigate(R.id.goTopreviousOrders);
+                NavHostFragment.findNavController(BrokerHome.this)
+                        .navigate(R.id.goToOldOrders);
             }
         });
     }
@@ -96,7 +85,7 @@ public class BrokerHome extends Fragment {
         mBinding.supportTechnical.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(CustomerHome.this)
+                NavHostFragment.findNavController(BrokerHome.this)
                         .navigate(R.id.goTosupportTechnical);
             }
         });
@@ -115,8 +104,8 @@ public class BrokerHome extends Fragment {
         mBinding.displayNotificationOffers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout,new OfferNotification()).addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout,new OrderNotification()).addToBackStack(null).commit();
             }
         });
-    }*/
+    }
 }

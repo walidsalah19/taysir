@@ -1,6 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/broker_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/broker_graph"
+    app:startDestination="@id/BrokerHome">
+    <fragment
+        android:id="@+id/BrokerHome"
+        android:name="com.example.taysir.Broker.BrokerHome"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_home">
+       <action android:id="@+id/goToNewOrders"
+           app:destination="@+id/newOrders"/>
+        <action android:id="@+id/goToBrokerPersonly"
+            app:destination="@+id/BrokerPersonly"/>
+        <action android:id="@+id/goToOldOrders"
+            app:destination="@+id/oldOrders"/>
+        <action android:id="@+id/goToCurrentOrders"
+            app:destination="@+id/currentOrders"/>
+        <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/supportTechnical"/>
+    </fragment>
+    <fragment
+        android:id="@+id/BrokerPersonly"
+        android:name="com.example.taysir.Broker.BrokerProfilePersonly"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_profile_personly">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/BrokerHome"/>
+        <action android:id="@+id/goToBrokerProfile"
+            app:destination="@id/brokerProfile"/>
+    </fragment>
+    <fragment
+        android:id="@+id/brokerProfile"
+        android:name="com.example.taysir.Broker.BrokerProfile"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_profile">
+        <action android:id="@+id/goToBrokerPersonly"
+            app:destination="@id/BrokerPersonly"/>
+    </fragment>
+    <fragment
+        android:id="@+id/newOrders"
+        android:name="com.example.taysir.Broker.BrokerNewOrder"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_new_order">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/BrokerHome"/>
+    </fragment>
+    <fragment
+        android:id="@+id/notification"
+        android:name="com.example.taysir.Broker.OrderNotification"
+        android:label="Start"
+        tools:layout="@layout/fragment_order_notification">
+        <action android:id="@+id/newOrders"
+            app:destination="@id/newOrders"/>
+    </fragment>
+    <fragment
+        android:id="@+id/oldOrders"
+        android:name="com.example.taysir.Broker.BrokerOldOrder"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_old_order">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/BrokerHome"/>
+    </fragment>
+    <fragment
+        android:id="@+id/currentOrders"
+        android:name="com.example.taysir.Broker.BrokerCurrentOrder"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_current_order">
+    <action android:id="@+id/goToHome"
+        app:destination="@id/BrokerHome"/>
+        <action android:id="@+id/OrderDetails"
+            app:destination="@id/OrderDetails"/>
+    </fragment>
+    <fragment
+        android:id="@+id/OrderDetails"
+        android:name="com.example.taysir.Broker.BrokerOrderDetails"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_order_details">
+        <action android:id="@+id/currentOrders"
+            app:destination="@id/currentOrders"/>
+    </fragment>
 
+    <fragment
+        android:id="@+id/supportTechnical"
+        android:name="com.example.taysir.Support.TechnicalSupport"
+        android:label="Start"
+        tools:layout="@layout/fragment_technical_support">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/BrokerHome"/>
+        <action android:id="@+id/goTosendComplaint"
+            app:destination="@id/sendComplaint"/>
+        <action android:id="@+id/goTowaitComplaint"
+            app:destination="@id/waitComplaint"/>
+        <action android:id="@+id/goTocomplaintAnswer"
+            app:destination="@id/complaintAnswer"/>
+    </fragment>
+    <fragment
+        android:id="@+id/sendComplaint"
+        android:name="com.example.taysir.Support.SendComplaint"
+        android:label="Start"
+        tools:layout="@layout/fragment_send_complaint">
+        <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/supportTechnical"/>
+    </fragment>
+    <fragment
+        android:id="@+id/waitComplaint"
+        android:name="com.example.taysir.Support.ComplaintWaiting"
+        android:label="Start"
+        tools:layout="@layout/fragment_complaint_waiting">
+        <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/supportTechnical"/>
+    </fragment>
+    <fragment
+        android:id="@+id/complaintAnswer"
+        android:name="com.example.taysir.Support.ComplaintAnswered"
+        android:label="Start"
+        tools:layout="@layout/fragment_complaint_answered">
+        <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/supportTechnical"/>
+    </fragment>
 </navigation>

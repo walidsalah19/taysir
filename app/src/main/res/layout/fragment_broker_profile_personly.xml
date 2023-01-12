@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Broker.BorkerProfilePersonly"
+    tools:context=".Broker.BrokerProfilePersonly"
     android:background="@color/Wild_Sand">
 
     <TextView
@@ -60,6 +60,7 @@
             android:padding="10dp">
 
             <ImageView
+                android:id="@+id/showRejectReason"
                 android:layout_width="70dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"

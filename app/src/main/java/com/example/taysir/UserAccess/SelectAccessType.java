@@ -30,7 +30,18 @@ public class SelectAccessType extends Fragment {
         mBinding=FragmentSelectAccessTypeBinding.inflate(inflater,container,false);
         funLogin();
         funCreateAccount();
+        back();
         return mBinding.getRoot();
+    }
+    private void back()
+    {
+        mBinding.back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(SelectAccessType.this)
+                        .navigate(R.id.gotToHome);
+            }
+        });
     }
     private void funLogin()
     {
@@ -47,15 +58,9 @@ public class SelectAccessType extends Fragment {
         mBinding.registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (UserType.type.equals("customer"))
-                {
-                    NavHostFragment.findNavController(SelectAccessType.this)
-                        .navigate(R.id.customerProfileAction);
-                }
-                else{
-                    NavHostFragment.findNavController(SelectAccessType.this)
-                            .navigate(R.id.brokerProfileAction);
-                }
+                NavHostFragment.findNavController(SelectAccessType.this)
+                        .navigate(R.id.selectUserType);
+
             }
         });
     }

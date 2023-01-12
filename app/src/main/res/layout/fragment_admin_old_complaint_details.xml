@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.AdminOldComplaintDetails" android:background="@color/Wild_Sand"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:text="الشكاوي القديمة"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/button_shape2"
+        android:padding="5dp"
+        android:src="@drawable/ic_baseline_arrow_forward_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+     <TextView
+         android:id="@+id/text2"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:gravity="start"
+         android:text="1357"
+         android:textColor="@color/black"
+         android:textSize="20sp"
+          app:layout_constraintEnd_toStartOf="@id/text3"
+         app:layout_constraintTop_toTopOf="@id/text3"
+         app:layout_constraintBottom_toBottomOf="@id/text3" />
+
+
+     <TextView
+         android:id="@+id/text3"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="start"
+         android:layout_marginTop="30dp"
+         android:layout_marginEnd="20dp"
+         android:gravity="center"
+         android:text="رقم الشكوي#"
+         android:textColor="@color/Gray"
+         android:textSize="20sp"
+         android:textStyle="bold"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/text" />
+    <EditText
+        android:id="@+id/complaint"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textSize="22sp"
+        android:padding="10dp"
+        android:enabled="false"
+        android:text="الشكوي"
+        android:inputType="textEmailAddress"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:gravity="start"
+        android:textColor="@color/Red_Orange"
+        android:textColorHint="@color/Gray"
+        android:background="@drawable/edittext_shape2"
+        app:layout_constraintTop_toBottomOf="@id/text3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="الرد "
+        android:textColor="@color/Gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/complaint" />
+
+
+    <EditText
+        android:id="@+id/complaintAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textSize="22sp"
+        android:padding="10dp"
+        android:enabled="false"
+        android:text="الرد"
+        android:inputType="textEmailAddress"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:gravity="start"
+        android:textColor="@color/Red_Orange"
+        android:textColorHint="@color/Gray"
+        android:background="@drawable/edittext_shape2"
+        app:layout_constraintTop_toBottomOf="@id/text5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

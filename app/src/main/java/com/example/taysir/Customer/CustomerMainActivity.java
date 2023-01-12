@@ -29,8 +29,6 @@ public class CustomerMainActivity extends AppCompatActivity {
         navController = Navigation.findNavController(this, R.id.customer_nav_host_fragment);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
     }
-
-
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.customer_nav_host_fragment);

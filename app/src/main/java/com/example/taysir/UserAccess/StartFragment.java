@@ -34,7 +34,7 @@ public class StartFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 NavHostFragment.findNavController(StartFragment.this)
-                        .navigate(R.id.start);
+                        .navigate(R.id.selectAccessType);
             }
         });
     }

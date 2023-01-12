@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="10dp"
+    android:background="@color/Wild_Sand"
+    >
+    <LinearLayout
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:id="@+id/reciver_layout"
+        android:gravity="center_vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/reciver_image"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/ic_baseline_person_24"
+            app:civ_border_color="#FF4077F2"
+            app:civ_border_width="0dp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/reciver_image"
+            android:background="@drawable/edittext_shape2"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/receiver_m_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_shape2"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/reciver_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="How are You ?"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/reciver_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/reciver_message"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="3dp"
+                    android:layout_marginLeft="8dp"
+                    android:drawablePadding="8dp"
+                    android:text="5:04pm"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:id="@+id/sender_layout"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:gravity="end">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/sender_image"
+            android:background="@drawable/edittext_shape2"
+            android:orientation="vertical"
+            >
+
+            <RelativeLayout
+                android:id="@+id/sender_m_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_shape2"
+                android:gravity="start"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/sender_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="How are You ?"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/sender_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sender_message"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="3dp"
+                    android:layout_marginLeft="8dp"
+                    android:drawablePadding="8dp"
+                    android:text="5:04pm"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/sender_image"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="end"
+            android:src="@drawable/ic_baseline_person_24"
+            app:civ_border_color="#FF4077F2"
+            app:civ_border_width="0dp" />
+    </LinearLayout>
+</LinearLayout>

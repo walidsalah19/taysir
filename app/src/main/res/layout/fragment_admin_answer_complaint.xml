@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Admin.AdminAnswerComplaint"
+    android:background="@color/Wild_Sand">
+    <ImageView
+        android:id="@+id/end"
+        android:layout_width="70dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="20dp"
+        android:padding="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_baseline_cancel_24"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="الرد"
+        android:textColor="@color/Gray"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/end" />
+
+
+
+    <EditText
+        android:id="@+id/edittextComment"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textSize="22sp"
+        android:padding="10dp"
+        android:enabled="true"
+        android:text="الرد"
+        android:inputType="textEmailAddress"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:gravity="start"
+        android:textColor="@color/Red_Orange"
+        android:textColorHint="@color/Gray"
+        android:background="@drawable/edittext_shape2"
+        app:layout_constraintTop_toBottomOf="@id/text3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="@drawable/button_shape3"
+        android:text="إرسال"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edittextComment"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
