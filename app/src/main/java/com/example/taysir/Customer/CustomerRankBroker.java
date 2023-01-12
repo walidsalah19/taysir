@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taysir.R;
-import com.example.taysir.databinding.FragmentPreviousOrdersBinding;
+import com.example.taysir.databinding.FragmentCustomerRankBrokerBinding;
 
+public class CustomerRankBroker extends Fragment {
 
-public class PreviousOrders extends Fragment {
-  private FragmentPreviousOrdersBinding mBinding;
+   private FragmentCustomerRankBrokerBinding mBinding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,18 +24,20 @@ public class PreviousOrders extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentPreviousOrdersBinding.inflate(inflater,container,false);
-        showRating();
+        mBinding=FragmentCustomerRankBrokerBinding.inflate(inflater,container,false);
+        endFragment();
         return mBinding.getRoot();
     }
-    private void showRating()
+    private void endFragment()
     {
-        mBinding.rating.setOnClickListener(new View.OnClickListener() {
+        mBinding.end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout,new CustomerRankBroker()).addToBackStack(null).commit();
+                getActivity().onBackPressed();
             }
         });
+    }
+    private void end()
+    {
     }
 }

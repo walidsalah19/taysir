@@ -107,6 +107,7 @@
                     android:layout_height="wrap_content"
                     android:hint="أدخل الرقم السري"
                     android:textSize="20sp"
+                    android:gravity="end"
                     android:textColor="@color/Red_Orange"
                     android:backgroundTint="@color/white"
                     android:drawablePadding="10dp"

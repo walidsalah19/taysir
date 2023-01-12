@@ -107,6 +107,8 @@
         android:src="@drawable/ic_baseline_headset_mic_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
+
+
  <FrameLayout
      android:id="@+id/framlayout"
      android:layout_height="wrap_content"
@@ -114,7 +116,8 @@
      android:background="@color/Wild_Sand"
      android:layout_marginEnd="10dp"
      android:layout_marginTop="20dp"
+     app:layout_constraintEnd_toEndOf="@id/createNewOrder"
      app:layout_constraintTop_toBottomOf="@id/displayNotificationOffers"
-     app:layout_constraintStart_toEndOf="@id/displayNotificationOffers"
+     app:layout_constraintStart_toStartOf="@id/displayNotificationOffers"
      />
 </androidx.constraintlayout.widget.ConstraintLayout>

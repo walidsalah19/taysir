@@ -36,21 +36,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/arrow"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
-        android:paddingBottom="50dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/cardview_shape2">
+        android:background="@drawable/textview_shape3"
+        android:paddingBottom="50dp">
 
         <LinearLayout
             android:id="@+id/linear1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/textview_shape2"
+            android:background="@drawable/textview_shape3"
             android:orientation="horizontal"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
@@ -64,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="start"
                 android:text="الطلبات "
                 android:textColor="@color/Gray"
                 android:textSize="20sp"
@@ -145,7 +146,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/textview_shape"
+            android:background="@drawable/textview_shape3"
             android:padding="10dp"
             android:text="قيد التنفيذ"
             android:textColor="@color/Gray"
@@ -176,6 +177,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/rating"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
@@ -183,7 +185,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/button_shape2"
                 android:padding="5dp"
-                android:src="@drawable/ic_chat"
+                android:src="@drawable/ic_baseline_star_outline_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -196,13 +198,20 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:gravity="center"
-            android:text=""
+            android:text="2023-1-1 السبت 02.01 ص"
             android:textColor="@color/Gray"
-            android:textSize="15sp"
-            android:textStyle="bold"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear2" />
-
+            app:layout_constraintTop_toBottomOf="@id/text5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:id="@+id/FrameLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@id/layout"
+        android:layout_alignStart="@id/layout"
+        />
 </RelativeLayout>
