@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Admin.AdminAnswerComplaint;
 import com.example.taysir.R;
 import com.example.taysir.databinding.FragmentBrokerProfileBinding;
 import com.example.taysir.databinding.FragmentBrokerProfilePersonlyBinding;
@@ -58,7 +59,8 @@ public class BrokerProfilePersonly extends Fragment {
         mBinding.showRejectReason.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout,new StatusNotification()).addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .add(R.id.FrameLayout,new StatusNotification()).commit();
             }
         });
     }
