@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Admin.AdminMainActivity;
 import com.example.taysir.Broker.BrokerMainActivity;
 import com.example.taysir.Customer.CustomerMainActivity;
 import com.example.taysir.R;
@@ -56,10 +57,14 @@ public class LoginFragment extends Fragment {
                     UserType.type="customer";
                    startActivity(new Intent(getActivity(), CustomerMainActivity.class));
                 }
-                if(mBinding.Email.getText().toString().equals("broker"))
+                else if(mBinding.Email.getText().toString().equals("broker"))
                 {
                     UserType.type="broker";
                     startActivity(new Intent(getActivity(), BrokerMainActivity.class));
+                }
+                else if(mBinding.Email.getText().toString().equals("admin"))
+                {
+                    startActivity(new Intent(getActivity(), AdminMainActivity.class));
                 }
 
             }

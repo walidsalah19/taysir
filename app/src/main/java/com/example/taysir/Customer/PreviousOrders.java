@@ -60,7 +60,7 @@ public class PreviousOrders extends Fragment {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.FrameLayout,new CustomerRankBroker()).addToBackStack(null).commit();
+                        .add(R.id.FrameLayout,new CustomerRankBroker()).commit();
             }
         });
     }

@@ -142,6 +142,8 @@
             app:destination="@id/CustomerHome"/>
         <action android:id="@+id/goTopreviousOrdersDetails"
             app:destination="@id/previousOrdersDetails"/>
+        <action android:id="@+id/goToChat"
+            app:destination="@id/Chat"/>
 
     </fragment>
     <fragment
@@ -170,5 +172,11 @@
         android:name="com.example.taysir.Customer.CustomerRankBroker"
         android:label="Start"
         tools:layout="@layout/fragment_customer_rank_broker">
+    </fragment>
+    <fragment
+        android:id="@+id/Chat"
+        android:name="com.example.taysir.Chat.ChatFragment"
+        android:label="Start"
+        tools:layout="@layout/fragment_chat">
     </fragment>
 </navigation>

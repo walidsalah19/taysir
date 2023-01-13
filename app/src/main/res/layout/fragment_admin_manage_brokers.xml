@@ -33,10 +33,12 @@
         android:src="@drawable/ic_baseline_arrow_forward_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
@@ -46,14 +48,14 @@
         app:cardElevation="5dp"
         app:cardMaxElevation="12dp"
         app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true"
-        android:layout_below="@id/text">
+        app:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
             android:padding="10dp">
+
             <TextView
                 android:id="@+id/brokerName"
                 android:layout_width="wrap_content"
@@ -73,18 +75,20 @@
                 android:src="@drawable/profile"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:id="@+id/text4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
+                android:paddingEnd="10dp"
                 android:text="use@gmail.com"
                 android:textColor="@color/Gray"
                 android:textSize="16sp"
-                android:paddingEnd="10dp"
                 app:layout_constraintEnd_toEndOf="@id/brokerName"
                 app:layout_constraintTop_toBottomOf="@id/brokerName" />
+
             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/showDetails"
                 android:layout_width="50dp"

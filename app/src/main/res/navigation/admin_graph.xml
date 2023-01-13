@@ -1,6 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/admin_graph">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/admin_graph"
+    app:startDestination="@id/AdminHome">
+    <fragment
+        android:id="@+id/AdminHome"
+        android:name="com.example.taysir.Admin.AdminHome"
+        android:label="Start"
+        tools:layout="@layout/fragment_admin_home">
+        <action android:id="@+id/goToManageBrokers"
+            app:destination="@+id/manageBrokers"/>
+        <action android:id="@+id/goToNewComplaint"
+            app:destination="@+id/newComplaint"/>
+        <action android:id="@+id/goToOldComplaint"
+            app:destination="@+id/OldComplaint"/>
+    </fragment>
+    <fragment
+        android:id="@+id/manageBrokers"
+        android:name="com.example.taysir.Admin.AdminManageBrokers"
+        android:label="Start"
+        tools:layout="@layout/fragment_admin_manage_brokers">
+        <action android:id="@+id/goToBrokerDetails"
+            app:destination="@+id/BrokerDetails"/>
+        <action android:id="@+id/goToAdminHome"
+            app:destination="@+id/AdminHome"/>
+    </fragment>
+    <fragment
+        android:id="@+id/BrokerDetails"
+        android:name="com.example.taysir.Admin.AdminShowBrokerDetails"
+        android:label="Start"
+        tools:layout="@layout/fragment_admin_show_broker_details">
+        <action android:id="@+id/goToManageBrokers"
+            app:destination="@+id/manageBrokers"/>
+    </fragment>
+    <fragment
+        android:id="@+id/newComplaint"
+        android:name="com.example.taysir.Admin.AdminShowNewComplaint"
+        android:label="Start"
+        tools:layout="@layout/fragment_admin_show_new_complaint">
+        <action android:id="@+id/goToNewComplaintDetails"
+            app:destination="@+id/newComplaintDetails"/>
+        <action android:id="@+id/goToAdminHome"
+            app:destination="@+id/AdminHome"/>
+    </fragment>
+    <fragment
+        android:id="@+id/newComplaintDetails"
+        android:name="com.example.taysir.Admin.AdminShowComplaintDetails"
+        android:label="Start"
+        tools:layout="@layout/fragment_admin_show_complaint_details">
+        <action android:id="@+id/goToNewComplaint"
+            app:destination="@+id/newComplaint"/>
+    </fragment>
+    <fragment
+        android:id="@+id/OldComplaint"
+        android:name="com.example.taysir.Admin.AdminShowOldComplaint"
+        android:label="Start"
+        tools:layout="@layout/fragment_admin_show_old_complaint">
+        <action android:id="@+id/goToOldComplaintDetails"
+            app:destination="@+id/OldComplaintDetails"/>
+        <action android:id="@+id/goToAdminHome"
+            app:destination="@+id/AdminHome"/>
+    </fragment>
+    <fragment
+        android:id="@+id/OldComplaintDetails"
+        android:name="com.example.taysir.Admin.AdminOldComplaintDetails"
+        android:label="Start"
+        tools:layout="@layout/fragment_admin_old_complaint_details">
+        <action android:id="@+id/goToOldComplaint"
+            app:destination="@+id/OldComplaint"/>
+    </fragment>
 </navigation>

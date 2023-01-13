@@ -17,7 +17,7 @@
         android:layout_marginEnd="30dp"
         android:gravity="center"
         android:text="الطلب قيد الرد"
-        android:textColor="@color/black"
+        android:textColor="@color/Gray"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"

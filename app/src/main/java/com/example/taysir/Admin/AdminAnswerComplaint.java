@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Customer.CustomerRankBroker;
 import com.example.taysir.R;
 import com.example.taysir.databinding.FragmentAdminAnswerComplaintBinding;
 
@@ -26,7 +27,16 @@ public class AdminAnswerComplaint extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding=FragmentAdminAnswerComplaintBinding.inflate(inflater,container,false);
-
+        endFragment();
         return mBinding.getRoot();
+    }
+    private void endFragment()
+    {
+        mBinding.end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().remove(AdminAnswerComplaint.this).commit();
+            }
+        });
     }
 }

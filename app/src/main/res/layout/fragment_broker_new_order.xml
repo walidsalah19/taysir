@@ -16,7 +16,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:gravity="center"
-        android:text="الطلبات الحالية"
+        android:text="الطلبات الجديدة"
         android:textColor="@color/Gray"
         android:textSize="20sp"
         android:textStyle="bold" />

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Admin.AdminSendRejectReason;
 import com.example.taysir.R;
 import com.example.taysir.databinding.FragmentCustomerRankBrokerBinding;
 
@@ -33,7 +34,7 @@ public class CustomerRankBroker extends Fragment {
         mBinding.end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().onBackPressed();
+                getActivity().getSupportFragmentManager().beginTransaction().remove(CustomerRankBroker.this).commit();
             }
         });
     }

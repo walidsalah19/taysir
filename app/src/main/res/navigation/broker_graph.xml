@@ -71,6 +71,8 @@
         app:destination="@id/BrokerHome"/>
         <action android:id="@+id/OrderDetails"
             app:destination="@id/OrderDetails"/>
+        <action android:id="@+id/goToChat"
+            app:destination="@id/Chat"/>
     </fragment>
     <fragment
         android:id="@+id/OrderDetails"
@@ -118,5 +120,11 @@
         tools:layout="@layout/fragment_complaint_answered">
         <action android:id="@+id/goTosupportTechnical"
             app:destination="@id/supportTechnical"/>
+    </fragment>
+    <fragment
+        android:id="@+id/Chat"
+        android:name="com.example.taysir.Chat.ChatFragment"
+        android:label="Start"
+        tools:layout="@layout/fragment_chat">
     </fragment>
 </navigation>

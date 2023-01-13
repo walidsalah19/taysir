@@ -176,6 +176,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/goToChat"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"

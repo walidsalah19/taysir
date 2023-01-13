@@ -26,6 +26,18 @@ public class AdminSendRejectReason extends Fragment {
         // Inflate the layout for this fragment
         mBinding=FragmentAdminSendRejectReasonBinding.inflate(inflater,container,false);
 
+        endFragment();
         return mBinding.getRoot();
     }
+    private void endFragment()
+    {
+        mBinding.end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().remove(AdminSendRejectReason.this).commit();
+            }
+        });
+    }
+
+
 }

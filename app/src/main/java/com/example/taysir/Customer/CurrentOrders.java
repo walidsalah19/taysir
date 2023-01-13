@@ -27,7 +27,18 @@ public class CurrentOrders extends Fragment {
         mBinding= FragmentCurrentOrdersBinding.inflate(inflater,container,false);
         back();
         showOrderDetails();
+        goToChat();
         return mBinding.getRoot();
+    }
+    private void goToChat()
+    {
+        mBinding.goToChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(CurrentOrders.this)
+                        .navigate(R.id.goToChat);
+            }
+        });
     }
     private void showOrderDetails()
     {
