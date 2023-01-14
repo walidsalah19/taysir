@@ -76,7 +76,7 @@
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
                 android:paddingEnd="10dp"
-                android:text="شكوي رقم# 1234 "
+                android:text="شكوى رقم# 1234 "
                 android:textColor="@color/Gray"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@id/brokerName"

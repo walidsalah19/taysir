@@ -19,15 +19,14 @@
         android:src="@drawable/ic_baseline_arrow_forward_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
         android:layout_width="96dp"
         android:layout_height="96dp"
-        android:src="@drawable/profile"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/back"
-        />
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/profile" />
 
     <TextView
         android:id="@+id/name"

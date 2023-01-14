@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context=".Admin.AdminSendRejectReason"
-    android:background="@color/Wild_Sand">
+    android:background="@color/rating"
+    android:paddingBottom="20dp">
     <ImageView
         android:id="@+id/end"
         android:layout_width="70dp"

@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Admin.AdminAnswerComplaint"
-    android:background="@color/Wild_Sand">
+    android:background="@color/rating"
+    android:paddingBottom="20dp">
     <ImageView
         android:id="@+id/end"
         android:layout_width="70dp"

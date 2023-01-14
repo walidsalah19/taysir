@@ -178,5 +178,7 @@
         android:name="com.example.taysir.Chat.ChatFragment"
         android:label="Start"
         tools:layout="@layout/fragment_chat">
+        <action android:id="@+id/currentlyOrders"
+            app:destination="@+id/currentlyOrders"/>
     </fragment>
 </navigation>
