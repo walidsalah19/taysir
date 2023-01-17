@@ -50,21 +50,10 @@
         android:text="use@gmail.com"
         android:textColor="@color/Gray"
         android:textSize="16sp" />
-
-    <ImageView
-        android:id="@+id/edit"
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:layout_alignBottom="@id/text"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="30dp"
-        android:padding="5dp"
-        android:src="@drawable/ic_edit" />
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edit"
+        android:layout_below="@id/text"
         android:layout_marginBottom="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -81,9 +70,10 @@
                 android:background="@drawable/edittext_shape2"
                 android:drawableEnd="@drawable/ic_baseline_person_2_24"
                 android:drawablePadding="10dp"
-                android:hint="أدخل اسم المستخدم"
+                android:hint=" اسم المستخدم"
                 android:inputType="text"
                 android:padding="20dp"
+                android:enabled="false"
                 android:textColor="@color/Red_Orange"
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -100,9 +90,10 @@
                 android:background="@drawable/edittext_shape2"
                 android:drawableEnd="@drawable/ic_baseline_email_24"
                 android:drawablePadding="10dp"
-                android:hint="أدخل البريد الإلكتروني"
+                android:hint=" البريد الإلكتروني"
                 android:inputType="textEmailAddress"
                 android:padding="20dp"
+                android:enabled="false"
                 android:textColor="@color/Red_Orange"
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -119,9 +110,10 @@
                 android:background="@drawable/edittext_shape2"
                 android:drawableEnd="@drawable/ic_baseline_person_2_24"
                 android:drawablePadding="10dp"
-                android:hint="أدخل اسم كامل"
+                android:hint=" اسم كامل"
                 android:inputType="text"
                 android:padding="20dp"
+                android:enabled="false"
                 android:textColor="@color/Red_Orange"
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -137,9 +129,10 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edittext_shape2"
                 android:gravity="start"
-                android:hint=" أدخل رقم الهوية"
+                android:hint=" رقم الهوية"
                 android:inputType="text"
                 android:padding="20dp"
+                android:enabled="false"
                 android:textColor="@color/Red_Orange"
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -156,9 +149,10 @@
                 android:background="@drawable/edittext_shape2"
                 android:drawableEnd="@drawable/ic_baseline_local_police_24"
                 android:drawablePadding="10dp"
-                android:hint="أدخل رقم معروف"
+                android:hint=" رقم معروف"
                 android:inputType="text"
                 android:padding="20dp"
+                android:enabled="false"
                 android:textColor="@color/Red_Orange"
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -175,9 +169,10 @@
                 android:background="@drawable/edittext_shape2"
                 android:drawableEnd="@drawable/ic_baseline_check_circle_outline_24"
                 android:drawablePadding="10dp"
-                android:hint="أدخل رقم وثيقة العمل الحر"
+                android:hint=" رقم وثيقة العمل الحر"
                 android:inputType="text"
                 android:padding="20dp"
+                android:enabled="false"
                 android:textColor="@color/Red_Orange"
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -247,6 +242,5 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-
         />
 </RelativeLayout>
