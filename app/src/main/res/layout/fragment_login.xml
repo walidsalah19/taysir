@@ -63,7 +63,7 @@
        <TextView
            android:layout_width="30dp"
            android:layout_height="30dp"
-           android:background="@drawable/ic_hide_password"
+           android:background="@drawable/ic_baseline_visibility_24"
            android:layout_gravity="center">
        </TextView>
 

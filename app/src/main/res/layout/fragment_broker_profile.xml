@@ -126,7 +126,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/ic_hide_password"></TextView>
+                    android:background="@drawable/ic_baseline_visibility_24"></TextView>
 
                 <EditText
                     android:id="@+id/edittextPassword"

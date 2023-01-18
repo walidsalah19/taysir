@@ -101,11 +101,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/edittextEmail">
 
-                <TextView
+                <ImageView
+                    android:id="@+id/showPassword"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:background="@drawable/ic_hide_password"></TextView>
+                    android:src="@drawable/ic_baseline_visibility_24"></ImageView>
 
                 <EditText
                     android:id="@+id/edittextPassword"
@@ -116,7 +117,7 @@
                     android:hint="أدخل الرقم السري"
                     android:inputType="textPassword"
                     android:padding="20dp"
-                    android:gravity="end"
+                    android:backgroundTint="@color/white"
                     android:textColor="@color/Red_Orange"
                     android:textColorHint="@color/Gray"
                     android:textSize="20sp" />
@@ -151,7 +152,7 @@
                 android:background="@drawable/edittext_shape2"
                 android:gravity="start"
                 android:hint=" أدخل رقم الهوية"
-                android:inputType="text"
+                android:inputType="number"
                 android:padding="20dp"
                 android:textColor="@color/Red_Orange"
                 android:textColorHint="@color/Gray"
@@ -160,7 +161,7 @@
                 app:layout_constraintTop_toBottomOf="@id/edittextUserNameAr" />
 
             <EditText
-                android:id="@+id/edittextAddress"
+                android:id="@+id/edittextMaroOfNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -170,7 +171,7 @@
                 android:drawableEnd="@drawable/ic_baseline_local_police_24"
                 android:drawablePadding="10dp"
                 android:hint="أدخل رقم معروف"
-                android:inputType="text"
+                android:inputType="number"
                 android:padding="20dp"
                 android:textColor="@color/Red_Orange"
                 android:textColorHint="@color/Gray"
@@ -179,7 +180,7 @@
                 app:layout_constraintTop_toBottomOf="@id/edittextId" />
 
             <EditText
-                android:id="@+id/edittextAddress1"
+                android:id="@+id/FreeWorkDocumentCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -195,7 +196,7 @@
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edittextAddress" />
+                app:layout_constraintTop_toBottomOf="@id/edittextMaroOfNum" />
 
             <LinearLayout
                 android:id="@+id/linear3"
@@ -207,7 +208,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edittextAddress1">
+                app:layout_constraintTop_toBottomOf="@id/FreeWorkDocumentCode">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/spinner3"
@@ -224,7 +225,7 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/genderSpinner"
-                        android:layout_width="match_parent"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:background="@drawable/edittext_shape2"
@@ -232,7 +233,7 @@
                         android:text="الجنس"
                         android:padding="10dp"
                         android:textColor="@color/black"
-                        android:textColorHint="@color/Gray">
+                        android:textColorHint="@color/black">
 
                     </AutoCompleteTextView>
 

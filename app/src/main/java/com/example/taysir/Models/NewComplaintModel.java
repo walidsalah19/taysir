@@ -1,10 +1,10 @@
 package com.example.taysir.Models;
 
-public class ComplaintModel {
+public class NewComplaintModel {
     private String UserName,Inquire,InquireId,UserId;
     private int InquireNum;
 
-    public ComplaintModel(String userName, String inquire, String inquireId, String userId, int inquireNum) {
+    public NewComplaintModel(String userName, String inquire, String inquireId, String userId, int inquireNum) {
         UserName = userName;
         Inquire = inquire;
         InquireId = inquireId;

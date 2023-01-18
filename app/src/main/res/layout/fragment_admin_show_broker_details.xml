@@ -41,7 +41,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
@@ -53,7 +53,7 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text"
+        android:layout_below="@id/email"
         android:layout_marginBottom="20dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -140,7 +140,7 @@
                 app:layout_constraintTop_toBottomOf="@id/edittextUserNameAr" />
 
             <EditText
-                android:id="@+id/edittextAddress"
+                android:id="@+id/edittextMaroOfNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -160,7 +160,7 @@
                 app:layout_constraintTop_toBottomOf="@id/edittextId" />
 
             <EditText
-                android:id="@+id/edittextAddress1"
+                android:id="@+id/FreeWorkDocumentCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -177,10 +177,10 @@
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edittextAddress" />
+                app:layout_constraintTop_toBottomOf="@id/edittextMaroOfNum" />
 
             <EditText
-                android:id="@+id/edittextType"
+                android:id="@+id/edittextGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -196,7 +196,7 @@
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edittextAddress1" />
+                app:layout_constraintTop_toBottomOf="@id/FreeWorkDocumentCode" />
 
 
             <LinearLayout
@@ -209,9 +209,9 @@
                 android:layout_marginStart="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edittextType">
+                app:layout_constraintTop_toBottomOf="@id/edittextGender">
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnReject"
+                    android:id="@+id/btnRejectBroker"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"
@@ -222,7 +222,7 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="10dp"/>
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnCreateAccount"
+                    android:id="@+id/btnAcceptBroker"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"

@@ -123,7 +123,7 @@
         <TextView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/ic_hide_password"
+            android:background="@drawable/ic_baseline_visibility_24"
             android:layout_gravity="center">
         </TextView>
 
@@ -133,7 +133,6 @@
             android:layout_height="wrap_content"
             android:hint="أدخل الرقم السري"
             android:textSize="20sp"
-            android:gravity="end"
             android:textColor="@color/Red_Orange"
             android:backgroundTint="@color/white"
             android:drawablePadding="10dp"

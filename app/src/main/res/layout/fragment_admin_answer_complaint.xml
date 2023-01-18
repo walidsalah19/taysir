@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Admin.AdminAnswerComplaint"
     android:background="@color/rating"
-    android:paddingBottom="20dp">
+    android:paddingBottom="20dp"
+    android:layout_margin="20dp">
     <ImageView
         android:id="@+id/end"
         android:layout_width="70dp"
@@ -36,7 +37,7 @@
 
 
     <EditText
-        android:id="@+id/edittextComment"
+        android:id="@+id/edittextComplaintAnswer"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:textSize="22sp"
@@ -55,7 +56,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCreateAccount"
+        android:id="@+id/sendAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -68,5 +69,5 @@
         android:layout_weight="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edittextComment"/>
+        app:layout_constraintTop_toBottomOf="@id/edittextComplaintAnswer"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

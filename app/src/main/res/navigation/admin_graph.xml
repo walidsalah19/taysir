@@ -33,6 +33,10 @@
         tools:layout="@layout/fragment_admin_show_broker_details">
         <action android:id="@+id/goToManageBrokers"
             app:destination="@+id/manageBrokers"/>
+      <!--  <argument
+            android:name="data"
+            app:argType="com.example.taysir.Models.BrokerModel"/>
+-->
     </fragment>
     <fragment
         android:id="@+id/newComplaint"
@@ -51,7 +55,11 @@
         tools:layout="@layout/fragment_admin_show_complaint_details">
         <action android:id="@+id/goToNewComplaint"
             app:destination="@+id/newComplaint"/>
-    </fragment>
+
+       <!-- <argument
+            android:name="data"
+            app:argType="com.example.taysir.Models.NewComplaintModel"/>
+    --></fragment>
     <fragment
         android:id="@+id/OldComplaint"
         android:name="com.example.taysir.Admin.AdminShowOldComplaint"
@@ -69,5 +77,8 @@
         tools:layout="@layout/fragment_admin_old_complaint_details">
         <action android:id="@+id/goToOldComplaint"
             app:destination="@+id/OldComplaint"/>
+       <!-- <argument
+            android:name="data"
+            app:argType="com.example.taysir.Models.OldComplaintModel"/>-->
     </fragment>
 </navigation>

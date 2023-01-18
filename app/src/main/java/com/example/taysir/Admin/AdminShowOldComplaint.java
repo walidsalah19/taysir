@@ -6,14 +6,15 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.taysir.Admin.Adapter.ComplaintAdapter;
-import com.example.taysir.Models.ComplaintModel;
+import com.example.taysir.Admin.Adapter.NewComplaintAdapter;
+import com.example.taysir.Admin.Adapter.OldComplaintAdapter;
+import com.example.taysir.Models.NewComplaintModel;
+import com.example.taysir.Models.OldComplaintModel;
 import com.example.taysir.R;
 import com.example.taysir.databinding.FragmentAdminShowOldComplaintBinding;
 import com.google.firebase.database.DataSnapshot;
@@ -28,8 +29,8 @@ import java.util.ArrayList;
 public class AdminShowOldComplaint extends Fragment {
    private FragmentAdminShowOldComplaintBinding mBinding;
    private DatabaseReference database;
-   private ArrayList<ComplaintModel> arrayList;
-   private ComplaintAdapter adapter;
+   private ArrayList<OldComplaintModel> arrayList;
+   private OldComplaintAdapter adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class AdminShowOldComplaint extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding=FragmentAdminShowOldComplaintBinding.inflate(inflater,container,false);
-         database=FirebaseDatabase.getInstance().getReference("Enquire");
+         database=FirebaseDatabase.getInstance().getReference("OldEnquire");
         back();
         recyclerViewComponent();
         getOldComplaint();
@@ -61,7 +62,7 @@ public class AdminShowOldComplaint extends Fragment {
     private void recyclerViewComponent()
     {
         arrayList=new ArrayList<>();
-        adapter=new ComplaintAdapter(arrayList,this);
+        adapter=new OldComplaintAdapter(arrayList,this);
         mBinding.showOldComplaint.setLayoutManager(new LinearLayoutManager(getActivity()));
         mBinding.showOldComplaint.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -75,12 +76,13 @@ public class AdminShowOldComplaint extends Fragment {
                 {
                     for (DataSnapshot data:snapshot.getChildren())
                     {
-                         String UserName=data.child("UserName").getValue().toString();
-                        String Inquire=data.child("Inquire").getValue().toString();
-                        String InquireId=data.child("InquireId").getValue().toString();
-                        String userId=data.child("UserId").getValue().toString();
-                        int InquireNum=Integer.parseInt(data.child("InquireNum").getValue().toString());
-                        ComplaintModel complaint=new ComplaintModel(UserName,Inquire,InquireId,userId,InquireNum);
+                         String UserName=data.child("username").getValue().toString();
+                        String Inquire=data.child("inquire").getValue().toString();
+                        String InquireId=data.child("iquireid").getValue().toString();
+                        String userId=data.child("userid").getValue().toString();
+                        String Answer=data.child("answer").getValue().toString();
+                        int InquireNum=Integer.parseInt(data.child("inquirenum").getValue().toString());
+                        OldComplaintModel complaint=new OldComplaintModel(UserName,Inquire,InquireId,userId,InquireNum,Answer);
                         arrayList.add(complaint);
                     }
                     adapter.notifyDataSetChanged();
