@@ -78,7 +78,7 @@ public class AdminManageBrokers extends Fragment {
                 {
                     for (DataSnapshot data:snapshot.getChildren()) {
                         String Status = data.child("status").getValue().toString();
-                        if (Status.equals("unKnown") && Status.equals("reject")) {
+                        if (Status.equals("unKnown") || Status.equals("reject")) {
                             String BID = data.child("bid").getValue().toString();
                             String UserName = data.child("userName").getValue().toString();
                             String FullName = data.child("fullName").getValue().toString();

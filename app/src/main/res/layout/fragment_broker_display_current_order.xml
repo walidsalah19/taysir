@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Admin.AdminShowNewComplaint"
-    android:background="@color/Wild_Sand">
+    tools:context=".Broker.BrokerDisplayCurrentOrder">
 
     <TextView
         android:id="@+id/text"
@@ -17,11 +15,10 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:gravity="center"
-        android:text="الشكاوي الجديدة"
+        android:text="الطلبات الحالية"
         android:textColor="@color/Gray"
         android:textSize="20sp"
         android:textStyle="bold" />
-
     <ImageView
         android:id="@+id/back"
         android:layout_width="70dp"
@@ -34,11 +31,10 @@
         android:src="@drawable/ic_baseline_arrow_forward_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/showNewComplaint"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/back" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/BrokerCurrentOrders"
+            android:layout_below="@id/back"/>
 
 </RelativeLayout>

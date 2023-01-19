@@ -6,10 +6,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import com.example.taysir.R;
 import com.example.taysir.databinding.ActivityAccessMainBinding;
+
+import java.util.Locale;
 
 public class AccessMainActivity extends AppCompatActivity {
      private ActivityAccessMainBinding mBinding;
@@ -20,8 +24,18 @@ public class AccessMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mBinding=ActivityAccessMainBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
+        changeLocalLanguage("en");
         funNavController();
 
+    }
+    private void changeLocalLanguage(String lang)
+    {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Resources resources = this.getResources();
+        Configuration config = resources.getConfiguration();
+        config.setLocale(locale);
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
     }
     private void funNavController()
     {

@@ -13,10 +13,10 @@
            app:destination="@+id/displayNewOrders"/>
         <action android:id="@+id/goToBrokerPersonly"
             app:destination="@+id/BrokerPersonly"/>
-        <action android:id="@+id/goToOldOrders"
-            app:destination="@+id/oldOrders"/>
+        <action android:id="@+id/goToDisplayOldOrders"
+            app:destination="@+id/displayOldOrders"/>
         <action android:id="@+id/goToCurrentOrders"
-            app:destination="@+id/currentOrders"/>
+            app:destination="@+id/brokerDisplayCurrentOrder"/>
         <action android:id="@+id/goTosupportTechnical"
             app:destination="@id/supportTechnical"/>
     </fragment>
@@ -67,12 +67,32 @@
             app:destination="@id/newOrders"/>
     </fragment>
     <fragment
-        android:id="@+id/oldOrders"
+        android:id="@+id/displayOldOrders"
+        android:name="com.example.taysir.Broker.BrokerDisplayOldOrders"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_display_old_orders">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/BrokerHome"/>
+        <action android:id="@+id/goToOldOrdersDetails"
+            app:destination="@id/oldOrdersDetails"/>
+    </fragment>
+    <fragment
+        android:id="@+id/oldOrdersDetails"
         android:name="com.example.taysir.Broker.BrokerOldOrder"
         android:label="Start"
         tools:layout="@layout/fragment_broker_old_order">
         <action android:id="@+id/goToHome"
+            app:destination="@id/displayOldOrders"/>
+    </fragment>
+    <fragment
+        android:id="@+id/brokerDisplayCurrentOrder"
+        android:name="com.example.taysir.Broker.BrokerDisplayCurrentOrder"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_display_current_order">
+        <action android:id="@+id/goToHome"
             app:destination="@id/BrokerHome"/>
+        <action android:id="@+id/goToOrderDetails"
+            app:destination="@id/currentOrders"/>
     </fragment>
     <fragment
         android:id="@+id/currentOrders"
@@ -88,7 +108,7 @@
     </fragment>
     <fragment
         android:id="@+id/OrderDetails"
-        android:name="com.example.taysir.Broker.BrokerOrderDetails"
+        android:name="com.example.taysir.Broker.BrokerCurrentOrderDetails"
         android:label="Start"
         tools:layout="@layout/fragment_broker_order_details">
         <action android:id="@+id/currentOrders"
@@ -105,9 +125,9 @@
         <action android:id="@+id/goTosendComplaint"
             app:destination="@id/sendComplaint"/>
         <action android:id="@+id/goTowaitComplaint"
-            app:destination="@id/waitComplaint"/>
+            app:destination="@id/displayComplaintWaiting"/>
         <action android:id="@+id/goTocomplaintAnswer"
-            app:destination="@id/complaintAnswer"/>
+            app:destination="@id/displayComplaintAnswer"/>
     </fragment>
     <fragment
         android:id="@+id/sendComplaint"
@@ -118,12 +138,32 @@
             app:destination="@id/supportTechnical"/>
     </fragment>
     <fragment
+        android:id="@+id/displayComplaintWaiting"
+        android:name="com.example.taysir.Support.DisplayComplaintWaiting"
+        android:label="Start"
+        tools:layout="@layout/fragment_display_complaint_waiting">
+        <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/supportTechnical"/>
+        <action android:id="@+id/goToComplaintWaiting"
+            app:destination="@id/waitComplaint"/>
+    </fragment>
+    <fragment
         android:id="@+id/waitComplaint"
         android:name="com.example.taysir.Support.ComplaintWaiting"
         android:label="Start"
         tools:layout="@layout/fragment_complaint_waiting">
         <action android:id="@+id/goTosupportTechnical"
+            app:destination="@id/displayComplaintWaiting"/>
+    </fragment>
+    <fragment
+        android:id="@+id/displayComplaintAnswer"
+        android:name="com.example.taysir.Support.DisplayComplaintAnswerd"
+        android:label="Start"
+        tools:layout="@layout/fragment_display_complaint_answerd">
+        <action android:id="@+id/goTosupportTechnical"
             app:destination="@id/supportTechnical"/>
+        <action android:id="@+id/goToComplaintAnswer"
+            app:destination="@id/complaintAnswer"/>
     </fragment>
     <fragment
         android:id="@+id/complaintAnswer"
@@ -131,7 +171,7 @@
         android:label="Start"
         tools:layout="@layout/fragment_complaint_answered">
         <action android:id="@+id/goTosupportTechnical"
-            app:destination="@id/supportTechnical"/>
+            app:destination="@id/displayComplaintAnswer"/>
     </fragment>
     <fragment
         android:id="@+id/Chat"

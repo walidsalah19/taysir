@@ -74,6 +74,7 @@
         android:hint="أدخل كلمة السر"
         android:textSize="18sp"
         android:gravity="end"
+        android:backgroundTint="@color/Wild_Sand"
         android:textColor="@color/Red_Orange"
         android:drawablePadding="10dp"
         android:drawableEnd="@drawable/ic_baseline_lock_24"

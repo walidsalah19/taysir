@@ -32,7 +32,7 @@ public class AdminShowComplaintDetails extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding=FragmentAdminShowComplaintDetailsBinding.inflate(inflater,container,false);
-        NewComplaintModel model=new NewComplaintModel(
+       data=new NewComplaintModel(
                 getArguments().getString("username").toString(),
                 getArguments().getString("complaint").toString(),
                 getArguments().getString("complaintId").toString(),

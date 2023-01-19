@@ -10,18 +10,14 @@
         android:label="Start"
         tools:layout="@layout/fragment_start">
         <action android:id="@+id/selectAccessType"
-            app:destination="@id/selectAccessType"/>
+            app:destination="@id/selectUserType"/>
     </fragment>
     <fragment
         android:id="@+id/selectUserType"
         android:name="com.example.taysir.UserAccess.SelectUserType"
         android:label="Start"
         tools:layout="@layout/fragment_select_user_type">
-        <action android:id="@+id/customerProfileAction"
-            app:destination="@id/customerProfile"/>
-        <action android:id="@+id/brokerProfileAction"
-            app:destination="@id/brokerProfile"/>
-        <action android:id="@+id/goToSelectAccessType"
+        <action android:id="@+id/selectAccessType"
             app:destination="@id/selectAccessType"/>
     </fragment>
     <fragment
@@ -29,11 +25,13 @@
         android:name="com.example.taysir.UserAccess.SelectAccessType"
         android:label="Start"
         tools:layout="@layout/fragment_select_access_type">
-        <action android:id="@+id/gotToHome"
-            app:destination="@id/accessStart"/>
         <action android:id="@+id/loginAction"
             app:destination="@id/Login"/>
-        <action android:id="@+id/selectUserType"
+        <action android:id="@+id/customerProfileAction"
+            app:destination="@id/customerProfile"/>
+        <action android:id="@+id/brokerProfileAction"
+            app:destination="@id/brokerProfile"/>
+        <action android:id="@+id/goToSelectAccessType"
             app:destination="@id/selectUserType"/>
     </fragment>
     <fragment
@@ -52,7 +50,7 @@
         android:label="Start"
         tools:layout="@layout/fragment_customer_complete_profile">
         <action android:id="@+id/goToSelectUserType"
-            app:destination="@id/selectUserType"/>
+            app:destination="@id/selectAccessType"/>
     </fragment>
     <fragment
         android:id="@+id/brokerProfile"
@@ -60,7 +58,7 @@
         android:label="Start"
         tools:layout="@layout/fragment_broker_complete_profile">
         <action android:id="@+id/goToSelectUserType"
-            app:destination="@id/selectUserType"/>
+            app:destination="@id/selectAccessType"/>
     </fragment>
     <fragment
         android:id="@+id/forgetPassword"

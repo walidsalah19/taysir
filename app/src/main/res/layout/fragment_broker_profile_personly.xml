@@ -116,7 +116,7 @@
                         android:layout_height="20dp"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:src="@drawable/thumb"
+                        android:src="@drawable/unkowen_themb"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="normal"
@@ -127,10 +127,10 @@
                         android:id="@+id/view1"
                         android:layout_width="0dp"
                         android:layout_height="4dp"
-                        android:background="@color/Red_Orange"
+                        android:background="@color/Gray"
                         app:layout_constraintBottom_toBottomOf="@id/image1"
                         app:layout_constraintEnd_toEndOf="@+id/image2"
-                        app:layout_constraintStart_toStartOf="@id/image1"
+                        app:layout_constraintStart_toEndOf="@id/image1"
                         app:layout_constraintTop_toTopOf="@id/image1"></View>
 
                     <ImageView
@@ -183,7 +183,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="waiting"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="normal"

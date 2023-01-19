@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Admin.AdminShowNewComplaint"
+    tools:context=".Broker.BrokerDisplayOldOrders"
     android:background="@color/Wild_Sand">
 
     <TextView
@@ -17,7 +17,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:gravity="center"
-        android:text="الشكاوي الجديدة"
+        android:text="الطلبات القديمة"
         android:textColor="@color/Gray"
         android:textSize="20sp"
         android:textStyle="bold" />
@@ -34,11 +34,10 @@
         android:src="@drawable/ic_baseline_arrow_forward_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/showNewComplaint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/back" />
+        android:layout_below="@id/back"
+        android:id="@+id/BrokerDisplayNewOrders"/>
 
 </RelativeLayout>

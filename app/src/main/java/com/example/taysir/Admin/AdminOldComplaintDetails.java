@@ -37,12 +37,12 @@ public class AdminOldComplaintDetails extends Fragment {
     private void details()
     {
         OldComplaintModel model=new OldComplaintModel(
-                getArguments().getString("username").toString(),
-                getArguments().getString("complaint").toString(),
-                getArguments().getString("complaintId").toString(),
-                getArguments().getString("userId").toString(),
+                getArguments().getString("username"),
+                getArguments().getString("complaint"),
+                getArguments().getString("complaintId"),
+                getArguments().getString("userId"),
                 getArguments().getInt("num"),
-                getArguments().getString("answer").toString());
+                getArguments().getString("answer"));
         mBinding.complaintNumber.setText(model.getInquireNum()+"");
         mBinding.complaintAnswer.setText(model.getAnswer());
         mBinding.complaint.setText(model.getInquire());

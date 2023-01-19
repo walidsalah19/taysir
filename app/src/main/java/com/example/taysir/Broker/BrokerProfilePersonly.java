@@ -108,16 +108,19 @@ public class BrokerProfilePersonly extends Fragment {
     {
         if(broker.getStatus().equals("unKnown"))
         {
-            Glide.with(BrokerProfilePersonly.this).load(R.drawable.unkowen_themb).centerCrop().into(mBinding.image1);
-            mBinding.view1.setBackgroundColor(R.color.Gray);
+
         }
         else if(broker.getStatus().equals("accepted"))
         {
-            mBinding.text1.setText("Accepted");
+            Glide.with(BrokerProfilePersonly.this).load(R.drawable.thumb).centerCrop().into(mBinding.image1);
+            mBinding.view1.setBackgroundColor(R.color.Red_Orange);
+            mBinding.text1.setText("تم قبولك");
         }
         else
         {
-
+            Glide.with(BrokerProfilePersonly.this).load(R.drawable.thumb).centerCrop().into(mBinding.image1);
+            mBinding.view1.setBackgroundColor(R.color.Red_Orange);
+            mBinding.text1.setText("تم رفضك");
         }
     }
     private void initFirebaseTool()

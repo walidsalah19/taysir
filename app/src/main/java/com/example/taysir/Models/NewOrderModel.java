@@ -2,16 +2,17 @@ package com.example.taysir.Models;
 
 import java.util.ArrayList;
 
-public class OrderModel {
-    String WebSitLink,WebSitName,userId,userName,orderId,orderStat,OrderDate;
+public class NewOrderModel {
+    String WebSitLink,WebSitName,clintId,clintName,clintLocation,orderId,orderStat,OrderDate;
     int orderNum;
     ArrayList<OrderDetailsModel> OrderDetails;
 
-    public OrderModel(String webSitLink, String webSitName, String userId, String userName, String orderId, String orderStat, String orderDate, int orderNum, ArrayList<OrderDetailsModel> orderDetails) {
+    public NewOrderModel(String webSitLink, String webSitName, String clintId, String clintName, String clintLocation, String orderId, String orderStat, String orderDate, int orderNum, ArrayList<OrderDetailsModel> orderDetails) {
         WebSitLink = webSitLink;
         WebSitName = webSitName;
-        this.userId = userId;
-        this.userName = userName;
+        this.clintId = clintId;
+        this.clintName = clintName;
+        this.clintLocation = clintLocation;
         this.orderId = orderId;
         this.orderStat = orderStat;
         OrderDate = orderDate;
@@ -35,20 +36,28 @@ public class OrderModel {
         WebSitName = webSitName;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getClintId() {
+        return clintId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setClintId(String clintId) {
+        this.clintId = clintId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getClintName() {
+        return clintName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setClintName(String clintName) {
+        this.clintName = clintName;
+    }
+
+    public String getClintLocation() {
+        return clintLocation;
+    }
+
+    public void setClintLocation(String clintLocation) {
+        this.clintLocation = clintLocation;
     }
 
     public String getOrderId() {

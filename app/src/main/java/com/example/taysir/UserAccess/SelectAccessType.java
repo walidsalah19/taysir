@@ -39,7 +39,7 @@ public class SelectAccessType extends Fragment {
             @Override
             public void onClick(View v) {
                 NavHostFragment.findNavController(SelectAccessType.this)
-                        .navigate(R.id.gotToHome);
+                        .navigate(R.id.goToSelectAccessType);
             }
         });
     }
@@ -58,8 +58,15 @@ public class SelectAccessType extends Fragment {
         mBinding.registration.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(SelectAccessType.this)
-                        .navigate(R.id.selectUserType);
+                if (UserType.type.equals("customer")) {
+                    NavHostFragment.findNavController(SelectAccessType.this)
+                            .navigate(R.id.customerProfileAction);
+                }
+                else
+                {
+                    NavHostFragment.findNavController(SelectAccessType.this)
+                            .navigate(R.id.brokerProfileAction);
+                }
 
             }
         });

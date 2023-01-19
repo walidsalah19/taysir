@@ -3,9 +3,11 @@ package com.example.taysir.UserAccess;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,10 @@ import com.example.taysir.Customer.CustomerMainActivity;
 import com.example.taysir.R;
 import com.example.taysir.UserType;
 import com.example.taysir.databinding.FragmentLoginBinding;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFragment extends Fragment {
 
@@ -52,21 +58,44 @@ public class LoginFragment extends Fragment {
         mBinding.login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mBinding.Email.getText().toString().equals("customer"))
+                String email=mBinding.Email.getText().toString();
+                String password=mBinding.password.getText().toString();
+                if(TextUtils.isEmpty(email))
                 {
-                    UserType.type="customer";
-                   startActivity(new Intent(getActivity(), CustomerMainActivity.class));
+                    mBinding.Email.setError("من فضلك قم بإدخال البريد الإلكتروني الخاص بك");
                 }
-                else if(mBinding.Email.getText().toString().equals("broker"))
+                else if(TextUtils.isEmpty(password))
                 {
-                    UserType.type="broker";
-                    startActivity(new Intent(getActivity(), BrokerMainActivity.class));
+                    mBinding.password.setError("من فضلك قم بإدخال كلمة المرور الخاص بك");
                 }
-                else if(mBinding.Email.getText().toString().equals("admin"))
+                else if(mBinding.Email.getText().toString().equals("admin@gmail.com"))
                 {
                     startActivity(new Intent(getActivity(), AdminMainActivity.class));
                 }
+                else
+                {
+                    checkAccount(email,password);
+                }
 
+            }
+        });
+    }
+
+    private void checkAccount(String email, String password) {
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+               if (task.isSuccessful())
+               {
+                   if (UserType.type.equals("customer"))
+                   {
+                       startActivity(new Intent(getActivity(), CustomerMainActivity.class));
+                   }
+                   else
+                   {
+                       startActivity(new Intent(getActivity(), BrokerMainActivity.class));
+                   }
+               }
             }
         });
     }

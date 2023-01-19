@@ -1,4 +1,4 @@
-package com.example.taysir.Admin.Adapter;
+package com.example.taysir.Support.Adapter;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -12,18 +12,18 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.taysir.Admin.AdminShowNewComplaintDirections;
+import com.example.taysir.Admin.Adapter.NewComplaintAdapter;
 import com.example.taysir.Models.NewComplaintModel;
 import com.example.taysir.R;
 
 import java.util.ArrayList;
 
-public class NewComplaintAdapter extends RecyclerView.Adapter<NewComplaintAdapter.help> {
+public class WaitingComplaintAdapter extends RecyclerView.Adapter<WaitingComplaintAdapter.help> {
     private ArrayList<NewComplaintModel> arrayList;
     private Fragment fragment;
-    public NewComplaintAdapter(ArrayList<NewComplaintModel> arrayList, Fragment fragment) {
+    public WaitingComplaintAdapter(ArrayList<NewComplaintModel> arrayList, Fragment fragment) {
         this.arrayList = arrayList;
-       this.fragment=fragment;
+        this.fragment=fragment;
     }
 
     @NonNull
@@ -35,21 +35,21 @@ public class NewComplaintAdapter extends RecyclerView.Adapter<NewComplaintAdapte
 
     @Override
     public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
-          holder.userName.setText(arrayList.get(position).getUserName());
-          holder.ComplaintNum.setText(arrayList.get(position).getInquireNum()+" ");
-          holder.itemView.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  Bundle b=new Bundle();
-                  b.putString("complaint",arrayList.get(position).getInquire());
-                  b.putString("username",arrayList.get(position).getUserName());
-                  b.putString("complaintId",arrayList.get(position).getInquireId());
-                  b.putString("userId",arrayList.get(position).getUserId());
-                  b.putInt("num",arrayList.get(position).getInquireNum());
-                  NavHostFragment.findNavController(fragment)
-                          .navigate(R.id.goToNewComplaintDetails,b);
-              }
-          });
+        holder.userName.setText(arrayList.get(position).getUserName());
+        holder.ComplaintNum.setText(arrayList.get(position).getInquireNum()+" ");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle b=new Bundle();
+                b.putString("complaint",arrayList.get(position).getInquire());
+                b.putString("username",arrayList.get(position).getUserName());
+                b.putString("complaintId",arrayList.get(position).getInquireId());
+                b.putString("userId",arrayList.get(position).getUserId());
+                b.putInt("num",arrayList.get(position).getInquireNum());
+                NavHostFragment.findNavController(fragment)
+                        .navigate(R.id.goToComplaintWaiting,b);
+            }
+        });
     }
 
     @Override
@@ -59,7 +59,7 @@ public class NewComplaintAdapter extends RecyclerView.Adapter<NewComplaintAdapte
 
     public class help extends RecyclerView.ViewHolder
     {
-         private TextView userName,ComplaintNum;
+        private TextView userName,ComplaintNum;
         public help(@NonNull View itemView) {
             super(itemView);
             userName=(TextView) itemView.findViewById(R.id.complaintUserName);

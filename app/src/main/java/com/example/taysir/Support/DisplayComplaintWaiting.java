@@ -1,4 +1,4 @@
-package com.example.taysir.Admin;
+package com.example.taysir.Support;
 
 import android.os.Bundle;
 
@@ -12,9 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taysir.Admin.Adapter.NewComplaintAdapter;
+import com.example.taysir.Admin.AdminShowNewComplaint;
 import com.example.taysir.Models.NewComplaintModel;
 import com.example.taysir.R;
-import com.example.taysir.databinding.FragmentAdminShowNewComplaintBinding;
+import com.example.taysir.Support.Adapter.WaitingComplaintAdapter;
+import com.example.taysir.databinding.FragmentDisplayComplaintWaitingBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,12 +26,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
-public class AdminShowNewComplaint extends Fragment {
+public class DisplayComplaintWaiting extends Fragment {
+    private FragmentDisplayComplaintWaitingBinding mBinding;
     private DatabaseReference database;
     private ArrayList<NewComplaintModel> arrayList;
-    private NewComplaintAdapter adapter;
-    private FragmentAdminShowNewComplaintBinding mBinding;
+    private WaitingComplaintAdapter adapter;
+    private String userId;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +42,9 @@ public class AdminShowNewComplaint extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentAdminShowNewComplaintBinding.inflate(inflater,container,false);
+        mBinding=FragmentDisplayComplaintWaitingBinding.inflate(inflater,container,false);
         database= FirebaseDatabase.getInstance().getReference("newEnquire");
+        userId= FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
         recyclerViewComponent();
         getNewComplaint();
         back();
@@ -52,17 +56,17 @@ public class AdminShowNewComplaint extends Fragment {
         mBinding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(AdminShowNewComplaint.this)
-                        .navigate(R.id.goToAdminHome);
+                NavHostFragment.findNavController(DisplayComplaintWaiting.this)
+                        .navigate(R.id.goTosupportTechnical);
             }
         });
     }
     private void recyclerViewComponent()
     {
         arrayList=new ArrayList<>();
-        adapter=new NewComplaintAdapter(arrayList,this);
-        mBinding.showNewComplaint.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mBinding.showNewComplaint.setAdapter(adapter);
+        adapter=new WaitingComplaintAdapter(arrayList,this);
+        mBinding.showWaitingComplaint.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mBinding.showWaitingComplaint.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
     private void getNewComplaint()
@@ -72,15 +76,18 @@ public class AdminShowNewComplaint extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
+                    arrayList.clear();
                     for (DataSnapshot data:snapshot.getChildren())
                     {
-                        String UserName=data.child("userName").getValue().toString();
-                        String Inquire=data.child("inquire").getValue().toString();
-                        String InquireId=data.child("inquireId").getValue().toString();
-                        String userId=data.child("userId").getValue().toString();
-                        int InquireNum=Integer.parseInt(data.child("inquireNum").getValue().toString());
-                        NewComplaintModel complaint=new NewComplaintModel(UserName,Inquire,InquireId,userId,InquireNum);
-                        arrayList.add(complaint);
+                        String uId=data.child("userId").getValue().toString();
+                        if (userId.equals(uId)) {
+                            String UserName = data.child("userName").getValue().toString();
+                            String Inquire = data.child("inquire").getValue().toString();
+                            String InquireId = data.child("inquireId").getValue().toString();
+                            int InquireNum = Integer.parseInt(data.child("inquireNum").getValue().toString());
+                            NewComplaintModel complaint = new NewComplaintModel(UserName, Inquire, InquireId, uId, InquireNum);
+                            arrayList.add(complaint);
+                        }
                     }
                     adapter.notifyDataSetChanged();
                 }

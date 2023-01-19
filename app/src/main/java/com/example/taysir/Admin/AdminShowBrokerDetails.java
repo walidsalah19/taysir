@@ -123,7 +123,6 @@ public class AdminShowBrokerDetails extends Fragment {
                             dialog.dismiss();
                         }
                     });
-                    detetRequest(broker.getBID());
                 }
                 else
                 {
@@ -138,10 +137,5 @@ public class AdminShowBrokerDetails extends Fragment {
                 }
             }
         });
-    }
-
-    private void detetRequest(String Id) {
-        DatabaseReference database= FirebaseDatabase.getInstance().getReference("BrokerRequest");
-        database.child(Id).removeValue();
     }
 }

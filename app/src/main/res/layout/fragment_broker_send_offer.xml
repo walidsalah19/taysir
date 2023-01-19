@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Admin.AdminAnswerComplaint"
+    tools:context=".Broker.BrokerSendOffer"
     android:background="@color/rating"
     android:paddingBottom="20dp"
     android:layout_margin="20dp">
+
     <ImageView
         android:id="@+id/end"
         android:layout_width="70dp"
@@ -37,14 +39,14 @@
 
 
     <EditText
-        android:id="@+id/edittextComplaintAnswer"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:id="@+id/commission"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="22sp"
         android:padding="10dp"
         android:enabled="true"
-        android:hint="الرد"
-        android:inputType="textMultiLine"
+        android:text="العمولة"
+        android:inputType="numberDecimal"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:gravity="start"
@@ -56,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/sendAnswer"
+        android:id="@+id/sendOffer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -70,4 +72,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edittextComplaintAnswer"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

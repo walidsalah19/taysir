@@ -12,16 +12,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.taysir.Models.AcceptedOrdersModel;
 import com.example.taysir.Models.NewOrderModel;
 import com.example.taysir.R;
 
 import java.util.ArrayList;
 
-public class BrokerNewOrdersAdapter  extends RecyclerView.Adapter<BrokerNewOrdersAdapter.help>{
+public class BrokerAcceptedOrderAdapter extends RecyclerView.Adapter<BrokerAcceptedOrderAdapter.help>{
 
-    private ArrayList<NewOrderModel> arrayList;
+    private ArrayList<AcceptedOrdersModel> arrayList;
     private Fragment fragment;
-    public BrokerNewOrdersAdapter(ArrayList<NewOrderModel> arrayList, Fragment fragment) {
+    public BrokerAcceptedOrderAdapter(ArrayList<AcceptedOrdersModel> arrayList, Fragment fragment) {
         this.arrayList = arrayList;
         this.fragment=fragment;
     }
@@ -43,7 +44,7 @@ public class BrokerNewOrdersAdapter  extends RecyclerView.Adapter<BrokerNewOrder
                 Bundle b=new Bundle();
                 b.putString("orderId",arrayList.get(position).getOrderId());
                 NavHostFragment.findNavController(fragment)
-                        .navigate(R.id.goToNewComplaintDetails,b);
+                        .navigate(R.id.goToOrderDetails,b);
             }
         });
     }

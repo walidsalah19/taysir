@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
@@ -12,14 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taysir.Broker.Adapter.BrokerOrderNotificationAdapter;
-import com.example.taysir.Broker.Adapter.BrokerRatingAdapter;
-import com.example.taysir.Customer.Offers.OfferNotification;
 import com.example.taysir.Models.OrderDetailsModel;
-import com.example.taysir.Models.OrderModel;
-import com.example.taysir.Models.RatingModel;
-import com.example.taysir.R;
+import com.example.taysir.Models.NewOrderModel;
 import com.example.taysir.databinding.FragmentOrderNotificationBinding;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,7 +26,7 @@ public class OrderNotification extends Fragment {
 
   private FragmentOrderNotificationBinding mBinding;
     private DatabaseReference orderDatabase;
-    private ArrayList<OrderModel>order;
+    private ArrayList<NewOrderModel>order;
     private ArrayList<OrderDetailsModel>orderDetails;
     private BrokerOrderNotificationAdapter adapter;
     @Override
@@ -71,27 +65,28 @@ public class OrderNotification extends Fragment {
                         orderDetails.clear();
                         String WebSitLink=data.child("webSitLink").getValue().toString();
                         String WebSitName=data.child("webSitName").getValue().toString();
-                        String userId=data.child("userId").getValue().toString();
+                        String clintId=data.child("clintId").getValue().toString();
                         String orderId=data.child("orderId").getValue().toString();
                         String orderStat=data.child("orderStat").getValue().toString();
                         String OrderDate=data.child("orderDate").getValue().toString();
-                        String userName=data.child("userName").getValue().toString();
+                        String clintName=data.child("clintName").getValue().toString();
+                        String clintLocation=data.child("clintLocation").getValue().toString();
 
                         int orderNum=Integer.parseInt(data.child("orderNum").getValue().toString());
                         for(DataSnapshot snap2:data.getChildren()) {
-                            String productLink = data.child("productLink").getValue().toString();
-                            String productColor = data.child("productColor").getValue().toString();
-                            String productPhoto = data.child("productPhoto").getValue().toString();
-                            String productNotes = data.child("productNotes").getValue().toString();
-                            String productQuantity = data.child("productQuantity").getValue().toString();
-                            String productCode = data.child("productCode").getValue().toString();
-                            String productSize = data.child("productSize").getValue().toString();
+                            String productLink = snap2.child("productLink").getValue().toString();
+                            String productColor = snap2.child("productColor").getValue().toString();
+                            String productPhoto = snap2.child("productPhoto").getValue().toString();
+                            String productNotes = snap2.child("productNotes").getValue().toString();
+                            String productQuantity = snap2.child("productQuantity").getValue().toString();
+                            String productCode = snap2.child("productCode").getValue().toString();
+                            String productSize = snap2.child("productSize").getValue().toString();
                             OrderDetailsModel detailsModel=new OrderDetailsModel(productLink,productColor,productPhoto,productNotes,Integer.parseInt(productQuantity),
                                     Integer.parseInt(productCode),Integer.parseInt(productSize));
                             orderDetails.add(detailsModel);
                         }
-                        OrderModel orderModel=new OrderModel(WebSitLink,WebSitName,userId,userName,orderId,orderStat,OrderDate,orderNum,orderDetails);
-                        order.add(orderModel);
+                        NewOrderModel newOrderModel =new NewOrderModel(WebSitLink,WebSitName,clintId,clintName,clintLocation,orderId,orderStat,OrderDate,orderNum,orderDetails);
+                        order.add(newOrderModel);
                     }
                     adapter.notifyDataSetChanged();
                 }

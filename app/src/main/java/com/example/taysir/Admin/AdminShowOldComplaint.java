@@ -76,16 +76,33 @@ public class AdminShowOldComplaint extends Fragment {
                 {
                     for (DataSnapshot data:snapshot.getChildren())
                     {
-                         String UserName=data.child("username").getValue().toString();
-                        String Inquire=data.child("inquire").getValue().toString();
-                        String InquireId=data.child("iquireid").getValue().toString();
-                        String userId=data.child("userid").getValue().toString();
-                        String Answer=data.child("answer").getValue().toString();
-                        int InquireNum=Integer.parseInt(data.child("inquirenum").getValue().toString());
-                        OldComplaintModel complaint=new OldComplaintModel(UserName,Inquire,InquireId,userId,InquireNum,Answer);
-                        arrayList.add(complaint);
+                        String id=data.getKey();
+                        database.child(id).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists())
+                                {
+                                    for (DataSnapshot snap:snapshot.getChildren()) {
+                                        String UserName = snap.child("userName").getValue().toString();
+                                        String Inquire = snap.child("inquire").getValue().toString();
+                                        String InquireId = snap.child("inquireId").getValue().toString();
+                                        String userId = snap.child("userId").getValue().toString();
+                                        String Answer = snap.child("answer").getValue().toString();
+                                        int InquireNum = Integer.parseInt(snap.child("inquireNum").getValue().toString());
+                                        OldComplaintModel complaint = new OldComplaintModel(UserName, Inquire, InquireId, userId, InquireNum, Answer);
+                                        arrayList.add(complaint);
+                                    }
+                                    adapter.notifyDataSetChanged();
+                                }
+
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
-                    adapter.notifyDataSetChanged();
                 }
             }
 

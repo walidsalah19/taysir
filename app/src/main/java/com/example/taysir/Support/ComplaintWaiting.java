@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Models.NewComplaintModel;
 import com.example.taysir.R;
 import com.example.taysir.databinding.FragmentComplaintWaitingBinding;
 
@@ -26,6 +27,14 @@ public class ComplaintWaiting extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding= FragmentComplaintWaitingBinding.inflate(inflater,container,false);
+        NewComplaintModel model=new NewComplaintModel(
+                getArguments().getString("username").toString(),
+                getArguments().getString("complaint").toString(),
+                getArguments().getString("complaintId").toString(),
+                getArguments().getString("userId").toString(),
+                getArguments().getInt("num"));
+        mBinding.complaintNumber.setText(model.getInquireNum()+" ");
+        mBinding.edittextComplaintText.setText(model.getInquire());
         back();
         return mBinding.getRoot();
     }

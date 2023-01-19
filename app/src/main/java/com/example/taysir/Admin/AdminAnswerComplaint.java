@@ -68,7 +68,7 @@ public class AdminAnswerComplaint extends Fragment {
     private void addToDatabase(OldComplaintModel model)
     {
         DatabaseReference database=FirebaseDatabase.getInstance().getReference("OldEnquire");
-        database.child(model.getInquireId()).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+        database.child(model.getUserId()).child(model.getInquireId()).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
@@ -78,7 +78,10 @@ public class AdminAnswerComplaint extends Fragment {
                     dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
                         @Override
                         public void onClick(SweetAlertDialog sweetAlertDialog) {
+
                             dialog.dismiss();
+                            deleteFromNewInquire(model.getInquireId());
+                            end();
                         }
                     });
                 }
@@ -90,19 +93,29 @@ public class AdminAnswerComplaint extends Fragment {
                         @Override
                         public void onClick(SweetAlertDialog sweetAlertDialog) {
                             dialog.dismiss();
+                           end();
                         }
                     });
                 }
             }
         });
     }
+    private void deleteFromNewInquire(String id)
+    {
+        DatabaseReference database=FirebaseDatabase.getInstance().getReference("newEnquire");
+        database.child(id).removeValue();
+    }
     private void endFragment()
     {
         mBinding.end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().remove(AdminAnswerComplaint.this).commit();
+                     end();
             }
         });
+    }
+    private void end()
+    {
+        getActivity().getSupportFragmentManager().beginTransaction().remove(AdminAnswerComplaint.this).commit();
     }
 }

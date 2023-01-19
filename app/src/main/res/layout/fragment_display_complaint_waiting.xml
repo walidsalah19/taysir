@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Admin.AdminShowNewComplaint"
+    tools:context=".Support.DisplayComplaintWaiting"
     android:background="@color/Wild_Sand">
-
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
@@ -17,9 +16,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:gravity="center"
-        android:text="الشكاوي الجديدة"
         android:textColor="@color/Gray"
         android:textSize="20sp"
+        android:text="الطلب قيد الرد"
         android:textStyle="bold" />
 
     <ImageView
@@ -36,9 +35,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/showNewComplaint"
+        android:id="@+id/showWaitingComplaint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/back" />
-
 </RelativeLayout>

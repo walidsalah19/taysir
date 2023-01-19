@@ -16,6 +16,7 @@ import com.example.taysir.R;
 import com.example.taysir.UserAccess.AccessMainActivity;
 import com.example.taysir.databinding.FragmentBrokerHomeBinding;
 import com.example.taysir.databinding.FragmentCustomerHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class BrokerHome extends Fragment {
 
@@ -38,7 +39,17 @@ public class BrokerHome extends Fragment {
         logout();
         showProfile();
         supportTechnical();
+        removeNotification();
         return mBinding.getRoot();
+    }
+    private void removeNotification()
+    {
+        mBinding.home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().getSupportFragmentManager().beginTransaction().remove(new OrderNotification()).commit();
+            }
+        });
     }
     private void showProfile()
     {
@@ -76,7 +87,7 @@ public class BrokerHome extends Fragment {
             @Override
             public void onClick(View v) {
                 NavHostFragment.findNavController(BrokerHome.this)
-                        .navigate(R.id.goToOldOrders);
+                        .navigate(R.id.displayOldOrders);
             }
         });
     }
@@ -95,6 +106,7 @@ public class BrokerHome extends Fragment {
         mBinding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(getActivity(), AccessMainActivity.class));
             }
         });

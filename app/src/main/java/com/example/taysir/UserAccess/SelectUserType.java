@@ -30,18 +30,7 @@ public class SelectUserType extends Fragment {
         mBinding=FragmentSelectUserTypeBinding.inflate(inflater,container,false);
         customerType();
         brokerType();
-        back();
         return mBinding.getRoot();
-    }
-    private void back()
-    {
-        mBinding.back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavHostFragment.findNavController(SelectUserType.this)
-                        .navigate(R.id.goToSelectAccessType);
-            }
-        });
     }
     private void customerType()
     {
@@ -50,7 +39,7 @@ public class SelectUserType extends Fragment {
             public void onClick(View v) {
                 UserType.type="customer";
                 NavHostFragment.findNavController(SelectUserType.this)
-                        .navigate(R.id.customerProfileAction);
+                        .navigate(R.id.selectAccessType);
             }
         });
     }
@@ -61,7 +50,7 @@ public class SelectUserType extends Fragment {
             public void onClick(View v) {
                 UserType.type="broker";
                 NavHostFragment.findNavController(SelectUserType.this)
-                        .navigate(R.id.brokerProfileAction);
+                        .navigate(R.id.selectAccessType);
             }
         });
     }

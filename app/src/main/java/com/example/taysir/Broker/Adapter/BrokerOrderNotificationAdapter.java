@@ -12,8 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.taysir.Broker.OrderNotification;
-import com.example.taysir.Models.OrderModel;
+import com.example.taysir.Models.NewOrderModel;
 import com.example.taysir.R;
 
 import java.text.SimpleDateFormat;
@@ -22,10 +21,10 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class BrokerOrderNotificationAdapter extends RecyclerView.Adapter<BrokerOrderNotificationAdapter.help>{
-    private ArrayList<OrderModel> order;
+    private ArrayList<NewOrderModel> order;
     private Fragment fragment;
 
-    public BrokerOrderNotificationAdapter(ArrayList<OrderModel> order, Fragment fragment) {
+    public BrokerOrderNotificationAdapter(ArrayList<NewOrderModel> order, Fragment fragment) {
         this.order = order;
         this.fragment = fragment;
     }

@@ -51,7 +51,20 @@ public class BrokerProfile extends Fragment {
         initFirebaseTool();
         getBrokerData();
         back();
+        updateAccount();
+        cancel();
         return mBinding.getRoot();
+    }
+    private void cancel()
+    {
+        mBinding.cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                NavHostFragment.findNavController(BrokerProfile.this)
+                        .navigate(R.id.goToBrokerPersonly);
+            }
+        });
     }
     private void back()
     {
@@ -114,6 +127,7 @@ public class BrokerProfile extends Fragment {
         mBinding.edittextMaroOfNum.setText(broker.getMaroOfNum()+"");
         mBinding.FreeWorkDocumentCode.setText(broker.getFreeWorkDocumentCode());
         mBinding.edittextGender.getEditText().setText(broker.getGender());
+        loading.dismiss();
     }
     private void updateAccount()
     {
@@ -135,7 +149,6 @@ public class BrokerProfile extends Fragment {
         String NID=mBinding.edittextId.getText().toString();
         String MaroOfNum= mBinding.edittextMaroOfNum.getText().toString();
         String FreeWorkDocumentCode=mBinding.FreeWorkDocumentCode.getText().toString();
-        String password=mBinding.edittextPassword.getText().toString();
         if (TextUtils.isEmpty(userName))
         {
             mBinding.edittextUserName.setError("قم بإدخال اسم المستخدم");
@@ -190,7 +203,6 @@ public class BrokerProfile extends Fragment {
                         @Override
                         public void onClick(SweetAlertDialog sweetAlertDialog) {
                             dialog.dismiss();
-                            startActivity(new Intent(getActivity(), BrokerMainActivity.class));
                         }
                     });
                 }

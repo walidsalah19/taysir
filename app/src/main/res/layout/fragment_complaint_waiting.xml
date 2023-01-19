@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/text2"
+        android:id="@+id/complaintNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="start"
@@ -68,13 +68,13 @@
 
 
     <EditText
-        android:id="@+id/edittextComment"
+        android:id="@+id/edittextComplaintText"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:textSize="22sp"
         android:padding="10dp"
         android:enabled="false"
-        android:text="الشكوى"
+        android:hint="الشكوى"
         android:inputType="textEmailAddress"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"

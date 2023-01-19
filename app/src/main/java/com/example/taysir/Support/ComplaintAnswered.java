@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.taysir.Models.OldComplaintModel;
 import com.example.taysir.R;
 import com.example.taysir.databinding.FragmentComplaintAnsweredBinding;
 
@@ -29,7 +30,20 @@ public class ComplaintAnswered extends Fragment {
         // Inflate the layout for this fragment
         mBinding= FragmentComplaintAnsweredBinding.inflate(inflater,container,false);
         back();
+        details();
         return mBinding.getRoot();
+    }
+    private void details()
+    {
+        OldComplaintModel model=new OldComplaintModel(
+                getArguments().getString("username").toString(),
+                getArguments().getString("complaint").toString(),
+                getArguments().getString("complaintId").toString(),
+                getArguments().getString("userId").toString(),
+                getArguments().getInt("num"),
+                getArguments().getString("answer").toString());
+        mBinding.complaintAnswer.setText(model.getAnswer());
+        mBinding.complaint.setText(model.getInquire());
     }
     private void back()
     {

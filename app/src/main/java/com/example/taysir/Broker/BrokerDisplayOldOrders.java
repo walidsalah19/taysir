@@ -9,13 +9,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.taysir.Customer.PreviousOrderDetails;
 import com.example.taysir.R;
-import com.example.taysir.databinding.FragmentBrokerOrderDetailsBinding;
+import com.example.taysir.databinding.FragmentBrokerDisplayOldOrdersBinding;
 
+public class BrokerDisplayOldOrders extends Fragment {
 
-public class BrokerOrderDetails extends Fragment {
-    private FragmentBrokerOrderDetailsBinding mBinding;
+      private FragmentBrokerDisplayOldOrdersBinding mBinding;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +26,10 @@ public class BrokerOrderDetails extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentBrokerOrderDetailsBinding.inflate(inflater,container,false);
+        mBinding=FragmentBrokerDisplayOldOrdersBinding.inflate(inflater,container,false);
+
         back();
+
         return mBinding.getRoot();
     }
     private void back()
@@ -35,9 +37,8 @@ public class BrokerOrderDetails extends Fragment {
         mBinding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                    NavHostFragment.findNavController(BrokerOrderDetails.this)
-                            .navigate(R.id.currentOrders);
+                NavHostFragment.findNavController(BrokerDisplayOldOrders.this)
+                        .navigate(R.id.goToHome);
             }
         });
     }

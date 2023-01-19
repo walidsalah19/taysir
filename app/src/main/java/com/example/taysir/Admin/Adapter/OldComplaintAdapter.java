@@ -36,7 +36,7 @@ public class OldComplaintAdapter extends RecyclerView.Adapter<OldComplaintAdapte
         @Override
         public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
                 holder.userName.setText(arrayList.get(position).getUserName());
-                holder.ComplaintNum.setText(arrayList.get(position).getInquireNum());
+                holder.ComplaintNum.setText(arrayList.get(position).getInquireNum()+" ");
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -49,7 +49,7 @@ public class OldComplaintAdapter extends RecyclerView.Adapter<OldComplaintAdapte
             b.putString("answer",arrayList.get(position).getAnswer());
 
             NavHostFragment.findNavController(fragment)
-                .navigate(R.id.goToOldComplaintDetails);
+                .navigate(R.id.goToOldComplaintDetails,b);
                    }
                 });
                 }
