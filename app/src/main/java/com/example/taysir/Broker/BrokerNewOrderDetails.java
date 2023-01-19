@@ -1,4 +1,4 @@
-package com.example.taysir.Chat;
+package com.example.taysir.Broker;
 
 import android.os.Bundle;
 
@@ -10,11 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.taysir.R;
-import com.example.taysir.databinding.FragmentChatBinding;
+import com.example.taysir.databinding.FragmentBrokerNewOrderBinding;
 
-public class ChatFragment extends Fragment {
 
-    private FragmentChatBinding mBinding;
+public class BrokerNewOrderDetails extends Fragment {
+
+   private FragmentBrokerNewOrderBinding mBinding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class ChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentChatBinding.inflate(inflater,container,false);
+        mBinding=FragmentBrokerNewOrderBinding.inflate(inflater,container,false);
 
         back();
         return mBinding.getRoot();
@@ -36,8 +37,8 @@ public class ChatFragment extends Fragment {
         mBinding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NavHostFragment.findNavController(ChatFragment.this)
-                        .navigate(R.id.currentlyOrders);
+                NavHostFragment.findNavController(BrokerNewOrderDetails.this)
+                        .navigate(R.id.goToHome);
             }
         });
     }

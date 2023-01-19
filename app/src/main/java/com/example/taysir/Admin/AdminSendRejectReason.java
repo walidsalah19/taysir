@@ -73,6 +73,30 @@ public class AdminSendRejectReason extends Fragment {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
                 {
+                    updateStatus();
+                }
+                else
+                {
+                    SweetAlertDialog dialog= SweetDialog.failed(getContext(),"فشل الإرسال");
+                    dialog.show();
+                    dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                        @Override
+                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+                            dialog.dismiss();
+                        }
+                    });
+                }
+            }
+        });
+    }
+    private void updateStatus()
+    {
+        DatabaseReference database= FirebaseDatabase.getInstance().getReference("Brokers");
+        database.child(BId).child("status").setValue("rejected").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful())
+                {
                     SweetAlertDialog dialog= SweetDialog.success(getContext(),"تم إرسال سبب الرفض");
                     dialog.show();
                     dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
@@ -95,6 +119,7 @@ public class AdminSendRejectReason extends Fragment {
                 }
             }
         });
+
     }
 
 }

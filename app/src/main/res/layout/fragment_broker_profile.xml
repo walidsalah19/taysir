@@ -41,7 +41,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
@@ -55,7 +55,7 @@
         android:id="@+id/edit"
         android:layout_width="50dp"
         android:layout_height="40dp"
-        android:layout_alignBottom="@id/text"
+        android:layout_alignBottom="@id/email"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="30dp"
         android:padding="5dp"
@@ -181,7 +181,7 @@
                 app:layout_constraintTop_toBottomOf="@id/edittextUserNameAr" />
 
             <EditText
-                android:id="@+id/edittextAddress"
+                android:id="@+id/edittextMaroOfNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -200,7 +200,7 @@
                 app:layout_constraintTop_toBottomOf="@id/edittextId" />
 
             <EditText
-                android:id="@+id/edittextAddress1"
+                android:id="@+id/FreeWorkDocumentCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -216,7 +216,7 @@
                 android:textColorHint="@color/Gray"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edittextAddress" />
+                app:layout_constraintTop_toBottomOf="@id/edittextMaroOfNum" />
 
             <LinearLayout
                 android:id="@+id/linear3"
@@ -228,10 +228,10 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edittextAddress1">
+                app:layout_constraintTop_toBottomOf="@id/FreeWorkDocumentCode">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/spinner3"
+                    android:id="@+id/edittextGender"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -282,7 +282,7 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="10dp"/>
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btnCreateAccount"
+                    android:id="@+id/btnUpdateAccount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="@color/white"

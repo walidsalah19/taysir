@@ -178,11 +178,12 @@
                     app:layout_constraintTop_toBottomOf="@id/text6">
 
                     <TextView
+                        android:id="@+id/text1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="end"
-                        android:text="تم رفضك"
+                        android:text="waiting"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textStyle="normal"
@@ -274,7 +275,7 @@
                 app:layout_constraintTop_toBottomOf="@id/profile_image" />
 
             <TextView
-                android:id="@+id/text4"
+                android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/name"
@@ -300,81 +301,11 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card3"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
-        app:cardMaxElevation="12dp"
-        app:cardPreventCornerOverlap="true"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintTop_toBottomOf="@id/card2">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white"
-            android:padding="10dp">
-            <TextView
-                android:id="@+id/text9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:padding="5dp"
-                android:text="التقيمات"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/text5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="عميل 1"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:layout_marginEnd="10dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text9" />
-            <ImageView
-                android:id="@+id/star"
-                android:layout_width="30dp"
-                android:layout_height="20dp"
-                android:src="@drawable/ic_baseline_star_rate_24"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text5" />
-
-            <TextView
-                android:id="@+id/text6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4.0"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@id/star"
-                app:layout_constraintTop_toTopOf="@id/star" />
-            <TextView
-                android:id="@+id/text7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="تعاملة ممتاز"
-                android:textColor="@color/Gray"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text6" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/card2"
+        android:id="@+id/brokerRating"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout

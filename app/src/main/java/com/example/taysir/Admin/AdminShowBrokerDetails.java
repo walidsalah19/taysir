@@ -107,7 +107,7 @@ public class AdminShowBrokerDetails extends Fragment {
     }
     private void updateStatus()
     {
-        broker.setStatus("Accepted");
+        broker.setStatus("accepted");
         DatabaseReference database= FirebaseDatabase.getInstance().getReference("Brokers");
 
         database.child(broker.getBID()).setValue(broker).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -123,7 +123,7 @@ public class AdminShowBrokerDetails extends Fragment {
                             dialog.dismiss();
                         }
                     });
-                    deteteRequest(broker.getBID());
+                    detetRequest(broker.getBID());
                 }
                 else
                 {
@@ -140,7 +140,7 @@ public class AdminShowBrokerDetails extends Fragment {
         });
     }
 
-    private void deteteRequest(String Id) {
+    private void detetRequest(String Id) {
         DatabaseReference database= FirebaseDatabase.getInstance().getReference("BrokerRequest");
         database.child(Id).removeValue();
     }

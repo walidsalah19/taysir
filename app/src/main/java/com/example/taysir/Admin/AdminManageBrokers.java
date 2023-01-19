@@ -44,7 +44,7 @@ public class AdminManageBrokers extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding=FragmentAdminManageBrokersBinding.inflate(inflater,container,false);
-        database= FirebaseDatabase.getInstance().getReference("BrokerRequest");
+        database= FirebaseDatabase.getInstance().getReference("Brokers");
         back();
         recyclerViewComponent();
         getBrokerRequests();
@@ -76,21 +76,22 @@ public class AdminManageBrokers extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
-                    for (DataSnapshot data:snapshot.getChildren())
-                    {
-                        String BID=data.child("bid").getValue().toString();
-                        String UserName=data.child("userName").getValue().toString();
-                        String FullName=data.child("fullName").getValue().toString();
-                        String Email=data.child("email").getValue().toString();
-                        String PhoneNum=data.child("phoneNum").getValue().toString();
-                        String Gender=data.child("gender").getValue().toString();
-                        String Status=data.child("status").getValue().toString();
-                        String DOB=data.child("dob").getValue().toString();
-                        int NID=Integer.parseInt(data.child("nid").getValue().toString());
-                        int MaroOfNum=Integer.parseInt(data.child("maroOfNum").getValue().toString());
-                        String FreeWorkDocumentCode=data.child("freeWorkDocumentCode").getValue().toString();
-                        BrokerModel broker=new BrokerModel(BID,UserName,FullName,Email,PhoneNum,Gender,Status,DOB,NID,MaroOfNum,FreeWorkDocumentCode);
-                        arrayList.add(broker);
+                    for (DataSnapshot data:snapshot.getChildren()) {
+                        String Status = data.child("status").getValue().toString();
+                        if (Status.equals("unKnown") && Status.equals("reject")) {
+                            String BID = data.child("bid").getValue().toString();
+                            String UserName = data.child("userName").getValue().toString();
+                            String FullName = data.child("fullName").getValue().toString();
+                            String Email = data.child("email").getValue().toString();
+                            String PhoneNum = data.child("phoneNum").getValue().toString();
+                            String Gender = data.child("gender").getValue().toString();
+                            String DOB = data.child("dob").getValue().toString();
+                            int NID = Integer.parseInt(data.child("nid").getValue().toString());
+                            int MaroOfNum = Integer.parseInt(data.child("maroOfNum").getValue().toString());
+                            String FreeWorkDocumentCode = data.child("freeWorkDocumentCode").getValue().toString();
+                            BrokerModel broker = new BrokerModel(BID, UserName, FullName, Email, PhoneNum, Gender, Status, DOB, NID, MaroOfNum, FreeWorkDocumentCode);
+                            arrayList.add(broker);
+                        }
                     }
                     adapter.notifyDataSetChanged();
                 }

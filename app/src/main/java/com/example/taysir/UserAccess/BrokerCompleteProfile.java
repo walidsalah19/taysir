@@ -122,7 +122,7 @@ public class BrokerCompleteProfile extends Fragment {
        else {
            loading=SweetDialog.loading(getContext());
            loading.show();
-           BrokerModel broker=new BrokerModel("234567",userName,fullName,email,phoneNum,gender,"reject",bob,Integer.parseInt(NID),Integer.parseInt(MaroOfNum),FreeWorkDocumentCode);
+           BrokerModel broker=new BrokerModel("234567",userName,fullName,email,phoneNum,gender,"unKnown",bob,Integer.parseInt(NID),Integer.parseInt(MaroOfNum),FreeWorkDocumentCode);
            createAccount(broker,email,password);
        }
     }
@@ -143,7 +143,7 @@ public class BrokerCompleteProfile extends Fragment {
     }
     private void sendRequest(BrokerModel broker,String id)
     {
-        DatabaseReference database= FirebaseDatabase.getInstance().getReference("BrokerRequest");
+        DatabaseReference database= FirebaseDatabase.getInstance().getReference("Brokers");
         database.child(id).setValue(broker).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
