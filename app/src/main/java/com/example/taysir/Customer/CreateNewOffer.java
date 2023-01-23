@@ -13,9 +13,13 @@ import com.example.taysir.R;
 import com.example.taysir.databinding.FragmentCreateNewOfferBinding;
 import com.example.taysir.databinding.FragmentCurrentOrdersBinding;
 
+import java.util.ArrayList;
+
 
 public class CreateNewOffer extends Fragment {
     private FragmentCreateNewOfferBinding mBinding;
+    private int itemsCount=1;
+    private ArrayList<Integer> items;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,15 @@ public class CreateNewOffer extends Fragment {
             public void onClick(View v) {
                 NavHostFragment.findNavController(CreateNewOffer.this)
                         .navigate(R.id.goToHome);
+            }
+        });
+    }
+    private void funAddNewItem()
+    {
+        mBinding.linear4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemsCount+=1;
             }
         });
     }

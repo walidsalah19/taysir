@@ -59,6 +59,7 @@ public class BrokerCompleteProfile extends Fragment {
       //  startBroker();
         clickCreateAccount();
         showPassword();
+        goToLogin();
         return mBinding.getRoot();
     }
     private void clickCreateAccount()
@@ -91,7 +92,7 @@ public class BrokerCompleteProfile extends Fragment {
         {
             mBinding.edittextEmail.setError("قم بإدخال البريد الإلكتروني بشكل صحيح");
         }
-       else if (! validatePassword(password) || password.length()<=8)
+       else if (! validatePassword(password) || password.length()<8)
        {
            mBinding.edittextPassword.setError("قم بإدخال الرقم السري مكون من 8 حروف وأرقام");
        }
@@ -150,27 +151,35 @@ public class BrokerCompleteProfile extends Fragment {
                 loading.dismiss();
                 if (task.isSuccessful())
                 {
-                    SweetAlertDialog dialog= SweetDialog.success(getContext(),"تم إرسال الطلب بنجاح");
-                    dialog.show();
-                    dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                        @Override
-                        public void onClick(SweetAlertDialog sweetAlertDialog) {
-                            dialog.dismiss();
-                            startActivity(new Intent(getActivity(), BrokerMainActivity.class));
-                        }
-                    });
+                 funSuccessfully();
                 }
                 else
                 {
-                    SweetAlertDialog dialog= SweetDialog.failed(getContext(),"فشل إرسال الطلب");
-                    dialog.show();
-                    dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                        @Override
-                        public void onClick(SweetAlertDialog sweetAlertDialog) {
-                            dialog.dismiss();
-                        }
-                    });
+                    funField();
                 }
+            }
+        });
+    }
+    private void funSuccessfully()
+    {
+        SweetAlertDialog dialog= SweetDialog.success(getContext(),"تم إرسال الطلب بنجاح");
+        dialog.show();
+        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                dialog.dismiss();
+                startActivity(new Intent(getActivity(), BrokerMainActivity.class));
+            }
+        });
+    }
+    private void funField()
+    {
+        SweetAlertDialog dialog= SweetDialog.failed(getContext(),"فشل إرسال الطلب");
+        dialog.show();
+        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                dialog.dismiss();
             }
         });
     }
@@ -183,16 +192,6 @@ public class BrokerCompleteProfile extends Fragment {
             return true;
         else
             return false;
-    }
-    private boolean validateEmail(String email)
-    {
-        Pattern pattern = Pattern.compile("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+");
-        Matcher matcher = pattern.matcher(email);
-        if (!email.contains("@") || !matcher.matches()) {
-            return false;
-        }
-        else
-            return true;
     }
     private void showPassword() {
         mBinding.showPassword.setOnClickListener(new View.OnClickListener() {
@@ -237,6 +236,16 @@ public class BrokerCompleteProfile extends Fragment {
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(getActivity(), R.layout.item_dropdwon,array);
         mBinding.genderSpinner.setAdapter(adapter);
 
+    }
+    private void goToLogin()
+    {
+        mBinding.login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(BrokerCompleteProfile.this)
+                        .navigate(R.id.loginAction);
+            }
+        });
     }
 
 }

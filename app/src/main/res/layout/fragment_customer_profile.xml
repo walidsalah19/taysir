@@ -28,6 +28,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/back"
         />
+
     <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
@@ -36,12 +37,12 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="clint"
-        android:textStyle="bold"
         android:textColor="@color/black"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
@@ -55,7 +56,7 @@
         android:id="@+id/edit"
         android:layout_width="50dp"
         android:layout_height="40dp"
-        android:layout_alignBottom="@id/text1"
+        android:layout_alignBottom="@id/email"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="30dp"
         android:padding="5dp"
@@ -107,40 +108,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edittextUserName" />
-
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/edittext_shape2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edittextEmail">
-        <TextView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:background="@drawable/ic_baseline_visibility_24"
-            android:layout_gravity="center">
-        </TextView>
-
-        <EditText
-            android:id="@+id/edittextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="أدخل الرقم السري"
-            android:textSize="20sp"
-            android:textColor="@color/Red_Orange"
-            android:backgroundTint="@color/white"
-            android:drawablePadding="10dp"
-            android:drawableEnd="@drawable/ic_baseline_lock_24"
-            android:padding="20dp"
-            android:inputType="textPassword"
-            android:textColorHint="@color/Gray" />
-    </LinearLayout>
     <EditText
         android:id="@+id/edittextUserNameAr"
         android:layout_width="match_parent"
@@ -158,7 +125,7 @@
         android:drawableEnd="@drawable/ic_baseline_person_2_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linear" />
+        app:layout_constraintTop_toBottomOf="@id/edittextEmail" />
     <EditText
         android:id="@+id/edittextId"
         android:layout_width="match_parent"
@@ -317,7 +284,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
         <EditText
-            android:id="@+id/edittextNumber"
+            android:id="@+id/postCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_shape2"
@@ -345,6 +312,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linear3">
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/cancel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/white"
@@ -355,7 +323,7 @@
             android:layout_weight="1"
             android:layout_marginEnd="10dp"/>
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnCreateAccount"
+            android:id="@+id/btnUpdateAccount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/white"

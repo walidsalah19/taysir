@@ -16,6 +16,7 @@ import com.example.taysir.Admin.AdminMainActivity;
 import com.example.taysir.Broker.BrokerMainActivity;
 import com.example.taysir.Customer.CustomerMainActivity;
 import com.example.taysir.R;
+import com.example.taysir.SweetDialog;
 import com.example.taysir.UserType;
 import com.example.taysir.databinding.FragmentLoginBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,10 +24,13 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class LoginFragment extends Fragment {
 
 
     private FragmentLoginBinding mBinding;
+    private SweetAlertDialog loading;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +57,11 @@ public class LoginFragment extends Fragment {
             }
         });
     }
+    private void funLoading()
+    {
+        loading= SweetDialog.loading(getContext());
+        loading.show();
+    }
     private void login()
     {
         mBinding.login.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +83,7 @@ public class LoginFragment extends Fragment {
                 }
                 else
                 {
+                    funLoading();
                     checkAccount(email,password);
                 }
 
@@ -85,17 +95,46 @@ public class LoginFragment extends Fragment {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                loading.dismiss();
                if (task.isSuccessful())
                {
-                   if (UserType.type.equals("customer"))
-                   {
-                       startActivity(new Intent(getActivity(), CustomerMainActivity.class));
-                   }
-                   else
-                   {
-                       startActivity(new Intent(getActivity(), BrokerMainActivity.class));
-                   }
+                   funLoginSuccessfully();
+
                }
+               else
+               {
+                   funLoginField();
+               }
+            }
+        });
+    }
+    private void funLoginSuccessfully()
+    {
+        SweetAlertDialog success=SweetDialog.success(getContext(),"تم تسجيل الدخول بنجاح");
+        success.show();
+        success.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                success.dismiss();
+                if (UserType.type.equals("customer"))
+                {
+                    startActivity(new Intent(getActivity(), CustomerMainActivity.class));
+                }
+                else
+                {
+                    startActivity(new Intent(getActivity(), BrokerMainActivity.class));
+                }
+            }
+        });
+    }
+    private void funLoginField()
+    {
+        SweetAlertDialog field=SweetDialog.failed(getContext(),"فشل تسجيل الدخول الرجاء المحاولة مرة أخري");
+        field.show();
+        field.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+              field.dismiss();
             }
         });
     }

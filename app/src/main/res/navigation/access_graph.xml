@@ -51,6 +51,8 @@
         tools:layout="@layout/fragment_customer_complete_profile">
         <action android:id="@+id/goToSelectUserType"
             app:destination="@id/selectAccessType"/>
+        <action android:id="@+id/loginAction"
+            app:destination="@id/Login"/>
     </fragment>
     <fragment
         android:id="@+id/brokerProfile"
@@ -59,6 +61,8 @@
         tools:layout="@layout/fragment_broker_complete_profile">
         <action android:id="@+id/goToSelectUserType"
             app:destination="@id/selectAccessType"/>
+        <action android:id="@+id/loginAction"
+            app:destination="@id/Login"/>
     </fragment>
     <fragment
         android:id="@+id/forgetPassword"

@@ -95,11 +95,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/edittextEmail">
 
-                <TextView
+                <ImageView
+                    android:id="@+id/showPassword"
                     android:layout_width="24dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="@drawable/ic_baseline_visibility_24"></TextView>
+                    android:background="@drawable/ic_baseline_visibility_24"></ImageView>
 
                 <EditText
                     android:id="@+id/edittextPassword"
@@ -107,7 +108,6 @@
                     android:layout_height="wrap_content"
                     android:hint="أدخل الرقم السري"
                     android:textSize="20sp"
-                    android:gravity="end"
                     android:textColor="@color/Red_Orange"
                     android:backgroundTint="@color/white"
                     android:drawablePadding="10dp"
@@ -198,7 +198,7 @@
                     android:focusable="false">
 
                     <AutoCompleteTextView
-                        android:id="@+id/location"
+                        android:id="@+id/street"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -292,7 +292,7 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
                 <EditText
-                    android:id="@+id/edittextNumber"
+                    android:id="@+id/PostCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext_shape2"
@@ -355,7 +355,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/line1">
                 <TextView
-                    android:id="@+id/createAccount"
+                    android:id="@+id/login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
