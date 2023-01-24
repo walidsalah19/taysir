@@ -62,7 +62,18 @@ public class BrokerProfilePersonly extends Fragment {
         back();
         editProfile();
         showRejectReason();
+        removeNotification();
         return mBinding.getRoot();
+    }
+    private void removeNotification()
+    {
+        mBinding.home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mBinding.FrameLayout.setVisibility(View.INVISIBLE);
+            }
+        });
     }
     private void startLoading()
     {
@@ -156,6 +167,7 @@ public class BrokerProfilePersonly extends Fragment {
         mBinding.showRejectReason.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mBinding.FrameLayout.setVisibility(View.VISIBLE);
                 getActivity().getSupportFragmentManager().beginTransaction()
                         .add(R.id.FrameLayout,new StatusNotification()).commit();
             }

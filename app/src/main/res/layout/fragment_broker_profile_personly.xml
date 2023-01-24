@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Broker.BrokerProfilePersonly"
-    android:background="@color/Wild_Sand">
+    android:background="@color/Wild_Sand"
+    android:id="@+id/home">
 
     <TextView
         android:id="@+id/text"

@@ -3,8 +3,9 @@ package com.example.taysir.Models;
 public class OrderDetailsModel {
     String productLink,productColor,productPhoto,productNotes;
     int productQuantity,productCode,productSize;
+    float ProductCost;
 
-    public OrderDetailsModel(String productLink, String productColor, String productPhoto, String productNotes, int productQuantity, int productCode, int productSize) {
+    public OrderDetailsModel(String productLink, String productColor, String productPhoto, String productNotes, int productQuantity, int productCode, int productSize, float productCost) {
         this.productLink = productLink;
         this.productColor = productColor;
         this.productPhoto = productPhoto;
@@ -12,6 +13,7 @@ public class OrderDetailsModel {
         this.productQuantity = productQuantity;
         this.productCode = productCode;
         this.productSize = productSize;
+        ProductCost = productCost;
     }
 
     public String getProductLink() {
@@ -68,5 +70,13 @@ public class OrderDetailsModel {
 
     public void setProductSize(int productSize) {
         this.productSize = productSize;
+    }
+
+    public float getProductCost() {
+        return ProductCost;
+    }
+
+    public void setProductCost(float productCost) {
+        ProductCost = productCost;
     }
 }

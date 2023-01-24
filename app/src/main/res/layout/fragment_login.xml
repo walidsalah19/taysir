@@ -60,12 +60,13 @@
        app:layout_constraintEnd_toEndOf="parent"
        android:paddingStart="10dp"
        app:layout_constraintStart_toStartOf="parent">
-       <TextView
+       <ImageView
+           android:id="@+id/showPassword"
            android:layout_width="30dp"
            android:layout_height="30dp"
            android:background="@drawable/ic_baseline_visibility_24"
            android:layout_gravity="center">
-       </TextView>
+       </ImageView>
 
     <EditText
         android:id="@+id/password"
@@ -73,7 +74,6 @@
         android:layout_height="wrap_content"
         android:hint="أدخل كلمة السر"
         android:textSize="18sp"
-        android:gravity="end"
         android:backgroundTint="@color/Wild_Sand"
         android:textColor="@color/Red_Orange"
         android:drawablePadding="10dp"

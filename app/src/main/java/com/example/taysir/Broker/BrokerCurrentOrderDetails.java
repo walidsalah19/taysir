@@ -89,8 +89,10 @@ public class BrokerCurrentOrderDetails extends Fragment {
                                 String productQuantity = snap2.child("productQuantity").getValue().toString();
                                 String productCode = snap2.child("productCode").getValue().toString();
                                 String productSize = snap2.child("productSize").getValue().toString();
+                                String productCost = snap2.child("productCost").getValue().toString();
+
                                 OrderDetailsModel detailsModel = new OrderDetailsModel(productLink, productColor, productPhoto, productNotes, Integer.parseInt(productQuantity),
-                                        Integer.parseInt(productCode), Integer.parseInt(productSize));
+                                        Integer.parseInt(productCode), Integer.parseInt(productSize),Float.parseFloat(productCost));
                                 orderDetails.add(detailsModel);
                             }
                             adapter.notifyDataSetChanged();

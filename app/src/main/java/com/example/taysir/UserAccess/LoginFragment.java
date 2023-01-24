@@ -7,11 +7,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bumptech.glide.Glide;
 import com.example.taysir.Admin.AdminMainActivity;
 import com.example.taysir.Broker.BrokerMainActivity;
 import com.example.taysir.Customer.CustomerMainActivity;
@@ -31,6 +33,7 @@ public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding mBinding;
     private SweetAlertDialog loading;
+    private int pStatus=0;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,7 @@ public class LoginFragment extends Fragment {
         forgotPassword();
         login();
         back();
+        showPassword();
         return mBinding.getRoot();
     }
     private void back()
@@ -145,6 +149,31 @@ public class LoginFragment extends Fragment {
             public void onClick(View v) {
                 NavHostFragment.findNavController(LoginFragment.this)
                         .navigate(R.id.forgetPasswordAction);
+            }
+        });
+    }
+    private void showPassword() {
+        mBinding.showPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(pStatus==0)
+                {
+                    Glide.with(LoginFragment.this)
+                            .load(R.drawable.ic_baseline_visibility_off_24)
+                            .centerCrop()
+                            .into(mBinding.showPassword);
+                    pStatus=1;
+                    mBinding.password.setInputType(InputType.TYPE_CLASS_TEXT);
+                }
+                else
+                {
+                    Glide.with(LoginFragment.this)
+                            .load(R.drawable.ic_baseline_visibility_24)
+                            .centerCrop()
+                            .into(mBinding.showPassword);
+                    pStatus=0;
+                    mBinding.password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                }
             }
         });
     }

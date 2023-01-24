@@ -47,7 +47,7 @@ public class BrokerHome extends Fragment {
         mBinding.home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().remove(new OrderNotification()).commit();
+                mBinding.FrameLayout.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -116,6 +116,7 @@ public class BrokerHome extends Fragment {
         mBinding.displayNotificationOffers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mBinding.FrameLayout.setVisibility(View.VISIBLE);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout,new OrderNotification()).addToBackStack(null).commit();
             }
         });

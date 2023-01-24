@@ -28,18 +28,28 @@
 
             <TextView
                 android:id="@+id/text3"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="المنتج رقم 1"
+                android:text="المنتج رقم "
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 1"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@id/text3"
+                app:layout_constraintBottom_toBottomOf="@id/text3"
+                app:layout_constraintEnd_toStartOf="@id/text3"/>
 
             <EditText
-                android:id="@+id/edittextًProduceLink"
+                android:id="@+id/edittextProductLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -60,7 +70,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/edittextًProduceLink">
+                app:layout_constraintTop_toBottomOf="@id/edittextProductLink">
 
                 <EditText
                     android:id="@+id/edittextProduceNumber"
@@ -101,6 +111,7 @@
                 app:layout_constraintTop_toBottomOf="@id/linear2">
 
                 <ImageView
+                    android:id="@+id/addImage"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
@@ -138,6 +149,20 @@
                     android:textSize="20sp" />
 
             </LinearLayout>
+            <EditText
+                android:id="@+id/edittextProductCost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/edittext_shape3"
+                android:hint="تكلفة الطلب "
+                android:inputType="numberDecimal"
+                android:padding="10dp"
+                android:textColor="@color/Red_Orange"
+                android:textColorHint="@color/Gray"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/linear3" />
 
             <EditText
                 android:id="@+id/edittextًNotes"
@@ -152,7 +177,7 @@
                 android:textColor="@color/Red_Orange"
                 android:textColorHint="@color/Gray"
                 android:textSize="20sp"
-                app:layout_constraintTop_toBottomOf="@id/linear3" />
+                app:layout_constraintTop_toBottomOf="@id/edittextProductCost" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:layout_width="100dp"

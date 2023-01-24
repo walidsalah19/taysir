@@ -16,6 +16,7 @@ import com.example.taysir.UserAccess.AccessMainActivity;
 import com.example.taysir.UserAccess.LoginFragment;
 import com.example.taysir.UserAccess.SelectAccessType;
 import com.example.taysir.databinding.FragmentCustomerHomeBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class CustomerHome extends Fragment {
     private FragmentCustomerHomeBinding mBinding;
@@ -38,7 +39,17 @@ public class CustomerHome extends Fragment {
         logout();
         showProfile();
         supportTechnical();
+        removeNotification();
         return mBinding.getRoot();
+    }
+    private void removeNotification()
+    {
+        mBinding.home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mBinding.FrameLayout.setVisibility(View.INVISIBLE);
+            }
+        });
     }
     private void displayOffers()
     {
@@ -105,6 +116,7 @@ public class CustomerHome extends Fragment {
         mBinding.logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
                startActivity(new Intent(getActivity(), AccessMainActivity.class));
             }
         });
@@ -114,6 +126,7 @@ public class CustomerHome extends Fragment {
         mBinding.displayNotificationOffers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mBinding.FrameLayout.setVisibility(View.VISIBLE);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout,new OfferNotification()).addToBackStack(null).commit();
             }
         });
