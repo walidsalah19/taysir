@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Customer.CreateNewOffer"
+    tools:context=".Customer.CreateNewOrder"
     android:background="@color/Wild_Sand">
 
     <TextView
@@ -166,7 +166,8 @@
                     android:text="إلغاء"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:id="@+id/cancel"/>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnSendOrder"

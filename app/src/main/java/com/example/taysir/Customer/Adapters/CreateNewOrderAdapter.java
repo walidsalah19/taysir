@@ -1,10 +1,12 @@
 package com.example.taysir.Customer.Adapters;
 
+import android.annotation.SuppressLint;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,9 +20,20 @@ import com.example.taysir.R;
 import java.util.ArrayList;
 
 public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAdapter.help> {
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemSelected(int position);
+        void onItemDelete(int position);
+
+    }
+    public void setOnItemClickListener(OnItemClickListener listener){
+        mListener=listener;
+    }
     public  static ArrayList<OrderDetailsModel> orderDetails=new ArrayList<>();
-    private ArrayList<Integer> itemCount;
-    public CreateNewOrderAdapter(ArrayList<Integer> itemCount) {
+    private ArrayList<String> itemCount;
+    private int arraySize=0;
+    public CreateNewOrderAdapter(ArrayList<String> itemCount) {
         this.itemCount=itemCount;
     }
 
@@ -32,10 +45,35 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull help holder, int position) {
-        OrderDetailsModel model=new OrderDetailsModel(" "," "," "," ",0,0,0,0.0f);
-        orderDetails.add(model);
+    public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
+        if (arraySize==0 ||arraySize <= itemCount.size()) {
+            OrderDetailsModel model = new OrderDetailsModel("", "", "", "", 0, 0, 0, 0.0f);
+            orderDetails.add(model);
+            arraySize++;
+        }
+
+        holder.addImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.onItemSelected(position);
+            }
+        });
+        holder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                orderDetails.remove(position);
+                mListener.onItemDelete(position);
+                arraySize--;
+            }
+        });
+
         addLink(holder,position);
+        addColor(holder,position);
+        addNotes(holder, position);
+        addProductCost(holder, position);
+        addProductSize(holder, position);
+        addQuantity(holder, position);
+        addProductNum(holder, position);
 
     }
 
@@ -62,11 +100,127 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
             }
         });
     }
+    private void addQuantity(@NonNull help holder,int position)
+    {
+        holder.quantity.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                orderDetails.get(position).setProductQuantity(Integer.parseInt(holder.quantity.getText().toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+    private void addProductNum(@NonNull help holder,int position)
+    {
+        holder.productNumber.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                orderDetails.get(position).setProductCode(Integer.parseInt(holder.productNumber.getText().toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+    private void addColor(@NonNull help holder,int position)
+    {
+        holder.color.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                orderDetails.get(position).setProductColor(holder.color.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+    private void addProductSize(@NonNull help holder,int position)
+    {
+        holder.size.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                orderDetails.get(position).setProductSize(Integer.parseInt(holder.size.getText().toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+    private void addProductCost(@NonNull help holder,int position)
+    {
+        holder.productCost.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                orderDetails.get(position).setProductCost(Integer.parseInt(holder.productCost.getText().toString()));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+    private void addNotes(@NonNull help holder,int position)
+    {
+        holder.notes.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                orderDetails.get(position).setProductNotes(holder.notes.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
     public class help extends RecyclerView.ViewHolder
     {
         TextView number;
         EditText link,quantity,productNumber,color,size,notes,productCost;
         ImageView addImage;
+        Button delete;
         public help(@NonNull View itemView) {
             super(itemView);
             number=(TextView) itemView.findViewById(R.id.number);
@@ -78,6 +232,7 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
             productCost=(EditText) itemView.findViewById(R.id.edittextProductCost);
             notes=(EditText) itemView.findViewById(R.id.edittextًNotes);
             addImage=(ImageView) itemView.findViewById(R.id.addImage);
+            delete=(Button) itemView.findViewById(R.id.delete);
 
 
 

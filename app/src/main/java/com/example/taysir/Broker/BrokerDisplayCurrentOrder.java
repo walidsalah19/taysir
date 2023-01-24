@@ -110,7 +110,7 @@ public class BrokerDisplayCurrentOrder extends Fragment {
                                 orderDetails.add(detailsModel);
                             }
                             AcceptedOrdersModel newOrderModel = new AcceptedOrdersModel(WebSitLink, WebSitName, clintId, clintName, clintLocation
-                                    , orderId, orderStat, OrderDate, orderNum, orderDetails, brokerId,TotalCost, rating);
+                                    , orderId, orderStat, OrderDate, orderNum, orderDetails, brokerId,Float.parseFloat(TotalCost), rating);
                             order.add(newOrderModel);
                         }
                     }

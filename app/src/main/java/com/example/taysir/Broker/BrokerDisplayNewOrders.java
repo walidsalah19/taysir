@@ -86,7 +86,7 @@ public class BrokerDisplayNewOrders extends Fragment {
                         String clintLocation=data.child("clintLocation").getValue().toString();
 
                         int orderNum=Integer.parseInt(data.child("orderNum").getValue().toString());
-                        for(DataSnapshot snap2:data.getChildren()) {
+                        for(DataSnapshot snap2:data.child("orderDetails").getChildren()) {
                             String productLink = snap2.child("productLink").getValue().toString();
                             String productColor = snap2.child("productColor").getValue().toString();
                             String productPhoto = snap2.child("productPhoto").getValue().toString();

@@ -127,7 +127,7 @@
     </fragment>
     <fragment
         android:id="@+id/createNewOrder"
-        android:name="com.example.taysir.Customer.CreateNewOffer"
+        android:name="com.example.taysir.Customer.CreateNewOrder"
         android:label="Start"
         tools:layout="@layout/fragment_create_new_offer">
         <action android:id="@+id/goToHome"

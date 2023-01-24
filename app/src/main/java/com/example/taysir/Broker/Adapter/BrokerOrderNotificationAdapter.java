@@ -32,7 +32,7 @@ public class BrokerOrderNotificationAdapter extends RecyclerView.Adapter<BrokerO
     @NonNull
     @Override
     public help onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.broker_orders_notification,parent,false);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.show_notification,parent,false);
         return new help(v);
     }
 

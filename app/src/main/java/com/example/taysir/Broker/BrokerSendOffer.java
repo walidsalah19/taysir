@@ -24,6 +24,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class BrokerSendOffer extends Fragment {
@@ -88,10 +93,12 @@ public class BrokerSendOffer extends Fragment {
     }
 
     private void sendOffer() {
+        String offerId= UUID.randomUUID().toString();
         int commission=Integer.parseInt(mBinding.commission.getText().toString());
         int totalCost= orderCost+commission;
-        OfferModel offerModel=new OfferModel(brokerId,brokerName,clintId,orderId,totalCost,orderCost,commission);
-         database.child(clintId).child(orderId).setValue(offerModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+        String date=getDateTime();
+        OfferModel offerModel=new OfferModel(offerId,brokerId,brokerName,clintId,orderId,date,totalCost,orderCost,commission);
+         database.child("offers").child(offerId).setValue(offerModel).addOnCompleteListener(new OnCompleteListener<Void>() {
              @Override
              public void onComplete(@NonNull Task<Void> task) {
                  if (task.isSuccessful())
@@ -119,7 +126,11 @@ public class BrokerSendOffer extends Fragment {
              }
          });
     }
-
+    private String getDateTime() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH.mm");
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
     private void startLoading()
     {
         loading= SweetDialog.loading(getContext());

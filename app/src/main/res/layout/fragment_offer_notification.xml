@@ -40,41 +40,11 @@
         app:layout_constraintEnd_toEndOf="@id/text1"
         app:layout_constraintStart_toStartOf="@id/text1"
         app:layout_constraintTop_toBottomOf="@id/text1" />
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/text1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="منذ دقيقتين"
-            android:layout_weight="1"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:drawableStart="@drawable/ic_baseline_keyboard_arrow_left_24"
-            android:gravity="end"
-            android:padding="10dp"
-            android:drawablePadding="10dp"
-            android:textStyle="bold">
-        </TextView>
-        <TextView
-            android:id="@+id/text3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="عرض جديد"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:layout_weight="1"
-            android:padding="10dp"
-            android:drawablePadding="10dp"
-            android:textStyle="bold">
-        </TextView>
-    </LinearLayout>
+   <androidx.recyclerview.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/showOffersNotification"
+       />
     <View
         android:id="@+id/line2"
         android:layout_width="match_parent"

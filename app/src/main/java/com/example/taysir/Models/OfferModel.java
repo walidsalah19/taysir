@@ -1,17 +1,27 @@
 package com.example.taysir.Models;
 
 public class OfferModel {
-    String brokerId,brokerName,clintId,orderId;
+    String offerId, brokerId,brokerName,clintId,orderId,orderDate;
     int totalCost,orderCost,commission;
 
-    public OfferModel(String brokerId, String brokerName, String clintId, String orderId, int totalCost, int orderCost, int commission) {
+    public OfferModel(String offerId, String brokerId, String brokerName, String clintId, String orderId, String orderDate, int totalCost, int orderCost, int commission) {
+        this.offerId = offerId;
         this.brokerId = brokerId;
         this.brokerName = brokerName;
         this.clintId = clintId;
         this.orderId = orderId;
+        this.orderDate = orderDate;
         this.totalCost = totalCost;
         this.orderCost = orderCost;
         this.commission = commission;
+    }
+
+    public String getOfferId() {
+        return offerId;
+    }
+
+    public void setOfferId(String offerId) {
+        this.offerId = offerId;
     }
 
     public String getBrokerId() {
@@ -44,6 +54,14 @@ public class OfferModel {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
+    }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
 
     public int getTotalCost() {

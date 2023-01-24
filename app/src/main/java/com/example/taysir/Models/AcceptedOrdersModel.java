@@ -3,9 +3,9 @@ package com.example.taysir.Models;
 import java.util.ArrayList;
 
 public class AcceptedOrdersModel extends NewOrderModel {
-    String BrokerId,TotalCost,Rating;
-
-    public AcceptedOrdersModel(String webSitLink, String webSitName, String clintId, String clintName, String clintLocation, String orderId, String orderStat, String orderDate, int orderNum, ArrayList<OrderDetailsModel> orderDetails, String brokerId, String totalCost, String rating) {
+    String BrokerId,Rating;
+    float TotalCost;
+    public AcceptedOrdersModel(String webSitLink, String webSitName, String clintId, String clintName, String clintLocation, String orderId, String orderStat, String orderDate, int orderNum, ArrayList<OrderDetailsModel> orderDetails, String brokerId, float totalCost, String rating) {
         super(webSitLink, webSitName, clintId, clintName, clintLocation, orderId, orderStat, orderDate, orderNum, orderDetails);
         BrokerId = brokerId;
         TotalCost = totalCost;
@@ -20,11 +20,11 @@ public class AcceptedOrdersModel extends NewOrderModel {
         BrokerId = brokerId;
     }
 
-    public String getTotalCost() {
+    public float getTotalCost() {
         return TotalCost;
     }
 
-    public void setTotalCost(String totalCost) {
+    public void setTotalCost(float totalCost) {
         TotalCost = totalCost;
     }
 

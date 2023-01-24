@@ -38,7 +38,7 @@ public class CustomerProfile extends Fragment {
    private FragmentCustomerProfileBinding mBinding;
     private SweetAlertDialog loading;
     private String userId;
-    private DatabaseReference brokerDatabase;
+    private DatabaseReference clintDatabase;
     private FirebaseAuth auth;
     private CustomerModel customer;
     @Override
@@ -86,7 +86,7 @@ public class CustomerProfile extends Fragment {
     }
     private void initFirebaseTool()
     {
-        brokerDatabase= FirebaseDatabase.getInstance().getReference("Customers");
+        clintDatabase= FirebaseDatabase.getInstance().getReference("Customers");
         auth= FirebaseAuth.getInstance();
         userId=auth.getCurrentUser().getUid().toString();
     }
@@ -97,7 +97,7 @@ public class CustomerProfile extends Fragment {
     }
     private void getBrokerData()
     {
-        brokerDatabase.child(userId).addValueEventListener(new ValueEventListener() {
+        clintDatabase.child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())

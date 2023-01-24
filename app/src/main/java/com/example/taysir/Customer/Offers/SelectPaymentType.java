@@ -15,6 +15,7 @@ import com.example.taysir.databinding.FragmentShowOffersBinding;
 
 public class SelectPaymentType extends Fragment {
      private FragmentSelectPaymentTypeBinding mBinding;
+     private String offerId,orderId;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,8 @@ public class SelectPaymentType extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding= FragmentSelectPaymentTypeBinding.inflate(inflater,container,false);
+        offerId=getArguments().getString("id");
+        orderId=getArguments().getString("orderId");
         back();
         next();
         return mBinding.getRoot();
@@ -45,8 +48,11 @@ public class SelectPaymentType extends Fragment {
         mBinding.next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle b=new Bundle();
+                b.putString("id", offerId);
+                b.putString("orderId",orderId);
                 NavHostFragment.findNavController(SelectPaymentType.this)
-                        .navigate(R.id.goToPayment);
+                        .navigate(R.id.goToPayment,b);
             }
         });
     }

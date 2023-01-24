@@ -32,13 +32,13 @@ public class BrokerHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         mBinding= FragmentBrokerHomeBinding.inflate(inflater,container,false);
-        showNotificationOffers();
         oldOrders();
         showNewOrder();
         currentlyOrders();
         logout();
         showProfile();
         supportTechnical();
+        showNotificationOffers();
         removeNotification();
         return mBinding.getRoot();
     }
