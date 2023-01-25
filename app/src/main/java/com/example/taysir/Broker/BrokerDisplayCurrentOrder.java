@@ -92,6 +92,8 @@ public class BrokerDisplayCurrentOrder extends Fragment {
                             String clintLocation = data.child("clintLocation").getValue().toString();
                             String rating = data.child("rating").getValue().toString();
                             String TotalCost = data.child("totalCost").getValue().toString();
+                            String brokerName = data.child("brokerName").getValue().toString();
+
 
                             int orderNum = Integer.parseInt(data.child("orderNum").getValue().toString());
                             for (DataSnapshot snap2 : data.getChildren()) {
@@ -110,7 +112,7 @@ public class BrokerDisplayCurrentOrder extends Fragment {
                                 orderDetails.add(detailsModel);
                             }
                             AcceptedOrdersModel newOrderModel = new AcceptedOrdersModel(WebSitLink, WebSitName, clintId, clintName, clintLocation
-                                    , orderId, orderStat, OrderDate, orderNum, orderDetails, brokerId,Float.parseFloat(TotalCost), rating);
+                                    , orderId, orderStat, OrderDate, orderNum, orderDetails,rating,brokerName, brokerId,Float.parseFloat(TotalCost));
                             order.add(newOrderModel);
                         }
                     }

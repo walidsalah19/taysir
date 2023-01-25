@@ -29,7 +29,7 @@ public class BrokerNewOrdersAdapter  extends RecyclerView.Adapter<BrokerNewOrder
     @NonNull
     @Override
     public help onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.broker_orders,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.display_orders,parent,false);
         return new help(view);
     }
 

@@ -1,22 +1,22 @@
 package com.example.taysir.Customer;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bumptech.glide.Glide;
+import com.example.taysir.Broker.Adapter.BrokerCurrentOrderDetailsAdapter;
 import com.example.taysir.Models.AcceptedOrdersModel;
 import com.example.taysir.Models.OrderDetailsModel;
 import com.example.taysir.R;
 import com.example.taysir.SweetDialog;
-import com.example.taysir.databinding.FragmentPreviousOrdersBinding;
+import com.example.taysir.databinding.FragmentOrderDetailsBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,14 +27,15 @@ import java.util.ArrayList;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
-
-public class PreviousOrders extends Fragment {
-  private FragmentPreviousOrdersBinding mBinding;
-    private String orderId;
+public class OrderDetails extends Fragment {
+    private FragmentOrderDetailsBinding mBinding;
+    private String orderType,orderId;
     private DatabaseReference orderDatabase;
     private SweetAlertDialog loading;
     private ArrayList<OrderDetailsModel> orderDetails;
-    private AcceptedOrdersModel newOrderModel;
+    private  AcceptedOrdersModel newOrderModel;
+    private BrokerCurrentOrderDetailsAdapter adapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,20 +46,31 @@ public class PreviousOrders extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding=FragmentPreviousOrdersBinding.inflate(inflater,container,false);
+        mBinding=FragmentOrderDetailsBinding.inflate(inflater,container,false);
+        orderType=getArguments().getString("orderType");
         orderId=getArguments().getString("orderId");
         orderDatabase= FirebaseDatabase.getInstance().getReference("currentOrders");
         startLoading();
+        recyclerViewComponent();
+        if (orderType.equals("current")) {
+            mBinding.text.setText("الطلبات الحالية");
+        }
         back();
-        showOrderDetails();
         getOrderData();
-        showRating();
         return mBinding.getRoot();
     }
     private void startLoading()
     {
         loading= SweetDialog.loading(getContext());
         loading.show();
+    }
+    private void recyclerViewComponent()
+    {
+        orderDetails=new ArrayList<>();
+        adapter=new BrokerCurrentOrderDetailsAdapter(orderDetails,this);
+        mBinding.currentOrderDetails.setLayoutManager(new LinearLayoutManager(getActivity()));
+        mBinding.currentOrderDetails.setAdapter(adapter);
+
     }
     private void getOrderData()
     {
@@ -99,6 +111,8 @@ public class PreviousOrders extends Fragment {
                     }
                     newOrderModel = new AcceptedOrdersModel(WebSitLink, WebSitName, clintId, clintName, clintLocation, orderId,
                             orderStat, OrderDate, orderNum, orderDetails, brokerId, rating,brokerName,Float.parseFloat(totalCost));
+
+                    adapter.notifyDataSetChanged();
                     addDataToView();
                 }
             }
@@ -111,80 +125,28 @@ public class PreviousOrders extends Fragment {
     }
     private void addDataToView()
     {
-        mBinding.orderNumber.setText(newOrderModel.getOrderNum());
-        mBinding.brokerName.setText(newOrderModel.getBrokerName());
-        mBinding.websiteName.setText(newOrderModel.getWebSitName());
-        mBinding.websiteName.setText(newOrderModel.getWebSitName());
+        mBinding.orderNumber1.setText(newOrderModel.getOrderNum());
+        mBinding.customerName.setText(newOrderModel.getBrokerName());
+        mBinding.webSiteName.setText(newOrderModel.getWebSitName());
         mBinding.orderDate.setText(newOrderModel.getOrderDate());
+        mBinding.totalCost.setText(newOrderModel.getTotalCost()+"");
 
-        loading.dismiss();
-
+       loading.dismiss();
     }
     private void back()
     {
         mBinding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                NavHostFragment.findNavController(PreviousOrders.this)
-                        .navigate(R.id.goToHome);
-            }
-        });
-    }
-    private void showOrderDetails()
-    {
-        mBinding.showOrderDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle b=new Bundle();
-                b.putString("orderType","old");
-                b.putString("orderId",newOrderModel.getOrderId());
-                NavHostFragment.findNavController(PreviousOrders.this)
-                        .navigate(R.id.goTopreviousOrdersDetails,b);
-            }
-        });
-    }
-    private void showRating()
-    {
-        mBinding.rating.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (! newOrderModel.getRating().equals("rate")) {
-                    CustomerRankBroker c = new CustomerRankBroker();
-                    Bundle b = new Bundle();
-                    b.putString("orderId", newOrderModel.getOrderId());
-                    b.putString("brokerId", newOrderModel.getBrokerId());
-                    b.putString("brokerName", newOrderModel.getBrokerName());
-                    b.putString("customerName", newOrderModel.getClintName());
-                    c.setArguments(b);
-                    getActivity().getSupportFragmentManager().beginTransaction()
-                            .add(R.id.FrameLayout, c).commit();
+                if (orderType.equals("current")) {
+                    NavHostFragment.findNavController(OrderDetails.this)
+                            .navigate(R.id.goTocurrentlyOrders);
                 }
-                else {
-                    funFailed("تم التقييم من قبل ");
+                else
+                {
+                    NavHostFragment.findNavController(OrderDetails.this)
+                            .navigate(R.id.goToPreviousOrders);
                 }
-            }
-        });
-    }
-    private void funSuccessfully(String title)
-    {
-        SweetAlertDialog success=SweetDialog.success(getContext(),title);
-        success.show();
-        success.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                success.dismiss();
-            }
-        });
-    }
-    private void funFailed(String title)
-    {
-        SweetAlertDialog fail=SweetDialog.failed(getContext(),title);
-        fail.show();
-        fail.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                fail.dismiss();
             }
         });
     }

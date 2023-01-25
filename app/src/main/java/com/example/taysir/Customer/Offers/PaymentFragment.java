@@ -34,7 +34,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class PaymentFragment extends Fragment {
      private FragmentPaymentBinding mBinding;
-     private String offerId,orderId,brokerId,totalCost;
+     private String offerId,orderId,brokerId,totalCost,brokerName;
     private SweetAlertDialog loading;
     private DatabaseReference offerDatabase;
     private ArrayList<OrderDetailsModel>orderDetails;
@@ -82,12 +82,12 @@ public class PaymentFragment extends Fragment {
                 if (snapshot.exists())
                 {
                     for(DataSnapshot data:snapshot.getChildren()) {
-                        String totalCost = data.child("totalCost").getValue().toString();
+                        totalCost = data.child("totalCost").getValue().toString();
                         String orderCost = data.child("orderCost").getValue().toString();
                         String commission = data.child("commission").getValue().toString();
                         brokerId = data.child("brokerId").getValue().toString();
                         totalCost = data.child("totalCost").getValue().toString();
-
+                        brokerName= data.child("brokerName").getValue().toString();
                         mBinding.cost.setText(orderCost);
                         mBinding.commission.setText(commission);
                         mBinding.totalCost.setText(totalCost);
@@ -173,19 +173,60 @@ public class PaymentFragment extends Fragment {
     private void sendOrderToCurrentOrders( NewOrderModel newOrderModel)
     {
         AcceptedOrdersModel model=new AcceptedOrdersModel(newOrderModel.getWebSitLink(),newOrderModel.getWebSitName(), newOrderModel.getClintId(),
-                newOrderModel.getClintName(),newOrderModel.getClintLocation(),newOrderModel.getOrderId(), newOrderModel.getOrderStat(), newOrderModel.getOrderDate(), newOrderModel.getOrderNum(), newOrderModel.getOrderDetails()
-                ,brokerId,Float.parseFloat(totalCost),"no");
+                newOrderModel.getClintName(),newOrderModel.getClintLocation(),newOrderModel.getOrderId(), "payed", newOrderModel.getOrderDate(), newOrderModel.getOrderNum(), newOrderModel.getOrderDetails()
+                ,brokerId,"no",brokerName,Float.parseFloat(totalCost));
         offerDatabase.child("currentOrders").child(orderId).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                   if (task.isSuccessful())
                   {
-
+                     deleteOffer();
                   }
             }
         });
     }
 
+    private void deleteOffer() {
+        DatabaseReference offerDatabase= FirebaseDatabase.getInstance().getReference("offers");
+        offerDatabase.child(offerId).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                loading.dismiss();
+                if (task.isSuccessful())
+                {
+                    funSuccessfully("تم إرسال الموافقة علي العرض ");
+                }
+                else
+                {
+                    funFailed("فشل إرسال الموافقة ");
+                }
+            }
+        });
+    }
+    private void funSuccessfully(String title)
+    {
+        SweetAlertDialog success=SweetDialog.success(getContext(),title);
+        success.show();
+        success.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                success.dismiss();
+                NavHostFragment.findNavController(PaymentFragment.this)
+                        .navigate(R.id.goToShowOffers);
+            }
+        });
+    }
+    private void funFailed(String title)
+    {
+        SweetAlertDialog fail=SweetDialog.failed(getContext(),title);
+        fail.show();
+        fail.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                fail.dismiss();
+            }
+        });
+    }
     private void yearsSpinner()
     {
         ArrayList<String > array=new ArrayList<>();

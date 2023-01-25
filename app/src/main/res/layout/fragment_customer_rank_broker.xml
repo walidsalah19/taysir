@@ -86,6 +86,7 @@
         android:layout_height="wrap_content"
         android:numStars="5"
         android:stepSize="1"
+        android:rating="0"
         android:layout_marginEnd="30dp"
         android:theme="@style/RatingBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +99,7 @@
         android:hint="اكتب تقييمك....."
         android:textSize="22sp"
         android:padding="10dp"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:layout_margin="30dp"
         android:gravity="start"
         android:textColor="@color/Red_Orange"
@@ -109,7 +110,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/login"
+        android:id="@+id/btRate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="إرسال"

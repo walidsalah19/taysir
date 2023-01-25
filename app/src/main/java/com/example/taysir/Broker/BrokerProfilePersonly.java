@@ -195,7 +195,8 @@ public class BrokerProfilePersonly extends Fragment {
                         String customerName=data.child("customerName").toString();
                         String ratingText=data.child("ratingText").toString();
                         String ratingNum=data.child("ratingNum").toString();
-                        RatingModel ratingModel=new RatingModel(id,customerName,ratingText,Integer.parseInt(ratingNum));
+                        String brokerName=data.child("brokerName").toString();
+                        RatingModel ratingModel=new RatingModel(id,brokerName,customerName,ratingText,Integer.parseInt(ratingNum));
                         rating.add(ratingModel);
                     }
                 }

@@ -19,7 +19,6 @@ import com.example.taysir.Models.CustomerModel;
 import com.example.taysir.R;
 import com.example.taysir.SweetDialog;
 import com.example.taysir.databinding.FragmentCustomerProfileBinding;
-import com.example.taysir.databinding.FragmentPreviousOrderDetailsBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;

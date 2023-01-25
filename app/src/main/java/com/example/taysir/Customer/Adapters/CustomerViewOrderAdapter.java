@@ -1,4 +1,4 @@
-package com.example.taysir.Broker.Adapter;
+package com.example.taysir.Customer.Adapters;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -17,13 +17,15 @@ import com.example.taysir.R;
 
 import java.util.ArrayList;
 
-public class BrokerAcceptedOrderAdapter extends RecyclerView.Adapter<BrokerAcceptedOrderAdapter.help>{
+public class CustomerViewOrderAdapter extends RecyclerView.Adapter<CustomerViewOrderAdapter.help>{
 
     private ArrayList<AcceptedOrdersModel> arrayList;
     private Fragment fragment;
-    public BrokerAcceptedOrderAdapter(ArrayList<AcceptedOrdersModel> arrayList, Fragment fragment) {
+    private String status;
+    public CustomerViewOrderAdapter(ArrayList<AcceptedOrdersModel> arrayList, Fragment fragment,String status) {
         this.arrayList = arrayList;
         this.fragment=fragment;
+        this.status=status;
     }
 
     @NonNull
@@ -42,8 +44,15 @@ public class BrokerAcceptedOrderAdapter extends RecyclerView.Adapter<BrokerAccep
             public void onClick(View v) {
                 Bundle b=new Bundle();
                 b.putString("orderId",arrayList.get(position).getOrderId());
-                NavHostFragment.findNavController(fragment)
-                        .navigate(R.id.goToOrderDetails,b);
+                if (status.equals("current")) {
+                    NavHostFragment.findNavController(fragment)
+                            .navigate(R.id.goToCurrentlyOrders, b);
+                }
+                else
+                {
+                    NavHostFragment.findNavController(fragment)
+                            .navigate(R.id.displayOldOrders, b);
+                }
             }
         });
     }

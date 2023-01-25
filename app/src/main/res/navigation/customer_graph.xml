@@ -14,9 +14,9 @@
         <action android:id="@+id/goToCustomerProfile"
             app:destination="@id/customerProfile"/>
         <action android:id="@+id/goTocurrentlyOrders"
-            app:destination="@id/currentlyOrders"/>
+            app:destination="@id/displayCurrentOrders"/>
         <action android:id="@+id/goTopreviousOrders"
-            app:destination="@id/previousOrders"/>
+            app:destination="@id/displayOldOrders"/>
         <action android:id="@+id/goTosupportTechnical"
             app:destination="@id/supportTechnical"/>
         <action android:id="@+id/goToshowOffers"
@@ -86,6 +86,8 @@
         tools:layout="@layout/fragment_payment">
         <action android:id="@+id/goToselectPayment"
             app:destination="@id/selectPayment"/>
+        <action android:id="@+id/goToShowOffers"
+            app:destination="@id/showOffers"/>
     </fragment>
     <fragment
         android:id="@+id/supportTechnical"
@@ -134,17 +136,37 @@
             app:destination="@id/CustomerHome"/>
     </fragment>
     <fragment
+        android:id="@+id/displayCurrentOrders"
+        android:name="com.example.taysir.Customer.CustomerDisplayCurrentOrders"
+        android:label="Start"
+        tools:layout="@layout/fragment_customer_display_current_orders">
+        <action android:id="@+id/goToCurrentlyOrders"
+            app:destination="@id/currentlyOrders"/>
+        <action android:id="@+id/goToHome"
+            app:destination="@id/CustomerHome"/>
+    </fragment>
+    <fragment
         android:id="@+id/currentlyOrders"
         android:name="com.example.taysir.Customer.CurrentOrders"
         android:label="Start"
         tools:layout="@layout/fragment_current_orders">
         <action android:id="@+id/goToHome"
-            app:destination="@id/CustomerHome"/>
+            app:destination="@id/displayCurrentOrders"/>
         <action android:id="@+id/goTopreviousOrdersDetails"
             app:destination="@id/previousOrdersDetails"/>
         <action android:id="@+id/goToChat"
             app:destination="@id/Chat"/>
 
+    </fragment>
+    <fragment
+        android:id="@+id/displayOldOrders"
+        android:name="com.example.taysir.Customer.CustomerDisplayOldOrders"
+        android:label="Start"
+        tools:layout="@layout/fragment_customer_display_old_orders">
+        <action android:id="@+id/goToPreviousOrderss"
+            app:destination="@id/previousOrders"/>
+        <action android:id="@+id/goToHome"
+            app:destination="@id/CustomerHome"/>
     </fragment>
     <fragment
         android:id="@+id/previousOrders"
@@ -154,13 +176,13 @@
         <action android:id="@+id/goTopreviousOrdersDetails"
             app:destination="@id/previousOrdersDetails"/>
         <action android:id="@+id/goToHome"
-            app:destination="@id/CustomerHome"/>
+            app:destination="@id/displayOldOrders"/>
     </fragment>
     <fragment
         android:id="@+id/previousOrdersDetails"
-        android:name="com.example.taysir.Customer.PreviousOrderDetails"
+        android:name="com.example.taysir.Customer.OrderDetails"
         android:label="Start"
-        tools:layout="@layout/fragment_previous_order_details">
+        tools:layout="@layout/fragment_order_details">
 
     <action android:id="@+id/goToPreviousOrders"
             app:destination="@id/previousOrders"/>

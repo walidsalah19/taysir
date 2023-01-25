@@ -95,8 +95,6 @@ public class BrokerCurrentOrderDetails extends Fragment {
                                         Integer.parseInt(productCode), Integer.parseInt(productSize),Float.parseFloat(productCost));
                                 orderDetails.add(detailsModel);
                             }
-                            adapter.notifyDataSetChanged();
-                            loading.dismiss();
                             addToView(WebSitName,OrderDate,clintName,clintLocation,TotalCost,orderNum);
                 }
             }
@@ -114,6 +112,7 @@ public class BrokerCurrentOrderDetails extends Fragment {
         mBinding.clintLocation.setText(clintLocation);
         mBinding.orderDate.setText(orderDate);
         mBinding.totalCost.setText(totalCost);
+        loading.dismiss();
     }
     private void back()
     {
