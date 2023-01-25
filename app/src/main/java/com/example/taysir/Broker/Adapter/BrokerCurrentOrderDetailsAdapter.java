@@ -33,8 +33,8 @@ public class BrokerCurrentOrderDetailsAdapter extends RecyclerView.Adapter<Broke
 
     @Override
     public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
-        holder.quantity.setText(arrayList.get(position).getProductQuantity());
-        holder.productNum.setText(arrayList.get(position).getProductCode());
+        holder.quantity.setText(arrayList.get(position).getProductQuantity()+"");
+        holder.productNum.setText(arrayList.get(position).getProductCode()+"");
     }
 
     @Override

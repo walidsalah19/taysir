@@ -11,10 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.taysir.Broker.Adapter.BrokerAcceptedOrderAdapter;
-import com.example.taysir.Broker.Adapter.BrokerNewOrdersAdapter;
+import com.example.taysir.Broker.Adapter.BrokerOrderAdapter;
 import com.example.taysir.Models.AcceptedOrdersModel;
-import com.example.taysir.Models.NewOrderModel;
 import com.example.taysir.Models.OrderDetailsModel;
 import com.example.taysir.R;
 import com.example.taysir.SweetDialog;
@@ -36,7 +34,7 @@ public class BrokerDisplayCurrentOrder extends Fragment {
     private String userId;
     private ArrayList<AcceptedOrdersModel>order;
     private ArrayList<OrderDetailsModel>orderDetails;
-    private BrokerAcceptedOrderAdapter adapter;
+    private BrokerOrderAdapter adapter;
     private SweetAlertDialog loading;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,7 +63,7 @@ public class BrokerDisplayCurrentOrder extends Fragment {
     {
         order=new ArrayList<>();
         orderDetails=new ArrayList<>();
-        adapter=new BrokerAcceptedOrderAdapter(order,this);
+        adapter=new BrokerOrderAdapter(order,this,"current");
         mBinding.BrokerCurrentOrders.setLayoutManager(new LinearLayoutManager(getActivity()));
         mBinding.BrokerCurrentOrders.setAdapter(adapter);
         getNewOrders();
@@ -93,10 +91,9 @@ public class BrokerDisplayCurrentOrder extends Fragment {
                             String rating = data.child("rating").getValue().toString();
                             String TotalCost = data.child("totalCost").getValue().toString();
                             String brokerName = data.child("brokerName").getValue().toString();
-
-
                             int orderNum = Integer.parseInt(data.child("orderNum").getValue().toString());
-                            for (DataSnapshot snap2 : data.getChildren()) {
+
+                            for (DataSnapshot snap2 : data.child("orderDetails").getChildren()) {
                                 String productLink = snap2.child("productLink").getValue().toString();
                                 String productColor = snap2.child("productColor").getValue().toString();
                                 String productPhoto = snap2.child("productPhoto").getValue().toString();

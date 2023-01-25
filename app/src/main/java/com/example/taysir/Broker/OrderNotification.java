@@ -14,6 +14,7 @@ import com.example.taysir.Broker.Adapter.BrokerOrderNotificationAdapter;
 import com.example.taysir.Models.OrderDetailsModel;
 import com.example.taysir.Models.NewOrderModel;
 import com.example.taysir.databinding.FragmentOrderNotificationBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,10 +26,11 @@ import java.util.ArrayList;
 public class OrderNotification extends Fragment {
 
   private FragmentOrderNotificationBinding mBinding;
-    private DatabaseReference orderDatabase;
+    private DatabaseReference Database;
     private ArrayList<NewOrderModel>order;
     private ArrayList<OrderDetailsModel>orderDetails;
     private BrokerOrderNotificationAdapter adapter;
+    private String userId;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +42,35 @@ public class OrderNotification extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding=FragmentOrderNotificationBinding.inflate(inflater,container,false);
-        orderDatabase= FirebaseDatabase.getInstance().getReference("newOrders");
-        recyclerViewComponent();
+        Database= FirebaseDatabase.getInstance().getReference();
+        userId= FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+
+        checkAccepted();
         return mBinding.getRoot();
+    }
+    private void checkAccepted()
+    {
+        Database.child("Brokers").child(userId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    String status=snapshot.child("status").getValue().toString();
+                    if (status.equals("accepted"))
+                    {
+                        recyclerViewComponent();
+                    }
+                    else
+                    {
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
     private void recyclerViewComponent()
     {
@@ -55,7 +83,7 @@ public class OrderNotification extends Fragment {
     }
 
     private void getNewOrders() {
-        orderDatabase.addValueEventListener(new ValueEventListener() {
+        Database.child("newOrders").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
@@ -73,7 +101,7 @@ public class OrderNotification extends Fragment {
                         String clintLocation=data.child("clintLocation").getValue().toString();
 
                         int orderNum=Integer.parseInt(data.child("orderNum").getValue().toString());
-                        for(DataSnapshot snap2:data.getChildren()) {
+                        for(DataSnapshot snap2:data.child("orderDetails").getChildren()) {
                             String productLink = snap2.child("productLink").getValue().toString();
                             String productColor = snap2.child("productColor").getValue().toString();
                             String productPhoto = snap2.child("productPhoto").getValue().toString();

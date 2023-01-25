@@ -112,7 +112,7 @@
             app:layout_constraintTop_toTopOf="@id/text3" />
 
         <TextView
-            android:id="@+id/text4"
+            android:id="@+id/brokerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -153,18 +153,20 @@
                 android:id="@+id/star"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
+                android:visibility="invisible"
                 android:src="@drawable/ic_baseline_star_rate_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text1" />
 
             <TextView
-                android:id="@+id/text2"
+                android:id="@+id/rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="4.0"
                 android:textColor="@color/Gray"
                 android:textSize="20dp"
                 android:textStyle="bold"
+                android:visibility="invisible"
                 app:layout_constraintStart_toEndOf="@id/star"
                 app:layout_constraintTop_toTopOf="@id/star" />
 

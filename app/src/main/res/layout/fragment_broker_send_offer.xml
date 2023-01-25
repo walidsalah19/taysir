@@ -40,12 +40,12 @@
 
     <EditText
         android:id="@+id/commission"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textSize="22sp"
         android:padding="10dp"
         android:enabled="true"
-        android:text="العمولة"
+        android:hint="العمولة"
         android:inputType="numberDecimal"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
@@ -71,6 +71,6 @@
         android:layout_weight="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/edittextComplaintAnswer"/>
+        app:layout_constraintTop_toBottomOf="@id/commission"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

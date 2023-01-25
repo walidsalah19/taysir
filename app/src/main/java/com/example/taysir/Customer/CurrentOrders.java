@@ -111,7 +111,7 @@ public class CurrentOrders extends Fragment {
     }
     private void addDataToView()
     {
-        mBinding.orderNumber.setText(newOrderModel.getOrderNum());
+        mBinding.orderNumber.setText(newOrderModel.getOrderNum()+"");
         mBinding.brokerName.setText(newOrderModel.getBrokerName());
         mBinding.websiteName.setText(newOrderModel.getWebSitName());
         addOrderStatus();
@@ -127,13 +127,13 @@ public class CurrentOrders extends Fragment {
         }
         else if(newOrderModel.getOrderStat().equals("charge"))
         {
-            Glide.with(CurrentOrders.this).load(R.drawable.thumb).centerCrop().into(mBinding.image1);
-            mBinding.view1.setBackgroundColor(R.color.Red_Orange);
+            Glide.with(CurrentOrders.this).load(R.drawable.thumb).centerCrop().into(mBinding.image2);
+            mBinding.view2.setBackgroundResource(R.color.Red_Orange);
         }
         else if (newOrderModel.getOrderStat().equals("arrived"))
         {
             Glide.with(CurrentOrders.this).load(R.drawable.thumb).centerCrop().into(mBinding.image1);
-            mBinding.view1.setBackgroundColor(R.color.Red_Orange);
+            mBinding.view1.setBackgroundResource(R.color.Red_Orange);
         }
         loading.dismiss();
     }
@@ -143,9 +143,10 @@ public class CurrentOrders extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle b=new Bundle();
-                b.putString("brokerId",newOrderModel.getBrokerId());
+                b.putString("id",newOrderModel.getBrokerId());
+                b.putString("name",newOrderModel.getBrokerName());
                 NavHostFragment.findNavController(CurrentOrders.this)
-                        .navigate(R.id.goToChat);
+                        .navigate(R.id.goToChat,b);
             }
         });
     }

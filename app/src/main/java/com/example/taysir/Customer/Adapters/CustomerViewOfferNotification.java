@@ -86,19 +86,19 @@ public class CustomerViewOfferNotification extends RecyclerView.Adapter<Customer
             long days = hours / 24;
             long month=days/30;
             if (month !=0) {
-                holder.time.setText(" شهر"+month+"منذ ");
+                holder.time.setText(" منذ "+month+" ش ");
             }
             else if (days !=0)
             {
-                holder.time.setText(" يوم"+days+"منذ ");
+                holder.time.setText(" منذ "+days+" ي ");
             }
             else if (hours !=0)
             {
-                holder.time.setText(" ساعة"+hours+"منذ ");
+                holder.time.setText(" منذ "+hours+" س ");
             }
             else if (minutes !=0)
             {
-                holder.time.setText(" دقيقة"+minutes+"منذ ");
+                holder.time.setText("منذ "+minutes+" د ");
             }
 
 

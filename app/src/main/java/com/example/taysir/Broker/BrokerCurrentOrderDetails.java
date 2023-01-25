@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.taysir.Broker.Adapter.BrokerAcceptedOrderAdapter;
 import com.example.taysir.Broker.Adapter.BrokerCurrentOrderDetailsAdapter;
 import com.example.taysir.Models.OrderDetailsModel;
 import com.example.taysir.R;
@@ -80,8 +79,8 @@ public class BrokerCurrentOrderDetails extends Fragment {
                             String clintLocation = snapshot.child("clintLocation").getValue().toString();
                             String TotalCost = snapshot.child("totalCost").getValue().toString();
 
-                            int orderNum = Integer.parseInt(snapshot.child("orderNum").getValue().toString());
-                            for (DataSnapshot snap2 : snapshot.getChildren()) {
+                    int orderNum = Integer.parseInt(snapshot.child("orderNum").getValue().toString());
+                            for (DataSnapshot snap2 : snapshot.child("orderDetails").getChildren()) {
                                 String productLink = snap2.child("productLink").getValue().toString();
                                 String productColor = snap2.child("productColor").getValue().toString();
                                 String productPhoto = snap2.child("productPhoto").getValue().toString();
@@ -96,6 +95,7 @@ public class BrokerCurrentOrderDetails extends Fragment {
                                 orderDetails.add(detailsModel);
                             }
                             addToView(WebSitName,OrderDate,clintName,clintLocation,TotalCost,orderNum);
+                            adapter.notifyDataSetChanged();
                 }
             }
 
@@ -119,9 +119,10 @@ public class BrokerCurrentOrderDetails extends Fragment {
         mBinding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Bundle b=new Bundle();
+                b.putString("orderId",orderId);
                     NavHostFragment.findNavController(BrokerCurrentOrderDetails.this)
-                            .navigate(R.id.currentOrders);
+                            .navigate(R.id.currentOrders,b);
             }
         });
     }

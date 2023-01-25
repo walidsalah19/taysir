@@ -68,7 +68,6 @@ public class ShowOffersFragment extends Fragment {
     }
     private void removeOffer(String id)
     {
-        DatabaseReference offerDatabase= FirebaseDatabase.getInstance().getReference("offers");
         offerDatabase.child(id).removeValue();
     }
 
@@ -91,8 +90,8 @@ public class ShowOffersFragment extends Fragment {
                             String orderCost = data.child("orderCost").getValue().toString();
                             String commission = data.child("commission").getValue().toString();
                             String offerId = data.child("offerId").getValue().toString();
-                            OfferModel model = new OfferModel(offerId,brokerId, brokerName, clintId, orderId, orderDate, Integer.parseInt(totalCost)
-                                    , Integer.parseInt(orderCost), Integer.parseInt(commission));
+                            OfferModel model = new OfferModel(offerId,brokerId, brokerName, clintId, orderId, orderDate, Float.parseFloat(totalCost)
+                                    , Float.parseFloat(orderCost), Float.parseFloat(commission));
                             offerModel.add(model);
                         }
 

@@ -79,10 +79,11 @@ public class CustomerRankBroker extends Fragment {
 
     private void sendToDatabese() {
         RatingModel rating=new RatingModel(brokerId,brokerName,customerName,mBinding.edittextComment.getText().toString(), (int) mBinding.rating.getRating());
-        orderDatabase.child("currentOrders").child(orderId).child("rating").setValue("rate");
+        orderDatabase.child("oldOrders").child(orderId).child("rating").setValue(rating.getRatingNum());
         orderDatabase.child("rating").push().setValue(rating).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+                loading.dismiss();
                 if (task.isSuccessful())
                 {
 

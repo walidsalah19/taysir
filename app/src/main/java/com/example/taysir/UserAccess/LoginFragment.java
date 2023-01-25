@@ -25,6 +25,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -49,7 +54,25 @@ public class LoginFragment extends Fragment {
         login();
         back();
         showPassword();
+        createAccount();
         return mBinding.getRoot();
+    }
+    private void createAccount()
+    {
+        mBinding.createAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (UserType.type.equals("customer")) {
+                    NavHostFragment.findNavController(LoginFragment.this)
+                            .navigate(R.id.customerProfile);
+                }
+                else
+                {
+                    NavHostFragment.findNavController(LoginFragment.this)
+                            .navigate(R.id.brokerProfile);
+                }
+            }
+        });
     }
     private void back()
     {
@@ -102,8 +125,14 @@ public class LoginFragment extends Fragment {
                 loading.dismiss();
                if (task.isSuccessful())
                {
-                   funLoginSuccessfully();
+                   if (UserType.type.equals("customer")) {
+                       checkCustomerCorrectly(task.getResult().getUser().getUid().toString());
+                   }
+                   else
+                   {
+                       checkBrokerrCorrectly(task.getResult().getUser().getUid().toString());
 
+                   }
                }
                else
                {
@@ -112,6 +141,51 @@ public class LoginFragment extends Fragment {
             }
         });
     }
+
+    private void checkBrokerrCorrectly(String id) {
+        DatabaseReference Brokers= FirebaseDatabase.getInstance().getReference("Brokers");
+        Brokers.child(id).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    funLoginSuccessfully();
+                }
+                else
+                {
+                    funLoginField();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void checkCustomerCorrectly(String id) {
+      DatabaseReference clintDatabase= FirebaseDatabase.getInstance().getReference("Customers");
+      clintDatabase.child(id).addValueEventListener(new ValueEventListener() {
+          @Override
+          public void onDataChange(@NonNull DataSnapshot snapshot) {
+              if (snapshot.exists())
+              {
+                  funLoginSuccessfully();
+              }
+              else
+              {
+                  funLoginField();
+              }
+          }
+
+          @Override
+          public void onCancelled(@NonNull DatabaseError error) {
+
+          }
+      });
+    }
+
     private void funLoginSuccessfully()
     {
         SweetAlertDialog success=SweetDialog.success(getContext(),"تم تسجيل الدخول بنجاح");
@@ -133,6 +207,7 @@ public class LoginFragment extends Fragment {
     }
     private void funLoginField()
     {
+        FirebaseAuth.getInstance().signOut();
         SweetAlertDialog field=SweetDialog.failed(getContext(),"فشل تسجيل الدخول الرجاء المحاولة مرة أخري");
         field.show();
         field.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {

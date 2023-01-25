@@ -27,6 +27,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -37,7 +38,7 @@ public class BrokerSendOffer extends Fragment {
      private DatabaseReference database;
      private String brokerId,clintId,orderId;
      private String brokerName;
-     private int orderCost;
+     private float orderCost;
     private SweetAlertDialog loading;
 
 
@@ -56,6 +57,7 @@ public class BrokerSendOffer extends Fragment {
         brokerId= FirebaseAuth.getInstance().getCurrentUser().getUid();
         orderId=getArguments().getString("orderId");
         clintId=getArguments().getString("clintId");
+        orderCost=getArguments().getFloat("orderCost");
         endFragment();
         clickToSendOffer();
         return mBinding.getRoot();
@@ -94,13 +96,14 @@ public class BrokerSendOffer extends Fragment {
 
     private void sendOffer() {
         String offerId= UUID.randomUUID().toString();
-        int commission=Integer.parseInt(mBinding.commission.getText().toString());
-        int totalCost= orderCost+commission;
+        float commission=Float.parseFloat(mBinding.commission.getText().toString());
+        float totalCost= orderCost+commission;
         String date=getDateTime();
         OfferModel offerModel=new OfferModel(offerId,brokerId,brokerName,clintId,orderId,date,totalCost,orderCost,commission);
          database.child("offers").child(offerId).setValue(offerModel).addOnCompleteListener(new OnCompleteListener<Void>() {
              @Override
              public void onComplete(@NonNull Task<Void> task) {
+                 loading.dismiss();
                  if (task.isSuccessful())
                  {
                      SweetAlertDialog dialog= SweetDialog.success(getContext(),"تم إرسال العرض بنجاح");
@@ -127,7 +130,7 @@ public class BrokerSendOffer extends Fragment {
          });
     }
     private String getDateTime() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH.mm");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH.mm", Locale.US);
         Date date = new Date();
         return dateFormat.format(date);
     }

@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_marginTop="10dp"
     android:background="@color/Wild_Sand"
     >
-
     <LinearLayout
-        android:id="@+id/receiver_layout"
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:gravity="center_vertical"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/receiver_layout"
+        android:gravity="center_vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/reciver_image"
@@ -31,74 +29,70 @@
             android:src="@drawable/ic_baseline_person_24"
             app:civ_border_color="#FF4077F2"
             app:civ_border_width="0dp" />
-
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/reciver_image"
+        android:background="@color/Wild_Sand"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
         <RelativeLayout
+            android:id="@+id/receiver_m_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/reciver_image"
-            android:background="@color/Wild_Sand"
+            android:background="@drawable/button_shape2"
             android:gravity="center_vertical"
             android:orientation="vertical">
 
-            <RelativeLayout
-                android:id="@+id/receiver_m_text"
+            <TextView
+                android:id="@+id/receiver_message"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_shape2"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
+                android:padding="8dp"
+                android:text="How are You ?"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/receiver_message"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:text="How are You ?"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/receiver_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/receiver_message"
-                    android:layout_centerVertical="true"
-                    android:layout_margin="3dp"
-                    android:layout_marginLeft="8dp"
-                    android:drawablePadding="8dp"
-                    android:text="5:04pm"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/receiver_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/receiver_message"
+                android:layout_centerVertical="true"
+                android:layout_margin="3dp"
+                android:layout_marginLeft="8dp"
+                android:drawablePadding="8dp"
+                android:text="5:04pm"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
         </RelativeLayout>
+    </RelativeLayout>
     </LinearLayout>
-
     <LinearLayout
-        android:id="@+id/sender_layout"
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_gravity="end"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="1"
-        android:layout_alignParentTop="true"
-        android:gravity="end"
-        android:orientation="horizontal">
+        android:id="@+id/sender_layout"
+        android:orientation="horizontal"
+        android:layout_gravity="end"
+        android:gravity="end">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_toStartOf="@id/sender_image"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <RelativeLayout
                 android:id="@+id/sender_m_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_shape2"
                 android:gravity="start"
+                android:background="@drawable/button_shape2"
                 android:orientation="vertical">
 
                 <TextView
@@ -137,4 +131,4 @@
             app:civ_border_color="#FF4077F2"
             app:civ_border_width="0dp" />
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

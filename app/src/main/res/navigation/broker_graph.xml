@@ -29,6 +29,16 @@
             app:destination="@id/BrokerHome"/>
         <action android:id="@+id/goToBrokerProfile"
             app:destination="@id/brokerProfile"/>
+        <action android:id="@+id/goToRating"
+            app:destination="@id/BrokerRating"/>
+    </fragment>
+    <fragment
+        android:id="@+id/BrokerRating"
+        android:name="com.example.taysir.Broker.BrokerViewRating"
+        android:label="Start"
+        tools:layout="@layout/fragment_broker_view_rating">
+        <action android:id="@+id/goToHome"
+            app:destination="@id/BrokerPersonly"/>
     </fragment>
     <fragment
         android:id="@+id/brokerProfile"
@@ -53,8 +63,7 @@
         tools:layout="@layout/fragment_broker_display_new_orders">
         <action android:id="@+id/goToHome"
             app:destination="@id/BrokerHome"/>
-
-        <action android:id="@+id/goToNewOrders"
+        <action android:id="@+id/goToNewOrdersDetails"
             app:destination="@id/newOrders"/>
 
     </fragment>
@@ -100,7 +109,7 @@
         android:label="Start"
         tools:layout="@layout/fragment_broker_current_order">
     <action android:id="@+id/goToHome"
-        app:destination="@id/BrokerHome"/>
+        app:destination="@id/brokerDisplayCurrentOrder"/>
         <action android:id="@+id/OrderDetails"
             app:destination="@id/OrderDetails"/>
         <action android:id="@+id/goToChat"
@@ -179,7 +188,7 @@
         android:label="Start"
         tools:layout="@layout/fragment_chat">
         <action android:id="@+id/currentlyOrders"
-            app:destination="@+id/currentOrders"/>
+            app:destination="@+id/brokerDisplayCurrentOrder"/>
 
     </fragment>
 </navigation>

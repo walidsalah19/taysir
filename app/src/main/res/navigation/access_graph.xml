@@ -43,6 +43,12 @@
             app:destination="@id/forgetPassword"/>
         <action android:id="@+id/selectAccessType"
             app:destination="@id/selectAccessType"/>
+        <action android:id="@+id/customerProfile"
+            app:destination="@id/customerProfile"/>
+        <action android:id="@+id/brokerProfile"
+            app:destination="@id/brokerProfile"/>
+
+
     </fragment>
     <fragment
         android:id="@+id/customerProfile"

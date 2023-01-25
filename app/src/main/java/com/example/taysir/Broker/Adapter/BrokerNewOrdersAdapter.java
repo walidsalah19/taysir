@@ -36,14 +36,14 @@ public class BrokerNewOrdersAdapter  extends RecyclerView.Adapter<BrokerNewOrder
     @Override
     public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
         holder.userName.setText(arrayList.get(position).getClintName());
-        holder.orderNum.setText(arrayList.get(position).getOrderNum());
+        holder.orderNum.setText(arrayList.get(position).getOrderNum()+"");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle b=new Bundle();
                 b.putString("orderId",arrayList.get(position).getOrderId());
                 NavHostFragment.findNavController(fragment)
-                        .navigate(R.id.goToNewComplaintDetails,b);
+                        .navigate(R.id.goToNewOrdersDetails,b);
             }
         });
     }

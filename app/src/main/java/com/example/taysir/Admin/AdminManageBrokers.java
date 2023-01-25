@@ -17,6 +17,7 @@ import com.example.taysir.Broker.BrokerCurrentOrder;
 import com.example.taysir.Models.BrokerModel;
 import com.example.taysir.Models.OldComplaintModel;
 import com.example.taysir.R;
+import com.example.taysir.SweetDialog;
 import com.example.taysir.databinding.FragmentAdminManageBrokersBinding;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +27,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 public class AdminManageBrokers extends Fragment {
 
@@ -33,6 +36,8 @@ public class AdminManageBrokers extends Fragment {
     private DatabaseReference database;
     private ArrayList<BrokerModel> arrayList;
     private displayBrokersAdapter adapter;
+    private SweetAlertDialog loading;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,12 +50,17 @@ public class AdminManageBrokers extends Fragment {
         // Inflate the layout for this fragment
         mBinding=FragmentAdminManageBrokersBinding.inflate(inflater,container,false);
         database= FirebaseDatabase.getInstance().getReference("Brokers");
-        back();
+        startLoading();
         recyclerViewComponent();
         getBrokerRequests();
+        back();
         return mBinding.getRoot();
     }
-
+    private void startLoading()
+    {
+        loading= SweetDialog.loading(getContext());
+        loading.show();
+    }
     private void back()
     {
         mBinding.back.setOnClickListener(new View.OnClickListener() {
@@ -95,6 +105,7 @@ public class AdminManageBrokers extends Fragment {
                     }
                     adapter.notifyDataSetChanged();
                 }
+                loading.dismiss();
             }
 
             @Override

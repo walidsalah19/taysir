@@ -55,7 +55,7 @@ public class StatusNotification extends Fragment {
     private void getRejectReason()
     {
         DatabaseReference database= FirebaseDatabase.getInstance().getReference("BrokerRejectReason");
-        database.addValueEventListener(new ValueEventListener() {
+        database.child(userId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())

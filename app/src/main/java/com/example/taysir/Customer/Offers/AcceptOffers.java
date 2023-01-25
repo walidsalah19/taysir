@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter;
 
 import com.example.taysir.Models.OfferModel;
 import com.example.taysir.R;
+import com.example.taysir.SweetDialog;
 import com.example.taysir.databinding.FragmentAcceptOffersBinding;
 import com.example.taysir.databinding.FragmentPaymentBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,12 +27,16 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class AcceptOffers extends Fragment {
 
     private FragmentAcceptOffersBinding mBinding;
     private DatabaseReference offerDatabase;
     private OfferModel model;
-    private String orderId;
+    private String offerId;
+    private SweetAlertDialog loading;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,34 +48,39 @@ public class AcceptOffers extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding= FragmentAcceptOffersBinding.inflate(inflater,container,false);
-        orderId=getArguments().getString("id");
+        offerId=getArguments().getString("id");
+        offerDatabase= FirebaseDatabase.getInstance().getReference("offers");
+        startLoading();
         back();
         accept();
         reject();
         getNewOffers();
         return mBinding.getRoot();
     }
+    private void startLoading()
+    {
+        loading= SweetDialog.loading(getContext());
+        loading.show();
+    }
     private void getNewOffers() {
-        offerDatabase= FirebaseDatabase.getInstance().getReference("offers");
-        offerDatabase.child(orderId).addValueEventListener(new ValueEventListener() {
+
+        offerDatabase.child(offerId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
-                    for(DataSnapshot data:snapshot.getChildren()) {
-                            String clintId=data.child("clintId").getValue().toString();
-                            String brokerId = data.child("brokerId").getValue().toString();
-                            String brokerName = data.child("brokerName").getValue().toString();
-                            String orderId = data.child("orderId").getValue().toString();
-                            String orderDate = data.child("orderDate").getValue().toString();
-                            String totalCost = data.child("totalCost").getValue().toString();
-                            String orderCost = data.child("orderCost").getValue().toString();
-                            String commission = data.child("commission").getValue().toString();
-                            String offerId=data.child("offerId").getValue().toString();
+                            String clintId=snapshot.child("clintId").getValue().toString();
+                            String brokerId = snapshot.child("brokerId").getValue().toString();
+                            String brokerName = snapshot.child("brokerName").getValue().toString();
+                            String orderId = snapshot.child("orderId").getValue().toString();
+                            String orderDate = snapshot.child("orderDate").getValue().toString();
+                            String totalCost = snapshot.child("totalCost").getValue().toString();
+                            String orderCost = snapshot.child("orderCost").getValue().toString();
+                            String commission = snapshot.child("commission").getValue().toString();
+                            String offerId=snapshot.child("offerId").getValue().toString();
                             model = new OfferModel(offerId,brokerId, brokerName, clintId, orderId, orderDate, Integer.parseInt(totalCost)
                                     , Integer.parseInt(orderCost), Integer.parseInt(commission));
                             addToView(model);
-                        }
 
                     }
                 }
@@ -82,10 +93,10 @@ public class AcceptOffers extends Fragment {
     private void addToView(OfferModel model)
     {
         mBinding.brokerName.setText(model.getBrokerName());
-        mBinding.cost.setText(model.getOrderCost());
-        mBinding.commission.setText(model.getCommission());
-        mBinding.totalCost.setText(model.getTotalCost());
-
+        mBinding.cost.setText(model.getOrderCost()+"");
+        mBinding.commission.setText(model.getCommission()+"");
+        mBinding.totalCost.setText(model.getTotalCost()+"");
+        loading.dismiss();
     }
     private void back()
     {
@@ -115,8 +126,6 @@ public class AcceptOffers extends Fragment {
         mBinding.reject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                DatabaseReference offerDatabase= FirebaseDatabase.getInstance().getReference("offers");
                 offerDatabase.child(model.getOfferId()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

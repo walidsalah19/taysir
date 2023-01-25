@@ -101,17 +101,17 @@ public class CustomerProfile extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
-                    String CID = snapshot.child("CID").getValue().toString();
+                    String CID = snapshot.child("ciD").getValue().toString();
                     String UserName = snapshot.child("userName").getValue().toString();
                     String FullName = snapshot.child("fullName").getValue().toString();
                     String Email = snapshot.child("email").getValue().toString();
                     String PhoneNum = snapshot.child("phoneNum").getValue().toString();
                     String Gender = snapshot.child("gender").getValue().toString();
-                    String DOB = snapshot.child("DOB").getValue().toString();
+                    String DOB = snapshot.child("dob").getValue().toString();
                     String address = snapshot.child("address").getValue().toString();
                     String city = snapshot.child("city").getValue().toString();
                     String street = snapshot.child("street").getValue().toString();
-                    int NID = Integer.parseInt(snapshot.child("NID").getValue().toString());
+                    int NID = Integer.parseInt(snapshot.child("nid").getValue().toString());
                     int postCode = Integer.parseInt(snapshot.child("postCode").getValue().toString());
                     customer=new CustomerModel(CID,UserName,FullName,Email,PhoneNum,Gender,DOB,address,city,street,NID,postCode);
                     insertDataToView();

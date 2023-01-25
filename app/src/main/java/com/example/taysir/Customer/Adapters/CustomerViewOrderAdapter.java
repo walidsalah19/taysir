@@ -38,7 +38,7 @@ public class CustomerViewOrderAdapter extends RecyclerView.Adapter<CustomerViewO
     @Override
     public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
         holder.userName.setText(arrayList.get(position).getClintName());
-        holder.orderNum.setText(arrayList.get(position).getOrderNum());
+        holder.orderNum.setText(arrayList.get(position).getOrderNum()+"");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +51,7 @@ public class CustomerViewOrderAdapter extends RecyclerView.Adapter<CustomerViewO
                 else
                 {
                     NavHostFragment.findNavController(fragment)
-                            .navigate(R.id.displayOldOrders, b);
+                            .navigate(R.id.goToPreviousOrderss, b);
                 }
             }
         });

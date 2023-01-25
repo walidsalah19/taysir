@@ -35,8 +35,8 @@ public class BrokerNewOrderDetailsAdapter extends RecyclerView.Adapter<BrokerNew
     public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
         holder.color.setText(arrayList.get(position).getProductColor());
         holder.link.setText(arrayList.get(position).getProductLink());
-        holder.quantity.setText(arrayList.get(position).getProductQuantity());
-        holder.productNum.setText(arrayList.get(position).getProductCode());
+        holder.quantity.setText(arrayList.get(position).getProductQuantity()+"");
+        holder.productNum.setText(arrayList.get(position).getProductCode()+"");
     }
 
     @Override

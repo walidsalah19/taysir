@@ -47,13 +47,14 @@ public class CustomerViewOffersAdapter  extends RecyclerView.Adapter<CustomerVie
     @NonNull
     @Override
     public help onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.show_notification,parent,false);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.customer_show_offeres,parent,false);
         return new help(v);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
-        holder.offerCost.setText(offer.get(position).getOrderCost()+".س");
+        holder.offerCost.setText(offer.get(position).getTotalCost()+" ");
         holder.brokerName.setText(offer.get(position).getBrokerName());
         holder.showBrokerInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +75,7 @@ public class CustomerViewOffersAdapter  extends RecyclerView.Adapter<CustomerVie
             @Override
             public void onClick(View v) {
                 Bundle b=new Bundle();
-                b.putString("id",offer.get(position).getOrderId());
+                b.putString("id",offer.get(position).getOfferId());
                 NavHostFragment.findNavController(fragment)
                         .navigate(R.id.goToacceptOffer,b);
             }

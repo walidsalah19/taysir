@@ -2,6 +2,7 @@ package com.example.taysir.Customer.Adapters;
 
 import android.annotation.SuppressLint;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -91,7 +92,9 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                 orderDetails.get(position).setProductLink(holder.link.getText().toString());
+                if (!  TextUtils.isEmpty(s)) {
+                    orderDetails.get(position).setProductLink(holder.link.getText().toString());
+                }
             }
 
             @Override
@@ -110,7 +113,9 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                orderDetails.get(position).setProductQuantity(Integer.parseInt(holder.quantity.getText().toString()));
+                if (!  TextUtils.isEmpty(s)) {
+                    orderDetails.get(position).setProductQuantity(Integer.parseInt(holder.quantity.getText().toString()));
+                }
             }
 
             @Override
@@ -129,7 +134,9 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                orderDetails.get(position).setProductCode(Integer.parseInt(holder.productNumber.getText().toString()));
+                if (!  TextUtils.isEmpty(s)) {
+                    orderDetails.get(position).setProductCode(Integer.parseInt(holder.productNumber.getText().toString()));
+                }
             }
 
             @Override
@@ -148,7 +155,9 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                orderDetails.get(position).setProductColor(holder.color.getText().toString());
+                if (!  TextUtils.isEmpty(s)) {
+                    orderDetails.get(position).setProductColor(holder.color.getText().toString());
+                }
             }
 
             @Override
@@ -167,7 +176,9 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                orderDetails.get(position).setProductSize(Integer.parseInt(holder.size.getText().toString()));
+                if (!  TextUtils.isEmpty(s)) {
+                    orderDetails.get(position).setProductSize(Integer.parseInt(holder.size.getText().toString()));
+                }
             }
 
             @Override
@@ -186,7 +197,9 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                orderDetails.get(position).setProductCost(Integer.parseInt(holder.productCost.getText().toString()));
+                if (!  TextUtils.isEmpty(s)) {
+                    orderDetails.get(position).setProductCost(Integer.parseInt(holder.productCost.getText().toString()));
+                }
             }
 
             @Override
@@ -205,7 +218,9 @@ public class CreateNewOrderAdapter extends RecyclerView.Adapter<CreateNewOrderAd
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                orderDetails.get(position).setProductNotes(holder.notes.getText().toString());
+                if (!  TextUtils.isEmpty(s)) {
+                    orderDetails.get(position).setProductNotes(holder.notes.getText().toString());
+                }
             }
 
             @Override

@@ -45,7 +45,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginEnd="10dp"
         android:layout_toStartOf="@id/profile_image"
-        android:gravity="start|center"
+        android:gravity="center"
         android:text="وسيط 1"
         android:textColor="@color/Gray"
         android:textSize="20sp"

@@ -17,13 +17,15 @@ import com.example.taysir.R;
 
 import java.util.ArrayList;
 
-public class BrokerAcceptedOrderAdapter extends RecyclerView.Adapter<BrokerAcceptedOrderAdapter.help>{
+public class BrokerOrderAdapter extends RecyclerView.Adapter<BrokerOrderAdapter.help>{
 
     private ArrayList<AcceptedOrdersModel> arrayList;
     private Fragment fragment;
-    public BrokerAcceptedOrderAdapter(ArrayList<AcceptedOrdersModel> arrayList, Fragment fragment) {
+    private String status;
+    public BrokerOrderAdapter(ArrayList<AcceptedOrdersModel> arrayList, Fragment fragment,String status) {
         this.arrayList = arrayList;
         this.fragment=fragment;
+        this.status=status;
     }
 
     @NonNull
@@ -36,14 +38,21 @@ public class BrokerAcceptedOrderAdapter extends RecyclerView.Adapter<BrokerAccep
     @Override
     public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
         holder.userName.setText(arrayList.get(position).getClintName());
-        holder.orderNum.setText(arrayList.get(position).getOrderNum());
+        holder.orderNum.setText(arrayList.get(position).getOrderNum()+"");
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle b=new Bundle();
                 b.putString("orderId",arrayList.get(position).getOrderId());
-                NavHostFragment.findNavController(fragment)
-                        .navigate(R.id.goToOrderDetails,b);
+                if (status.equals("old"))
+                {
+                    NavHostFragment.findNavController(fragment)
+                            .navigate(R.id. goToOldOrdersDetails,b);
+                }
+                else {
+                    NavHostFragment.findNavController(fragment)
+                            .navigate(R.id.goToOrderDetails, b);
+                }
             }
         });
     }

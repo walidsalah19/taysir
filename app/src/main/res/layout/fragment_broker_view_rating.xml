@@ -3,10 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Wild_Sand"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Customer.CustomerDisplayCurrentOrders">
-
+    tools:context=".Broker.BrokerViewRating"
+    android:background="@color/Wild_Sand">
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
@@ -16,10 +15,12 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:gravity="center"
-        android:text="الطلبات الحالية"
+        android:text="الملف الشخصي"
         android:textColor="@color/Gray"
         android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <ImageView
         android:id="@+id/back"
@@ -38,6 +39,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/back"
-        android:id="@+id/customerCurrentOrders"/>
-
+        android:id="@+id/brokerRating"/>
 </RelativeLayout>

@@ -42,8 +42,7 @@ public class BrokerProfilePersonly extends Fragment {
    private FirebaseAuth auth;
    private BrokerModel broker;
    private SweetAlertDialog loading;
-   private ArrayList<RatingModel>rating;
-   private BrokerRatingAdapter adapter;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,14 +56,25 @@ public class BrokerProfilePersonly extends Fragment {
         mBinding= FragmentBrokerProfilePersonlyBinding.inflate(inflater,container,false);
         startLoading();
         initFirebaseTool();
-        recyclerViewComponent();
         getBrokerData();
         back();
         editProfile();
         showRejectReason();
         removeNotification();
+        goToRating();
         return mBinding.getRoot();
     }
+
+    private void goToRating() {
+        mBinding.card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(BrokerProfilePersonly.this)
+                        .navigate(R.id.goToRating);
+            }
+        });
+    }
+
     private void removeNotification()
     {
         mBinding.home.setOnClickListener(new View.OnClickListener() {
@@ -124,7 +134,7 @@ public class BrokerProfilePersonly extends Fragment {
         else if(broker.getStatus().equals("accepted"))
         {
             Glide.with(BrokerProfilePersonly.this).load(R.drawable.thumb).centerCrop().into(mBinding.image1);
-            mBinding.view1.setBackgroundColor(R.color.Red_Orange);
+            mBinding.view1.setBackgroundResource(R.color.Red_Orange);
             mBinding.text1.setText("تم قبولك");
         }
         else
@@ -173,40 +183,5 @@ public class BrokerProfilePersonly extends Fragment {
             }
         });
     }
-    private void recyclerViewComponent()
-    {
-        rating=new ArrayList<>();
-        adapter=new BrokerRatingAdapter(rating);
-        mBinding.brokerRating.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mBinding.brokerRating.setAdapter(adapter);
-        getRating();
-    }
-    private void getRating()
-    {
 
-        brokerDatabase.child("brokerRating").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for(DataSnapshot data:snapshot.getChildren())
-                {
-                    String id=data.child("Bid").toString();
-                    if(id.equals(userId))
-                    {
-                        String customerName=data.child("customerName").toString();
-                        String ratingText=data.child("ratingText").toString();
-                        String ratingNum=data.child("ratingNum").toString();
-                        String brokerName=data.child("brokerName").toString();
-                        RatingModel ratingModel=new RatingModel(id,brokerName,customerName,ratingText,Integer.parseInt(ratingNum));
-                        rating.add(ratingModel);
-                    }
-                }
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 }

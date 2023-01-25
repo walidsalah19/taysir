@@ -136,7 +136,8 @@ public class SendComplaint extends Fragment {
                 if (task.isSuccessful())
                 {
                     loading.dismiss();
-                    database.child("inquireNum").child("number").setValue(complaintNum+"");
+                    complaintNum++;
+                    database.child("inquireNum").child("number").setValue(complaintNum);
                     SweetAlertDialog dialog= SweetDialog.success(getContext(),"تم إرسال الشكوى بنجاح");
                     dialog.show();
                     dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {

@@ -40,6 +40,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 import java.util.UUID;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -87,7 +88,7 @@ public class CreateNewOrder extends Fragment {
         loading.show();
     }
     private String getDateTime() {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH.mm");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH.mm", Locale.US);
         Date date = new Date();
         return dateFormat.format(date);
     }
@@ -150,7 +151,7 @@ public class CreateNewOrder extends Fragment {
             public void onComplete(@NonNull Task<Uri> task) {
                 if (task.isSuccessful()) {
                     Uri downloadUri=task.getResult();
-                    adapter.orderDetails.get(imagePosition).setProductPhoto(downloadUri.toString());
+                    CreateNewOrderAdapter.orderDetails.get(imagePosition).setProductPhoto(downloadUri.toString());
                     loading.dismiss();
                 }
             }
@@ -234,7 +235,7 @@ public class CreateNewOrder extends Fragment {
         String webSiteName=mBinding.edittextWebsiteName.getText().toString();
         String orderDate=getDateTime();
         ArrayList<OrderDetailsModel> orderDetails=new ArrayList<>();
-        for(OrderDetailsModel model:adapter.orderDetails)
+        for(OrderDetailsModel model:CreateNewOrderAdapter.orderDetails)
         {
             if (! TextUtils.isEmpty(model.getProductLink()) || model.getProductQuantity()!=0)
             {
@@ -271,6 +272,9 @@ public class CreateNewOrder extends Fragment {
             @Override
             public void onClick(SweetAlertDialog sweetAlertDialog) {
                 success.dismiss();
+                items.clear();
+                items.add("1");
+                CreateNewOrderAdapter.orderDetails.clear();
             }
         });
     }

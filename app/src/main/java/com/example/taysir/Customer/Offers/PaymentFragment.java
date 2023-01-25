@@ -76,23 +76,21 @@ public class PaymentFragment extends Fragment {
         });
     }
     private void getNewOffers() {
-        offerDatabase.child("offers").child(orderId).addValueEventListener(new ValueEventListener() {
+        offerDatabase.child("offers").child(offerId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
-                    for(DataSnapshot data:snapshot.getChildren()) {
-                        totalCost = data.child("totalCost").getValue().toString();
-                        String orderCost = data.child("orderCost").getValue().toString();
-                        String commission = data.child("commission").getValue().toString();
-                        brokerId = data.child("brokerId").getValue().toString();
-                        totalCost = data.child("totalCost").getValue().toString();
-                        brokerName= data.child("brokerName").getValue().toString();
+                        totalCost = snapshot.child("totalCost").getValue().toString();
+                        String orderCost = snapshot.child("orderCost").getValue().toString();
+                        String commission = snapshot.child("commission").getValue().toString();
+                        brokerId = snapshot.child("brokerId").getValue().toString();
+                        totalCost = snapshot.child("totalCost").getValue().toString();
+                        brokerName= snapshot.child("brokerName").getValue().toString();
                         mBinding.cost.setText(orderCost);
                         mBinding.commission.setText(commission);
                         mBinding.totalCost.setText(totalCost);
                         loading.dismiss();
-                    }
 
                 }
             }
@@ -101,7 +99,8 @@ public class PaymentFragment extends Fragment {
 
             }
         });
-    }    private void checkCardData()
+    }
+    private void checkCardData()
     {
         if (TextUtils.isEmpty(mBinding.edittextCardNumber.getText().toString()))
         {
@@ -133,18 +132,17 @@ public class PaymentFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
-                    for(DataSnapshot data:snapshot.getChildren()) {
-                        String WebSitLink=data.child("webSitLink").getValue().toString();
-                        String WebSitName=data.child("webSitName").getValue().toString();
-                        String clintId=data.child("clintId").getValue().toString();
-                        String orderId=data.child("orderId").getValue().toString();
-                        String orderStat=data.child("orderStat").getValue().toString();
-                        String OrderDate=data.child("orderDate").getValue().toString();
-                        String clintName=data.child("clintName").getValue().toString();
-                        String clintLocation=data.child("clintLocation").getValue().toString();
+                        String WebSitLink=snapshot.child("webSitLink").getValue().toString();
+                        String WebSitName=snapshot.child("webSitName").getValue().toString();
+                        String clintId=snapshot.child("clintId").getValue().toString();
+                        String orderId=snapshot.child("orderId").getValue().toString();
+                        String orderStat=snapshot.child("orderStat").getValue().toString();
+                        String OrderDate=snapshot.child("orderDate").getValue().toString();
+                        String clintName=snapshot.child("clintName").getValue().toString();
+                        String clintLocation=snapshot.child("clintLocation").getValue().toString();
 
-                        int orderNum=Integer.parseInt(data.child("orderNum").getValue().toString());
-                        for(DataSnapshot snap2:data.child("orderDetails").getChildren()) {
+                        int orderNum=Integer.parseInt(snapshot.child("orderNum").getValue().toString());
+                        for(DataSnapshot snap2:snapshot.child("orderDetails").getChildren()) {
                             String productLink = snap2.child("productLink").getValue().toString();
                             String productColor = snap2.child("productColor").getValue().toString();
                             String productPhoto = snap2.child("productPhoto").getValue().toString();
@@ -162,7 +160,6 @@ public class PaymentFragment extends Fragment {
                         sendOrderToCurrentOrders(newOrderModel);
                     }
                 }
-            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

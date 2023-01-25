@@ -17,6 +17,7 @@ import com.example.taysir.Models.NewOrderModel;
 import com.example.taysir.R;
 import com.example.taysir.SweetDialog;
 import com.example.taysir.databinding.FragmentBrokerDisplayNewOrdersBinding;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -30,11 +31,12 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class BrokerDisplayNewOrders extends Fragment {
 
     private FragmentBrokerDisplayNewOrdersBinding mBinding;
-    private DatabaseReference orderDatabase;
+    private DatabaseReference Database;
     private ArrayList<NewOrderModel>order;
     private ArrayList<OrderDetailsModel>orderDetails;
     private BrokerNewOrdersAdapter adapter;
     private SweetAlertDialog loading;
+    private String userId;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +48,10 @@ public class BrokerDisplayNewOrders extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         mBinding= FragmentBrokerDisplayNewOrdersBinding.inflate(inflater,container,false);
-        orderDatabase= FirebaseDatabase.getInstance().getReference("newOrders");
+        Database= FirebaseDatabase.getInstance().getReference();
+        userId= FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
         startLoading();
-        recyclerViewComponent();
+        checkAccepted();
         back();
         return mBinding.getRoot();
     }
@@ -56,6 +59,34 @@ public class BrokerDisplayNewOrders extends Fragment {
     {
         loading= SweetDialog.loading(getContext());
         loading.show();
+    }
+    private void checkAccepted()
+    {
+        Database.child("Brokers").child(userId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    String status=snapshot.child("status").getValue().toString();
+                    if (status.equals("accepted"))
+                    {
+                        recyclerViewComponent();
+                    }
+                    else
+                    {
+                        loading.dismiss();
+                        funFailed("لا يمكنك عرض الطلبات الجديدة حتي تتم الموافقة علي طلب إنضمامك");
+                        NavHostFragment.findNavController(BrokerDisplayNewOrders.this)
+                                .navigate(R.id.goToHome);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
     private void recyclerViewComponent()
     {
@@ -68,7 +99,7 @@ public class BrokerDisplayNewOrders extends Fragment {
     }
 
     private void getNewOrders() {
-        orderDatabase.addValueEventListener(new ValueEventListener() {
+        Database.child("newOrders").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
@@ -116,7 +147,17 @@ public class BrokerDisplayNewOrders extends Fragment {
         });
     }
 
-
+    private void funFailed(String title)
+    {
+        SweetAlertDialog fail=SweetDialog.failed(getContext(),title);
+        fail.show();
+        fail.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                fail.dismiss();
+            }
+        });
+    }
     private void back()
     {
         mBinding.back.setOnClickListener(new View.OnClickListener() {

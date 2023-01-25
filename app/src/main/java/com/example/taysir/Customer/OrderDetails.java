@@ -74,7 +74,6 @@ public class OrderDetails extends Fragment {
     }
     private void getOrderData()
     {
-        orderDetails=new ArrayList<>();
         orderDatabase.child(orderId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -125,7 +124,7 @@ public class OrderDetails extends Fragment {
     }
     private void addDataToView()
     {
-        mBinding.orderNumber1.setText(newOrderModel.getOrderNum());
+        mBinding.orderNumber1.setText(newOrderModel.getOrderNum()+"");
         mBinding.customerName.setText(newOrderModel.getBrokerName());
         mBinding.webSiteName.setText(newOrderModel.getWebSitName());
         mBinding.orderDate.setText(newOrderModel.getOrderDate());
@@ -138,14 +137,16 @@ public class OrderDetails extends Fragment {
         mBinding.back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle b=new Bundle();
+                b.putString("orderId",newOrderModel.getOrderId());
                 if (orderType.equals("current")) {
                     NavHostFragment.findNavController(OrderDetails.this)
-                            .navigate(R.id.goTocurrentlyOrders);
+                            .navigate(R.id.goTocurrentlyOrders,b);
                 }
                 else
                 {
                     NavHostFragment.findNavController(OrderDetails.this)
-                            .navigate(R.id.goToPreviousOrders);
+                            .navigate(R.id.goToPreviousOrders,b);
                 }
             }
         });

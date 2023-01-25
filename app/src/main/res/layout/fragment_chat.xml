@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Chat.ChatFragment">
+    tools:context=".Chat.ChatFragment"
+    android:background="@color/white">
     <ImageView
         android:id="@+id/back"
         android:layout_width="70dp"
@@ -33,7 +34,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/text4"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -52,25 +53,22 @@
                 android:layout_height="50dp"
                 android:layout_margin="10dp"
                 android:src="@drawable/profile"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-<include
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    layout="@layout/content_chat"
-    android:layout_above="@id/rl_bottom"
-    android:layout_below="@id/profile"
-    />
-        <!--<androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview_chat"
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewChat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:layout_above="@id/rl_bottom"
-            android:layout_below="@id/profile"></androidx.recyclerview.widget.RecyclerView>
-        -->    <LinearLayout
+            android:layout_below="@id/profile">
+        </androidx.recyclerview.widget.RecyclerView>
+            <LinearLayout
                 android:id="@+id/rl_bottom"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -81,7 +79,7 @@
                 android:layout_marginBottom="20dp"
                 android:background="@drawable/edittext_shape2">
                 <ImageView
-                    android:id="@+id/send_message"
+                    android:id="@+id/sendMessage"
                     app:srcCompat="@drawable/ic_baseline_send_24"
                     android:layout_width="70dp"
                     android:layout_height="40dp"
@@ -95,7 +93,7 @@
                     android:stateListAnimator="@null"
                      />
                 <EditText
-                    android:id="@+id/send_message_text"
+                    android:id="@+id/sendMessageText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"

@@ -2,9 +2,9 @@ package com.example.taysir.Models;
 
 public class OfferModel {
     String offerId, brokerId,brokerName,clintId,orderId,orderDate;
-    int totalCost,orderCost,commission;
+    float totalCost,orderCost,commission;
 
-    public OfferModel(String offerId, String brokerId, String brokerName, String clintId, String orderId, String orderDate, int totalCost, int orderCost, int commission) {
+    public OfferModel(String offerId, String brokerId, String brokerName, String clintId, String orderId, String orderDate, float totalCost, float orderCost, float commission) {
         this.offerId = offerId;
         this.brokerId = brokerId;
         this.brokerName = brokerName;
@@ -64,27 +64,27 @@ public class OfferModel {
         this.orderDate = orderDate;
     }
 
-    public int getTotalCost() {
+    public float getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(int totalCost) {
+    public void setTotalCost(float totalCost) {
         this.totalCost = totalCost;
     }
 
-    public int getOrderCost() {
+    public float getOrderCost() {
         return orderCost;
     }
 
-    public void setOrderCost(int orderCost) {
+    public void setOrderCost(float orderCost) {
         this.orderCost = orderCost;
     }
 
-    public int getCommission() {
+    public float getCommission() {
         return commission;
     }
 
-    public void setCommission(int commission) {
+    public void setCommission(float commission) {
         this.commission = commission;
     }
 }

@@ -111,7 +111,7 @@
             app:layout_constraintTop_toTopOf="@id/text3" />
 
         <TextView
-            android:id="@+id/text4"
+            android:id="@+id/brokerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -136,7 +136,7 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text4" />
+            app:layout_constraintTop_toBottomOf="@id/brokerName" />
 
 
         <LinearLayout
@@ -223,6 +223,7 @@
                     android:layout_height="wrap_content"
                     android:text="تم الدفع"
                     android:gravity="center"
+                    android:backgroundTint="@color/Red_Orange"
                     android:textColor="@color/black"
                     android:textDirection="firstStrongLtr"
                     android:textSize="20sp"
@@ -238,6 +239,7 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:gravity="center"
+                    android:backgroundTint="@color/Red_Orange"
                     app:layout_constraintEnd_toEndOf="@id/checkbox1"
                     app:layout_constraintStart_toStartOf="@id/checkbox1"
                     app:layout_constraintTop_toBottomOf="@id/checkbox1" />
@@ -250,6 +252,7 @@
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:gravity="center"
+                    android:backgroundTint="@color/Red_Orange"
                     app:layout_constraintEnd_toEndOf="@id/text6"
                     app:layout_constraintStart_toStartOf="@id/text6"
                     app:layout_constraintTop_toBottomOf="@id/checkbox2" />

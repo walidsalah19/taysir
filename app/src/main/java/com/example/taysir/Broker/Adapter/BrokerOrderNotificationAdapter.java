@@ -12,9 +12,11 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.taysir.Customer.Adapters.CustomerViewOfferNotification;
 import com.example.taysir.Models.NewOrderModel;
 import com.example.taysir.R;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,8 +40,8 @@ public class BrokerOrderNotificationAdapter extends RecyclerView.Adapter<BrokerO
 
     @Override
     public void onBindViewHolder(@NonNull help holder, @SuppressLint("RecyclerView") int position) {
-             holder.time.setText(order.get(position).getOrderDate());
-             holder.itemView.setOnClickListener(new View.OnClickListener() {
+        calculateTime(order.get(position).getOrderDate(),holder);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
                  @Override
                  public void onClick(View v) {
                      Bundle b=new Bundle();
@@ -65,19 +67,44 @@ public class BrokerOrderNotificationAdapter extends RecyclerView.Adapter<BrokerO
 
         }
     }
-    private String  calculateTime(String time)
+    private void  calculateTime(String time,@NonNull help holder)
     {
-        String minusTime = null;
-        try{
-            SimpleDateFormat dateFormat2 = new SimpleDateFormat("HH.mm" );
-            Calendar cal = Calendar.getInstance();
-            Date d = dateFormat2.parse(time);
-            cal.setTime(d);
-            minusTime=dateFormat2.format(cal.getTime());
-        }catch (Exception e)
-        {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH.mm");
+        try {
 
+            Date oldDate = dateFormat.parse(time);
+            System.out.println(oldDate);
+
+            Date currentDate = new Date();
+
+            long diff = currentDate.getTime() - oldDate.getTime();
+            long seconds = diff / 1000;
+            long minutes = seconds / 60;
+            long hours = minutes / 60;
+            long days = hours / 24;
+            long month=days/30;
+            if (month !=0) {
+                holder.time.setText(" منذ "+month+" ش ");
+            }
+            else if (days !=0)
+            {
+                holder.time.setText(" منذ "+days+" ي ");
+            }
+            else if (hours !=0)
+            {
+                holder.time.setText(" منذ "+hours+" س ");
+            }
+            else if (minutes !=0)
+            {
+                holder.time.setText("منذ "+minutes+" د ");
+            }
+
+
+        } catch ( ParseException e) {
+
+            e.printStackTrace();
         }
-        return minusTime;
+
     }
+
 }

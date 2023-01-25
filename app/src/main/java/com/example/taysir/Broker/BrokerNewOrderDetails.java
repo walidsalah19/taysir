@@ -38,7 +38,7 @@ public class BrokerNewOrderDetails extends Fragment {
    private SweetAlertDialog loading;
    private ArrayList<OrderDetailsModel> orderDetails;
    private BrokerNewOrderDetailsAdapter adapter;
-
+   private float orderCost=0.0f;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,18 +70,17 @@ public class BrokerNewOrderDetails extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
-                    for(DataSnapshot data:snapshot.getChildren()) {
                         orderDetails.clear();
-                        String WebSitLink=data.child("webSitLink").getValue().toString();
-                        String WebSitName=data.child("webSitName").getValue().toString();
-                        clintId=data.child("clintId").getValue().toString();
-                        String orderStat=data.child("orderStat").getValue().toString();
-                        String OrderDate=data.child("orderDate").getValue().toString();
-                        String clintName=data.child("clintName").getValue().toString();
-                        String clintLocation=data.child("clintLocation").getValue().toString();
+                        String WebSitLink=snapshot.child("webSitLink").getValue().toString();
+                        String WebSitName=snapshot.child("webSitName").getValue().toString();
+                        clintId=snapshot.child("clintId").getValue().toString();
+                        String orderStat=snapshot.child("orderStat").getValue().toString();
+                        String OrderDate=snapshot.child("orderDate").getValue().toString();
+                        String clintName=snapshot.child("clintName").getValue().toString();
+                        String clintLocation=snapshot.child("clintLocation").getValue().toString();
 
-                        int orderNum=Integer.parseInt(data.child("orderNum").getValue().toString());
-                        for(DataSnapshot snap2:data.getChildren()) {
+                        int orderNum=Integer.parseInt(snapshot.child("orderNum").getValue().toString());
+                        for(DataSnapshot snap2:snapshot.child("orderDetails").getChildren()) {
                             String productLink = snap2.child("productLink").getValue().toString();
                             String productColor = snap2.child("productColor").getValue().toString();
                             String productPhoto = snap2.child("productPhoto").getValue().toString();
@@ -90,14 +89,13 @@ public class BrokerNewOrderDetails extends Fragment {
                             String productCode = snap2.child("productCode").getValue().toString();
                             String productSize = snap2.child("productSize").getValue().toString();
                             String productCost = snap2.child("productCost").getValue().toString();
-
+                            orderCost+=Float.parseFloat(productCost);
                             OrderDetailsModel detailsModel = new OrderDetailsModel(productLink, productColor, productPhoto, productNotes, Integer.parseInt(productQuantity),
                                     Integer.parseInt(productCode), Integer.parseInt(productSize),Float.parseFloat(productCost));
 
                             orderDetails.add(detailsModel);
                         }
                         newOrderModel =new NewOrderModel(WebSitLink,WebSitName,clintId,clintName,clintLocation,orderId,orderStat,OrderDate,orderNum,orderDetails);
-                    }
                     loading.dismiss();
                     addDataToView();
                     adapter.notifyDataSetChanged();
@@ -117,6 +115,7 @@ public class BrokerNewOrderDetails extends Fragment {
                 Bundle b=new Bundle();
                 b.putString("orderId",orderId);
                 b.putString("clintId",clintId);
+                b.putFloat("orderCost",orderCost);
                 BrokerSendOffer a=new BrokerSendOffer();
                 a.setArguments(b);
                 getActivity().getSupportFragmentManager().beginTransaction()
@@ -135,7 +134,7 @@ public class BrokerNewOrderDetails extends Fragment {
     {
         mBinding.clintName.setText(newOrderModel.getClintName());
         mBinding.clintLocation.setText(newOrderModel.getClintLocation());
-        mBinding.orderNumber.setText(newOrderModel.getOrderNum());
+        mBinding.orderNumber.setText(newOrderModel.getOrderNum()+"");
         mBinding.webSiteName.setText(newOrderModel.getWebSitName());
         mBinding.webSiteLink.setText(newOrderModel.getWebSitLink());
 
@@ -146,7 +145,7 @@ public class BrokerNewOrderDetails extends Fragment {
             @Override
             public void onClick(View v) {
                 NavHostFragment.findNavController(BrokerNewOrderDetails.this)
-                        .navigate(R.id.goToHome);
+                        .navigate(R.id.goToDisplayNewOrders);
             }
         });
     }

@@ -47,7 +47,7 @@ public class PreviousOrders extends Fragment {
         // Inflate the layout for this fragment
         mBinding=FragmentPreviousOrdersBinding.inflate(inflater,container,false);
         orderId=getArguments().getString("orderId");
-        orderDatabase= FirebaseDatabase.getInstance().getReference("currentOrders");
+        orderDatabase= FirebaseDatabase.getInstance().getReference("oldOrders");
         startLoading();
         back();
         showOrderDetails();
@@ -111,7 +111,7 @@ public class PreviousOrders extends Fragment {
     }
     private void addDataToView()
     {
-        mBinding.orderNumber.setText(newOrderModel.getOrderNum());
+        mBinding.orderNumber.setText(newOrderModel.getOrderNum()+"");
         mBinding.brokerName.setText(newOrderModel.getBrokerName());
         mBinding.websiteName.setText(newOrderModel.getWebSitName());
         mBinding.websiteName.setText(newOrderModel.getWebSitName());
@@ -149,7 +149,7 @@ public class PreviousOrders extends Fragment {
         mBinding.rating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (! newOrderModel.getRating().equals("rate")) {
+                if (newOrderModel.getRating().equals("no")) {
                     CustomerRankBroker c = new CustomerRankBroker();
                     Bundle b = new Bundle();
                     b.putString("orderId", newOrderModel.getOrderId());
