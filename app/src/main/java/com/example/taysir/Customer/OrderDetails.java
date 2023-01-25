@@ -49,11 +49,17 @@ public class OrderDetails extends Fragment {
         mBinding=FragmentOrderDetailsBinding.inflate(inflater,container,false);
         orderType=getArguments().getString("orderType");
         orderId=getArguments().getString("orderId");
-        orderDatabase= FirebaseDatabase.getInstance().getReference("currentOrders");
         startLoading();
         recyclerViewComponent();
         if (orderType.equals("current")) {
             mBinding.text.setText("الطلبات الحالية");
+            orderDatabase= FirebaseDatabase.getInstance().getReference("currentOrders");
+
+        }
+        else
+        {
+            orderDatabase= FirebaseDatabase.getInstance().getReference("oldOrders");
+
         }
         back();
         getOrderData();

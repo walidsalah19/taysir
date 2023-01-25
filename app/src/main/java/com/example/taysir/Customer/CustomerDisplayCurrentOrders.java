@@ -81,7 +81,6 @@ public class CustomerDisplayCurrentOrders extends Fragment {
                         if(clintId.equals(userId)) {
                             String WebSitLink = data.child("webSitLink").getValue().toString();
                             String WebSitName = data.child("webSitName").getValue().toString();
-
                             String orderId = data.child("orderId").getValue().toString();
                             String orderStat = data.child("orderStat").getValue().toString();
                             String OrderDate = data.child("orderDate").getValue().toString();

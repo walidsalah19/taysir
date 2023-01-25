@@ -149,6 +149,7 @@ public class CustomerCompleteProfile extends Fragment {
                 }
                 else
                 {
+                    loading.dismiss();
                     funField();
                 }
             }
