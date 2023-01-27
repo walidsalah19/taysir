@@ -195,7 +195,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="المنطقة"
-                android:enabled="false"
+                android:enabled="true"
                 android:clickable="true"
                 android:focusable="false"
                 android:textColorHint="@color/Gray"
@@ -224,7 +224,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="المدينة"
-                android:enabled="false"
+                android:enabled="true"
                 android:clickable="true"
                 android:focusable="true"
                 android:textColorHint="@color/Gray"
@@ -277,8 +277,7 @@
                 android:focusable="true"
                 android:textColorHint="@color/Gray"
                 android:textColor="@color/black"
-                android:background="@drawable/edittext_shape2"
-                >
+                android:background="@drawable/edittext_shape2">
 
             </AutoCompleteTextView>
 

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.taysir.Models.NewComplaintModel;
 import com.example.taysir.Models.OldComplaintModel;
 import com.example.taysir.R;
+import com.example.taysir.Support.Adapter.AnsweredComplaintAdapter;
 import com.example.taysir.Support.Adapter.WaitingComplaintAdapter;
 import com.example.taysir.databinding.FragmentDisplayComplaintAnswerdBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,8 +30,8 @@ import java.util.ArrayList;
 public class DisplayComplaintAnswerd extends Fragment {
     private FragmentDisplayComplaintAnswerdBinding mBinding;
     private DatabaseReference database;
-    private ArrayList<NewComplaintModel> arrayList;
-    private WaitingComplaintAdapter adapter;
+    private ArrayList<OldComplaintModel> arrayList;
+    private AnsweredComplaintAdapter adapter;
     private String userId;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class DisplayComplaintAnswerd extends Fragment {
     private void recyclerViewComponent()
     {
         arrayList=new ArrayList<>();
-        adapter=new WaitingComplaintAdapter(arrayList,this);
+        adapter=new AnsweredComplaintAdapter(arrayList,this);
         mBinding.showOldComplaint.setLayoutManager(new LinearLayoutManager(getActivity()));
         mBinding.showOldComplaint.setAdapter(adapter);
         adapter.notifyDataSetChanged();

@@ -101,7 +101,7 @@ public class CustomerProfile extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists())
                 {
-                    String CID = snapshot.child("ciD").getValue().toString();
+                    String CID = snapshot.child("cid").getValue().toString();
                     String UserName = snapshot.child("userName").getValue().toString();
                     String FullName = snapshot.child("fullName").getValue().toString();
                     String Email = snapshot.child("email").getValue().toString();
@@ -135,7 +135,7 @@ public class CustomerProfile extends Fragment {
         mBinding.cities.setText(customer.getCity());
         mBinding.location.setText(customer.getStreet());
         mBinding.genderSpinner.setText(customer.getGender());
-        mBinding.postCode.setText(customer.getPostCode());
+        mBinding.postCode.setText(customer.getPostCode()+"");
         loading.dismiss();
     }
     private void updateAccount()

@@ -196,6 +196,7 @@ public class LoginFragment extends Fragment {
                 success.dismiss();
                 if (UserType.type.equals("customer"))
                 {
+                    UserType.type="customer";
                     startActivity(new Intent(getActivity(), CustomerMainActivity.class));
                 }
                 else

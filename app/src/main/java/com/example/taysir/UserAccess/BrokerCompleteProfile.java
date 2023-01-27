@@ -139,6 +139,11 @@ public class BrokerCompleteProfile extends Fragment {
                     broker.setBID(id);
                     sendRequest(broker,id);
                 }
+                else
+                {
+                    loading.dismiss();
+                    funField("الرجاء تغيير البريد الإلكتروني");
+                }
             }
         });
     }
@@ -155,7 +160,7 @@ public class BrokerCompleteProfile extends Fragment {
                 }
                 else
                 {
-                    funField();
+                    funField("فشل إرسال الطلب");
                 }
             }
         });
@@ -172,9 +177,9 @@ public class BrokerCompleteProfile extends Fragment {
             }
         });
     }
-    private void funField()
+    private void funField(String title)
     {
-        SweetAlertDialog dialog= SweetDialog.failed(getContext(),"فشل إرسال الطلب");
+        SweetAlertDialog dialog= SweetDialog.failed(getContext(),title);
         dialog.show();
         dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
             @Override

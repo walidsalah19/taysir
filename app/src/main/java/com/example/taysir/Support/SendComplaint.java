@@ -15,6 +15,7 @@ import com.example.taysir.Models.NewComplaintModel;
 import com.example.taysir.Models.OldComplaintModel;
 import com.example.taysir.R;
 import com.example.taysir.SweetDialog;
+import com.example.taysir.UserType;
 import com.example.taysir.databinding.FragmentSendComplaintBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -83,12 +84,33 @@ public class SendComplaint extends Fragment {
                 else
                 {
                     startLoading();
-                    getUserData();
+                    if (UserType.type.equals("customer"))
+                    {
+                         getCustomerData();
+                    }
+                    else {
+                        getBrokerData();
+                    }
                 }
             }
         });
     }
-    private void getUserData() {
+    private void getCustomerData() {
+
+        database.child("Customers").child(userId).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                userName=snapshot.child("userName").getValue().toString();
+                getComplaintNumber();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void getBrokerData() {
 
         database.child("Brokers").child(userId).addValueEventListener(new ValueEventListener() {
             @Override
