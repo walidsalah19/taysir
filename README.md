@@ -1,5 +1,5 @@
 # taysir
-Ali promises to facilitate the purchase process from the Internet and global sites so that it solves the problem that the buyer does not have a foreign visa or the site that he wants to buy from accepts only a specific visa, where the application connects the customer to a broker who buys the product for him and with a certain increase agreed upon by both parties
+It helps in facilitating the process of buying from the Internet and international websites so that it solves the problem that the buyer does not have a foreign credit card or that the site he wants to buy from only accepts a specific credit card, as the application connects the customer to a broker who buys him the commodity and with a certain increase agreed upon by both parties.
 # Demo
 <img width="200" alt="Screenshot_20230709-171809_Taysir 1" src="https://github.com/walidsalah19/taysir/assets/67799939/a68f599b-1fc2-4401-a82b-c529edacd2d8">
 <img width="200" alt="g1" src="https://github.com/walidsalah19/taysir/assets/67799939/e2c3fd75-76cb-4658-aff0-0024b89914a7">
