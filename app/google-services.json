@@ -1,79 +1,33 @@
 {
   "project_info": {
-    "project_number": "1005371885018",
-    "firebase_url": "https://taisir-applications-default-rtdb.firebaseio.com",
-    "project_id": "taisir-applications",
-    "storage_bucket": "taisir-applications.appspot.com"
+    "project_number": "885415300038",
+    "project_id": "tysir-91faf",
+    "storage_bucket": "tysir-91faf.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1005371885018:android:9375cf8a4e949fcb51ace3",
+        "mobilesdk_app_id": "1:885415300038:android:d8235cad4c3041031080c7",
         "android_client_info": {
-          "package_name": "com.example.taisirapplication"
+          "package_name": "com.app.taysir"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1005371885018-i3s4p2i1htpcfu38815v17i6f9qvutfc.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.taisirapplication",
-            "certificate_hash": "0b78bcd6e16f59c5504162e7fa7caabdcd979357"
-          }
-        },
-        {
-          "client_id": "1005371885018-n9vn8rropk2h0e2bhjsugc6eaeii4fse.apps.googleusercontent.com",
+          "client_id": "885415300038-cuh2il7sutsq0qe2e8dls8388s3j37bn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBPKJyyycmEPv9-Zg_ebVh_LE0tLT9qSSA"
+          "current_key": "AIzaSyDhE98xcBZ-oSZ_huG-MwEvh0qNozH-c5U"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1005371885018-n9vn8rropk2h0e2bhjsugc6eaeii4fse.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1005371885018:android:5b697d11923c3e6051ace3",
-        "android_client_info": {
-          "package_name": "com.example.taysir"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1005371885018-tsb0agvbdfnh942rcstnqbmeqj2femhd.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.taysir",
-            "certificate_hash": "e22b68c6d5db68a9596dda83e46a8ee492e27d3e"
-          }
-        },
-        {
-          "client_id": "1005371885018-n9vn8rropk2h0e2bhjsugc6eaeii4fse.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBPKJyyycmEPv9-Zg_ebVh_LE0tLT9qSSA"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1005371885018-n9vn8rropk2h0e2bhjsugc6eaeii4fse.apps.googleusercontent.com",
+              "client_id": "885415300038-cuh2il7sutsq0qe2e8dls8388s3j37bn.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

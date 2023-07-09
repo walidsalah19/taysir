@@ -6,7 +6,7 @@
     app:startDestination="@id/AdminHome">
     <fragment
         android:id="@+id/AdminHome"
-        android:name="com.example.taysir.Admin.AdminHome"
+        android:name="com.app.taysir.Admin.AdminHome"
         android:label="Start"
         tools:layout="@layout/fragment_admin_home">
         <action android:id="@+id/goToManageBrokers"
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/manageBrokers"
-        android:name="com.example.taysir.Admin.AdminManageBrokers"
+        android:name="com.app.taysir.Admin.AdminManageBrokers"
         android:label="Start"
         tools:layout="@layout/fragment_admin_manage_brokers">
         <action android:id="@+id/goToBrokerDetails"
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/BrokerDetails"
-        android:name="com.example.taysir.Admin.AdminShowBrokerDetails"
+        android:name="com.app.taysir.Admin.AdminShowBrokerDetails"
         android:label="Start"
         tools:layout="@layout/fragment_admin_show_broker_details">
         <action android:id="@+id/goToManageBrokers"
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/newComplaint"
-        android:name="com.example.taysir.Admin.AdminShowNewComplaint"
+        android:name="com.app.taysir.Admin.AdminShowNewComplaint"
         android:label="Start"
         tools:layout="@layout/fragment_admin_show_new_complaint">
         <action android:id="@+id/goToNewComplaintDetails"
@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/newComplaintDetails"
-        android:name="com.example.taysir.Admin.AdminShowComplaintDetails"
+        android:name="com.app.taysir.Admin.AdminShowComplaintDetails"
         android:label="Start"
         tools:layout="@layout/fragment_admin_show_complaint_details">
         <action android:id="@+id/goToNewComplaint"
@@ -62,7 +62,7 @@
     --></fragment>
     <fragment
         android:id="@+id/OldComplaint"
-        android:name="com.example.taysir.Admin.AdminShowOldComplaint"
+        android:name="com.app.taysir.Admin.AdminShowOldComplaint"
         android:label="Start"
         tools:layout="@layout/fragment_admin_show_old_complaint">
         <action android:id="@+id/goToOldComplaintDetails"
@@ -72,7 +72,7 @@
     </fragment>
     <fragment
         android:id="@+id/OldComplaintDetails"
-        android:name="com.example.taysir.Admin.AdminOldComplaintDetails"
+        android:name="com.app.taysir.Admin.AdminOldComplaintDetails"
         android:label="Start"
         tools:layout="@layout/fragment_admin_old_complaint_details">
         <action android:id="@+id/goToOldComplaint"

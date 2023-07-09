@@ -6,7 +6,7 @@
     app:startDestination="@id/CustomerHome">
     <fragment
         android:id="@+id/CustomerHome"
-        android:name="com.example.taysir.Customer.CustomerHome"
+        android:name="com.app.taysir.Customer.CustomerHome"
         android:label="Start"
         tools:layout="@layout/fragment_customer_home">
         <action android:id="@+id/goTocreateNewOrder"
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/customerProfile"
-        android:name="com.example.taysir.Customer.CustomerProfile"
+        android:name="com.app.taysir.Customer.CustomerProfile"
         android:label="Start"
         tools:layout="@layout/fragment_customer_profile">
         <action android:id="@+id/goToHome"
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/offerNotification"
-        android:name="com.example.taysir.Customer.Offers.OfferNotification"
+        android:name="com.app.taysir.Customer.Offers.OfferNotification"
         android:label="Start"
         tools:layout="@layout/fragment_offer_notification">
         <action android:id="@+id/goToshowOffers"
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/showOffers"
-        android:name="com.example.taysir.Customer.Offers.ShowOffersFragment"
+        android:name="com.app.taysir.Customer.Offers.ShowOffersFragment"
         android:label="Start"
         tools:layout="@layout/fragment_show_offers">
         <action android:id="@+id/goToHome"
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/barkerRank"
-        android:name="com.example.taysir.Customer.Offers.BrokerRanks"
+        android:name="com.app.taysir.Customer.Offers.BrokerRanks"
         android:label="Start"
         tools:layout="@layout/fragment_broker_ranks">
         <action android:id="@+id/goToshowOffers"
@@ -61,7 +61,7 @@
 
     <fragment
         android:id="@+id/acceptOffer"
-        android:name="com.example.taysir.Customer.Offers.AcceptOffers"
+        android:name="com.app.taysir.Customer.Offers.AcceptOffers"
         android:label="Start"
         tools:layout="@layout/fragment_accept_offers">
         <action android:id="@+id/goToselectPayment"
@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/selectPayment"
-        android:name="com.example.taysir.Customer.Offers.SelectPaymentType"
+        android:name="com.app.taysir.Customer.Offers.SelectPaymentType"
         android:label="Start"
         tools:layout="@layout/fragment_select_payment_type">
         <action android:id="@+id/goToacceptOffer"
@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/Payment"
-        android:name="com.example.taysir.Customer.Offers.PaymentFragment"
+        android:name="com.app.taysir.Customer.Offers.PaymentFragment"
         android:label="Start"
         tools:layout="@layout/fragment_payment">
         <action android:id="@+id/goToselectPayment"
@@ -91,7 +91,7 @@
     </fragment>
     <fragment
         android:id="@+id/supportTechnical"
-        android:name="com.example.taysir.Support.TechnicalSupport"
+        android:name="com.app.taysir.Support.TechnicalSupport"
         android:label="Start"
         tools:layout="@layout/fragment_technical_support">
         <action android:id="@+id/goToHome"
@@ -105,7 +105,7 @@
     </fragment>
     <fragment
         android:id="@+id/sendComplaint"
-        android:name="com.example.taysir.Support.SendComplaint"
+        android:name="com.app.taysir.Support.SendComplaint"
         android:label="Start"
         tools:layout="@layout/fragment_send_complaint">
         <action android:id="@+id/goTosupportTechnical"
@@ -113,7 +113,7 @@
     </fragment>
     <fragment
         android:id="@+id/displayComplaintWaiting"
-        android:name="com.example.taysir.Support.DisplayComplaintWaiting"
+        android:name="com.app.taysir.Support.DisplayComplaintWaiting"
         android:label="Start"
         tools:layout="@layout/fragment_display_complaint_waiting">
         <action android:id="@+id/goTosupportTechnical"
@@ -123,7 +123,7 @@
     </fragment>
     <fragment
         android:id="@+id/waitComplaint"
-        android:name="com.example.taysir.Support.ComplaintWaiting"
+        android:name="com.app.taysir.Support.ComplaintWaiting"
         android:label="Start"
         tools:layout="@layout/fragment_complaint_waiting">
         <action android:id="@+id/goTosupportTechnical"
@@ -131,7 +131,7 @@
     </fragment>
     <fragment
         android:id="@+id/displayComplaintAnswer"
-        android:name="com.example.taysir.Support.DisplayComplaintAnswerd"
+        android:name="com.app.taysir.Support.DisplayComplaintAnswerd"
         android:label="Start"
         tools:layout="@layout/fragment_display_complaint_answerd">
         <action android:id="@+id/goTosupportTechnical"
@@ -141,7 +141,7 @@
     </fragment>
     <fragment
         android:id="@+id/complaintAnswer"
-        android:name="com.example.taysir.Support.ComplaintAnswered"
+        android:name="com.app.taysir.Support.ComplaintAnswered"
         android:label="Start"
         tools:layout="@layout/fragment_complaint_answered">
         <action android:id="@+id/goTosupportTechnical"
@@ -149,7 +149,7 @@
     </fragment>
     <fragment
         android:id="@+id/createNewOrder"
-        android:name="com.example.taysir.Customer.CreateNewOrder"
+        android:name="com.app.taysir.Customer.CreateNewOrder"
         android:label="Start"
         tools:layout="@layout/fragment_create_new_offer">
         <action android:id="@+id/goToHome"
@@ -157,7 +157,7 @@
     </fragment>
     <fragment
         android:id="@+id/displayCurrentOrders"
-        android:name="com.example.taysir.Customer.CustomerDisplayCurrentOrders"
+        android:name="com.app.taysir.Customer.CustomerDisplayCurrentOrders"
         android:label="Start"
         tools:layout="@layout/fragment_customer_display_current_orders">
         <action android:id="@+id/goToCurrentlyOrders"
@@ -167,7 +167,7 @@
     </fragment>
     <fragment
         android:id="@+id/currentlyOrders"
-        android:name="com.example.taysir.Customer.CurrentOrders"
+        android:name="com.app.taysir.Customer.CurrentOrders"
         android:label="Start"
         tools:layout="@layout/fragment_current_orders">
         <action android:id="@+id/goToHome"
@@ -180,7 +180,7 @@
     </fragment>
     <fragment
         android:id="@+id/displayOldOrders"
-        android:name="com.example.taysir.Customer.CustomerDisplayOldOrders"
+        android:name="com.app.taysir.Customer.CustomerDisplayOldOrders"
         android:label="Start"
         tools:layout="@layout/fragment_customer_display_old_orders">
         <action android:id="@+id/goToPreviousOrderss"
@@ -190,7 +190,7 @@
     </fragment>
     <fragment
         android:id="@+id/previousOrders"
-        android:name="com.example.taysir.Customer.PreviousOrders"
+        android:name="com.app.taysir.Customer.PreviousOrders"
         android:label="Start"
         tools:layout="@layout/fragment_previous_orders">
         <action android:id="@+id/goTopreviousOrdersDetails"
@@ -200,7 +200,7 @@
     </fragment>
     <fragment
         android:id="@+id/previousOrdersDetails"
-        android:name="com.example.taysir.Customer.OrderDetails"
+        android:name="com.app.taysir.Customer.OrderDetails"
         android:label="Start"
         tools:layout="@layout/fragment_order_details">
 
@@ -211,13 +211,13 @@
     </fragment>
     <fragment
         android:id="@+id/customerRankBroker"
-        android:name="com.example.taysir.Customer.CustomerRankBroker"
+        android:name="com.app.taysir.Customer.CustomerRankBroker"
         android:label="Start"
         tools:layout="@layout/fragment_customer_rank_broker">
     </fragment>
     <fragment
         android:id="@+id/Chat"
-        android:name="com.example.taysir.Chat.ChatFragment"
+        android:name="com.app.taysir.Chat.ChatFragment"
         android:label="Start"
         tools:layout="@layout/fragment_chat">
         <action android:id="@+id/currentlyOrders"
